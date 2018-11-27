@@ -1,10 +1,13 @@
 // pages/about/index.js
+
+const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    text: '1',
+    about_data: [],
   },
 
   /**
@@ -20,7 +23,19 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+    const pcit = require('@pcit/pcit-js');
+    const pcit_system = new pcit.System('',app.globalData.PCIT_ENTRYPOINT);
+
+    pcit_system.about().then(res=>{
+      let data = app.towxml.toJson(res.data.data,'markdown');
+      data.theme = 'light';
+      this.setData({
+        about_data: data,
+    });
+});
+
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -46,4 +61,23 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {},
+
+  __bind_touchend(){
+
+  },
+  __bind_touchstart(){
+
+  },
+
+  __bind_tap(){
+
+  },
+
+  __bind_touchmove(){
+
+  },
+
+  __bind_touchcancel(){
+
+  },
 });

@@ -1,3 +1,9 @@
-<view>关于我们</view>
+<import src="/towxml/entry.wxml"/>
 
-<text>{{text}}</text>
+<template is="entry" data="{{...about_data}}"/>
+
+<view>
+  <button>联系我们</button>
+  <br/>
+  <button>赞赏</button>
+</view>

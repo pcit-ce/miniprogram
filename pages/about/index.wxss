@@ -1,1 +1,2 @@
-/* pages/about/index.wxss */
+@import '/towxml/style/main.wxss';
+@import '/towxml/style/theme/light.wxss';

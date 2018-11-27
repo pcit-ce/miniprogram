@@ -2,9 +2,10 @@
   "name": "@pcit/miniprogram",
   "version": "18.12.0-alpha.0",
   "dependencies": {
-    "@pcit/pcit-js": "^18.12.0-beta.1"
+    "@pcit/pcit-js": "^18.12.0-beta.1",
+    "towxml": "^2.1.3"
   },
   "scripts": {
-    "prettier":"npx prettier --write ./**/*.js"
+    "prettier": "npx prettier --write ./**/*.js"
   }
 }

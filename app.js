@@ -1,4 +1,7 @@
 //app.js
+
+const Towxml = require('/towxml/main');
+
 App({
   onLaunch: function() {
     // 展示本地存储能力
@@ -38,4 +41,5 @@ App({
     PCIT_ENTRYPOINT: 'https://ci2.khs1994.com:10000/api',
     PCIT_TOKEN: '',
   },
+  towxml: new Towxml(),
 });
