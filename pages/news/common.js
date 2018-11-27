@@ -1,7 +1,7 @@
 // 模块化
 
-function sayHello(){
+function sayHello() {
   console.log('hello');
 }
 
-module.exports.sayHello=sayHello;
+module.exports.sayHello = sayHello;

@@ -1,0 +1,12 @@
+<!--pages/repo/repo.wxml.wxml-->
+<view wx:for="{{repos}}">
+  <view class='repo'>
+    <view>{{item.repo_full_name}}</view>
+    <view># {{item.build_id}}</view>
+    <view>{{item.build_status}}</view>
+    <view>{{item.commit_id.substr(0,6)}}</view>
+    <view>{{item.default_branch}}</view>
+    <view>{{item.webhooks_status}}</view>
+  </view>
+
+</view>

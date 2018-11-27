@@ -1,1 +1,12 @@
-<view>个人主页</view>
+<view class='basic_info' data-username="{{username}}" bindtap='toRepo'>
+<image class="pic" src="{{pic}}"></image>
+<view class='username'>{{username}}</view>
+<view class='git_type'>{{git_type}}</view>
+</view>
+
+<view class='orgs' wx:for="{{orgs}}">
+  <view bindtap='toRepo' data-username="{{item.username}}">
+<image class="pic" src="{{item.pic}}"></image>
+<view class='username'>{{item.username}}</view>
+</view>
+</view>

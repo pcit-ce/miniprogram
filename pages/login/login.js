@@ -1,4 +1,7 @@
-// pages/upload/index.js
+// pages/login.js
+
+const app = getApp();
+
 Page({
   /**
    * 页面的初始数据
@@ -44,4 +47,36 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {},
+
+  formSubmit(event) {
+    console.log(event);
+
+    let { git_type = 'github', username, password } = event.detail.value;
+
+    console.log(username, password);
+
+    const pcit = require('@pcit/pcit-js');
+
+    let pcit_user = new pcit.User('', app.globalData.PCIT_ENTRYPOINT);
+
+    pcit_user.getToken(git_type, username, password).then(res => {
+      console.log(res);
+
+      let token = res.data.token;
+
+      // token 写入文件
+      wx.getFileSystemManager().writeFileSync(
+        `${wx.env.USER_DATA_PATH}/token_${git_type}`,
+        token,
+        'utf8',
+      );
+
+      app.globalData.PCIT_TOKEN = token;
+
+      // 跳转页面
+      wx.switchTab({
+        url: '/pages/profile/index',
+      });
+    });
+  },
 });

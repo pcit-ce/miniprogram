@@ -1,5 +1,10 @@
 {
-  "dependencies":{
-    "@pcit/pcit-js":"^18.12.0-beat.1"
+  "name": "@pcit/miniprogram",
+  "version": "18.12.0-alpha.0",
+  "dependencies": {
+    "@pcit/pcit-js": "^18.12.0-beta.1"
+  },
+  "scripts": {
+    "prettier":"npx prettier --write ./**/*.js"
   }
 }

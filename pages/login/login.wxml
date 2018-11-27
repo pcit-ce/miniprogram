@@ -1,0 +1,9 @@
+<!--pages/login.wxml-->
+<form bindsubmit="formSubmit">
+<label for='username'>用户名</label>
+<input id='username' type='text' name='username'/>
+
+<label for='password'>密码</label>
+<input id="password" type='text' password='true' name='password' />
+<button form-type='submit'>登录</button>
+</form>
