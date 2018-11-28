@@ -42,4 +42,9 @@ App({
     PCIT_TOKEN: '',
   },
   towxml: new Towxml(),
+  get pcit() {
+    const PCIT = require('@pcit/pcit-js');
+
+    return PCIT;
+  },
 });

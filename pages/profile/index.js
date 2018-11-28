@@ -1,6 +1,5 @@
 // pages/profile/index.js
 
-const pcit = require('@pcit/pcit-js');
 const app = getApp();
 
 Page({
@@ -49,15 +48,13 @@ Page({
     }
 
     // TODO 检查 token 过期
-    const pcit_user = new pcit.User(
+    const pcit = new app.pcit.PCIT(
       app.globalData.PCIT_TOKEN,
       app.globalData.PCIT_ENTRYPOINT,
     );
 
-    const pcit_orgs = new pcit.Orgs(
-      app.globalData.PCIT_TOKEN,
-      app.globalData.PCIT_ENTRYPOINT,
-    );
+    const pcit_user = pcit.user;
+    const pcit_org = pcit.org;
 
     // 展示用户界面
     pcit_user.findByCurrent().then(res => {
@@ -67,7 +64,7 @@ Page({
     });
 
     // 展示用户组织列表
-    pcit_orgs.list().then(res => {
+    pcit_org.list().then(res => {
       console.log(res);
       let orgs = res.data;
 

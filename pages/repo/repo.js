@@ -16,12 +16,12 @@ Page({
   onLoad: function(options) {
     let { git_type, username } = options;
 
-    let pcit = require('@pcit/pcit-js');
-
-    let pcit_repo = new pcit.Repo(
+    let pcit = new app.pcit.PCIT(
       app.globalData.PCIT_TOKEN,
       app.globalData.PCIT_ENTRYPOINT,
     );
+
+    const pcit_repo = pcit.repo;
 
     pcit_repo.listByOwner(git_type, username).then(res => {
       let repos = res.data;

@@ -55,9 +55,9 @@ Page({
 
     console.log(username, password);
 
-    const pcit = require('@pcit/pcit-js');
+    let pcit = new app.pcit.PCIT('', app.globalData.PCIT_ENTRYPOINT);
 
-    let pcit_user = new pcit.User('', app.globalData.PCIT_ENTRYPOINT);
+    let pcit_user = pcit.user;
 
     pcit_user.getToken(git_type, username, password).then(res => {
       console.log(res);
