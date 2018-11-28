@@ -2,12 +2,13 @@
   "name": "@pcit/miniprogram",
   "version": "18.12.0-alpha.0",
   "dependencies": {
-    "@pcit/pcit-js": "^18.12.0-beta.1",
+    "@pcit/pcit-js": "^18.12.0-beta.6",
     "towxml": "^2.1.3"
   },
   "scripts": {
     "prettier": "npx prettier --write ./**/*.js",
-    "postinstall": "npx rimraf node_modules/node-fetch node_modules/towxml"
+    "cleanup": "npx rimraf node_modules/node-fetch node_modules/towxml",
+    "postinstall": "npm run cleanup"
   },
   "devDependencies": {}
 }

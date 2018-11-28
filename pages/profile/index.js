@@ -57,7 +57,7 @@ Page({
     const pcit_org = pcit.org;
 
     // 展示用户界面
-    pcit_user.findByCurrent().then(res => {
+    pcit_user.current().then(res => {
       console.log(res);
       let { username, git_type, pic } = res.data[0];
       this.setData({ username, git_type, pic });
