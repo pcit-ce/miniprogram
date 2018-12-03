@@ -1,6 +1,6 @@
 // pages/login.js
 
-import {IMyApp} from '../../app';
+import { IMyApp } from '../../app';
 
 const app = getApp<IMyApp>();
 
@@ -48,9 +48,9 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function():any {},
+  onShareAppMessage: function(): any {},
 
-  formSubmit(event:any) {
+  formSubmit(event: any) {
     console.log(event);
 
     let { git_type = 'github', username, password } = event.detail.value;
@@ -61,7 +61,7 @@ Page({
 
     let pcit_user = pcit.user;
 
-    pcit_user.getToken(git_type, username, password).then((res:any) => {
+    pcit_user.getToken(git_type, username, password).then((res: any) => {
       console.log(res);
 
       let token = res.data.token;

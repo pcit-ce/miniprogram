@@ -23,42 +23,42 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() { },
+  onLoad: function() {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() { },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() { },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() { },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() { },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() { },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any { },
+  onShareAppMessage: function(): any {},
 
   general() {
     let image = this.getImage();
@@ -69,7 +69,7 @@ Page({
 
     (async () => {
       wx.showLoading({
-        title: '处理中'
+        title: '处理中',
       });
 
       let result = await app.tencentAI.ocr.generalocr(image);
@@ -99,8 +99,8 @@ Page({
 
       console.log(data);
 
-      let speaker_list:any = [1,5,6,7];
-      let key = Math.floor(Math.random()*4);
+      let speaker_list: any = [1, 5, 6, 7];
+      let key = Math.floor(Math.random() * 4);
       console.log(key);
       let speaker = speaker_list[key];
 
@@ -129,20 +129,20 @@ Page({
       ciac.onError(e => {
         console.log(e);
       });
-    })().catch((e:any)=>{
+    })().catch((e: any) => {
       console.log(e);
       wx.hideLoading({});
       wx.showModal({
-        title: "出错啦",
+        title: '出错啦',
         content: JSON.stringify(e),
       });
     });
   },
 
-  tapOCROutput(){
+  tapOCROutput() {
     wx.setClipboardData({
       data: this.data.text,
-    })
+    });
   },
 
   takePhoto() {

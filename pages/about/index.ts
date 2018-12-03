@@ -30,33 +30,35 @@ Page({
 
     const pcit_system = pcit.system;
 
-    pcit_system.about().then((res: any) => {
-      let data = app.towxml.toJson(res.data.data, 'markdown');
+    pcit_system.about().then(
+      (res: any) => {
+        let data = app.towxml.toJson(res.data.data, 'markdown');
 
-      data.theme = 'light';
+        data.theme = 'light';
 
-      this.setData!({
-        about_data: data,
-      });
+        this.setData!({
+          about_data: data,
+        });
 
-      wx.hideLoading({});
-    },(e:any)=>{
-      console.log(e);
+        wx.hideLoading({});
+      },
+      (e: any) => {
+        console.log(e);
 
-      wx.hideLoading({});
+        wx.hideLoading({});
 
-      wx.showModal({
-        title: "出错啦",
-        content: JSON.stringify(e),
-      });
-    });
+        wx.showModal({
+          title: '出错啦',
+          content: JSON.stringify(e),
+        });
+      },
+    );
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -92,16 +94,16 @@ Page({
 
   __bind_touchcancel() {},
 
-  copy(e:any){
+  copy(e: any) {
     console.log(e);
     wx.setClipboardData({
       data: e._relatedInfo.anchorTargetText,
-      success(){
+      success() {
         wx.showModal({
           title: '复制成功',
-          content: '粘贴到浏览器访问'
-        })
+          content: '粘贴到浏览器访问',
+        });
       },
-    })
+    });
   },
 });

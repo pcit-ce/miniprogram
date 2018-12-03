@@ -11,39 +11,48 @@ export interface IMyApp {
     userInfo?: wx.UserInfo;
     PCIT_ENTRYPOINT: string;
     PCIT_TOKEN: any;
-    TENCENT_AI_APP_KEY: any,
-    TENCENT_AI_APP_ID: any,
-    tencentAI:any,
+    TENCENT_AI_APP_KEY: any;
+    TENCENT_AI_APP_ID: any;
+    tencentAI: any;
   };
   towxml: any;
   pcit: any;
   tencentAI: any;
-  getSecret():void;
+  getSecret(): void;
 }
 
 App<IMyApp>({
-  getSecret():void{
+  getSecret(): void {
     // 云函数
     wx.cloud.init({
-      env: 'pro-1e94dd'
+      env: 'pro-1e94dd',
     });
 
     const db = wx.cloud.database();
     const secrets = db.collection('secrets');
 
-    secrets.where({ app: 'tencent_ai' }).get().then(res => {
-      console.log(res);
-      let { app_key, app_id } = res.data[0];
+    secrets
+      .where({ app: 'tencent_ai' })
+      .get()
+      .then(
+        res => {
+          console.log(res);
+          let { app_key, app_id } = res.data[0];
 
-      console.log(app_key, app_id);
+          console.log(app_key, app_id);
 
-      this.globalData.TENCENT_AI_APP_ID = app_id;
-      this.globalData.TENCENT_AI_APP_KEY = app_key;
+          this.globalData.TENCENT_AI_APP_ID = app_id;
+          this.globalData.TENCENT_AI_APP_KEY = app_key;
 
-      this.tencentAI = new TencentAI(this.globalData.TENCENT_AI_APP_KEY, this.globalData.TENCENT_AI_APP_ID);
+          this.tencentAI = new TencentAI(
+            this.globalData.TENCENT_AI_APP_KEY,
+            this.globalData.TENCENT_AI_APP_ID,
+          );
 
-      console.log(this.tencentAI);
-    }, e => console.log(e));
+          console.log(this.tencentAI);
+        },
+        e => console.log(e),
+      );
   },
 
   onLaunch: function() {
@@ -88,7 +97,7 @@ App<IMyApp>({
     PCIT_TOKEN: '',
     TENCENT_AI_APP_KEY: '',
     TENCENT_AI_APP_ID: '',
-    tencentAI : TencentAI,
+    tencentAI: TencentAI,
   },
   towxml: new Towxml(),
   get pcit() {
@@ -97,6 +106,6 @@ App<IMyApp>({
     return PCIT;
   },
   get tencentAI(): any {
-      return new TencentAI('x', 'x');
+    return new TencentAI('x', 'x');
   },
 });

@@ -19,11 +19,9 @@ Page({
     console.log(app.tencentAI);
   },
 
-  onUnload() {
-  },
+  onUnload() {},
 
-  onLoad(){
-  },
+  onLoad() {},
 
   clear() {
     try {
@@ -32,19 +30,20 @@ Page({
         recursive: true,
         success(res) {
           console.log(res);
-        }, fail(e) {
+        },
+        fail(e) {
           console.log(e);
-        }
+        },
       });
 
       wx.showToast({
-        title: "缓存清理成功",
+        title: '缓存清理成功',
       });
     } catch (e) {
       console.log(e);
 
       wx.showModal({
-        title: "出错啦",
+        title: '出错啦',
         content: JSON.stringify(e),
       });
     }
@@ -104,25 +103,23 @@ Page({
         filePath,
         success() {
           wx.showToast({
-            title: "保存成功，请到系统相册查看",
-          })
-        }, fail(e: any) {
+            title: '保存成功，请到系统相册查看',
+          });
+        },
+        fail(e: any) {
           console.log(e);
 
           wx.showModal({
-            title: "出错啦",
+            title: '出错啦',
             content: JSON.stringify(e),
-          })
-        }
+          });
+        },
       });
     })();
   },
 
   preview() {
-    let urls = [
-      this.data.src,
-      this.data.target_src
-    ];
+    let urls = [this.data.src, this.data.target_src];
 
     let caches: string[] = [];
 
@@ -132,9 +129,8 @@ Page({
       let result = fs.readdirSync(dir);
 
       for (let item of result) {
-        caches.push(dir + '/' + item)
+        caches.push(dir + '/' + item);
       }
-
     } catch (e) {
       console.log(e);
     }
@@ -143,16 +139,18 @@ Page({
 
     let url_list: string[] = [];
 
-    urls.map((v): any => {
-      if (v) {
-        url_list.push(v);
-      }
-    });
+    urls.map(
+      (v): any => {
+        if (v) {
+          url_list.push(v);
+        }
+      },
+    );
 
     if (JSON.stringify(url_list) === '[]') {
       wx.showModal({
-        title: "出错啦",
-        content: "没找到图片😂"
+        title: '出错啦',
+        content: '没找到图片😂',
       });
 
       return;
@@ -199,7 +197,7 @@ Page({
         },
         fail(e) {
           wx.showModal({
-            title: "出错啦",
+            title: '出错啦',
             content: JSON.stringify(e),
           });
         },
@@ -210,12 +208,11 @@ Page({
   writeTargetFile(image: string) {
     const file_path = `${
       wx.env.USER_DATA_PATH
-      }/aiface/${new Date().getTime()}.jpg`;
+    }/aiface/${new Date().getTime()}.jpg`;
 
     try {
       fs.mkdirSync(`${wx.env.USER_DATA_PATH}/aiface`);
-    } catch (e) {
-    }
+    } catch (e) {}
 
     fs.writeFileSync(file_path, image, 'base64');
 
@@ -295,11 +292,11 @@ Page({
       // wx.pageScrollTo({
       //   scrollTop: 184,
       // })
-    })().catch((e) => {
+    })().catch(e => {
       wx.hideLoading({});
 
       wx.showModal({
-        title: "错误发生",
+        title: '错误发生',
         content: JSON.stringify(e),
       });
     });
