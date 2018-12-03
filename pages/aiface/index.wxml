@@ -1,0 +1,20 @@
+<import src="../aicommon/camera"/>
+
+<template is="camera" data="{{...template_data}}">
+</template>
+
+<image wx:if="{{target_src}}" src="{{target_src}}" mode='scaleToFill'></image>
+
+<button bindtap="upload" class="item" type="primary">上传图片</button>
+<button bindtap="save" class="item" type="primary">保存</button>
+
+<button bindtap="preview" class="item" type="primary">预览</button>
+
+<button bindtap="facecosmetic" class="item">人脸美妆</button>
+<button bindtap="facedecoration" class="item">人脸变妆</button>
+<button bindtap="ptuimgfilter" class="item">图片滤镜</button>
+<button bindtap="visionimgfilter" class="item">图片滤镜(AI LAB)</button>
+<button bindtap="facesticker" class="item">大头贴</button>
+<button bindtap="faceage" class="item">颜龄检测</button>
+
+<button bindtap="clear" class="item" type="warn">清理缓存</button>

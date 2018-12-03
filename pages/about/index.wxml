@@ -3,7 +3,6 @@
 <template is="entry" data="{{...about_data}}"/>
 
 <view>
-  <button>联系我们</button>
-  <br/>
-  <button>赞赏</button>
+  <button open-type="contact" show-message-card="true" type="primary">联系我们</button>
+  <button type="primary" class="github" bindtap="copy">github.com/pcit-ce</button>
 </view>

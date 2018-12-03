@@ -1,0 +1,17 @@
+<!--pages/ocrai/index.wxml-->
+
+<import src="/pages/aicommon/camera.wxml"/>
+
+<template is="camera" data="{{...template_data}}">
+
+</template>
+
+<view>
+<textarea auto-height placeholder="OCR 识别结果,点击可复制到剪贴板" maxlength="-1"
+value="{{text}}" disabled class="ocr_output" bindtap="tapOCROutput"
+></textarea>
+</view>
+
+<button type="default" hover-class="none" bindtap="general" class="item">通用 OCR</button>
+
+<button type="default" hover-class="none" bindtap="handwriting" class="item">手写体 OCR</button>

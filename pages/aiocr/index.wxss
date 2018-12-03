@@ -1,0 +1,28 @@
+/* pages/ocrai/index.wxss */
+
+.camera {
+  width: 100vw;
+  height: 84vh;
+}
+
+.choose {
+  margin-bottom: 2vh;
+}
+
+.takephoto,.choose{
+  height: 7vh;
+  margin-top: 1vh;
+}
+
+.item{
+  margin-bottom: 2vh;
+}
+
+image {
+  width: 100vw;
+  height: 84vh;
+}
+
+.ocr_output {
+  width: 100vw;
+}

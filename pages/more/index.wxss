@@ -1,0 +1,10 @@
+/* pages/more/index.wxss */
+
+@import '../../weui/weui.wxss'
+
+.item {
+  width: 100vw;
+  height: 20vh;
+  border: 1px solid black;
+  margin-bottom: 2vh;
+}

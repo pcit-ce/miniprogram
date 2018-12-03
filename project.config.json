@@ -12,8 +12,13 @@
 		"nodeModules": true,
 		"autoAudits": false
 	},
+	"scripts": {
+		"beforeCompile": "npm run compile",
+		"beforePreview": "npm run compile",
+		"beforeUpload": "npm run compile"
+	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.4.1",
 	"appid": "wxbc5e22d529a1c5d0",
 	"projectname": "PCIT",
 	"isGameTourist": false,

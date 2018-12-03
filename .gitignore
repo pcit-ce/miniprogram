@@ -6,3 +6,7 @@ miniprogram_npm
 node_modules
 
 package-lock.json
+
+app.js
+
+pages/**/*.js

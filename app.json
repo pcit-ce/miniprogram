@@ -1,13 +1,15 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/more/index",
     "pages/logs/logs",
     "pages/about/index",
     "pages/build/index",
     "pages/profile/index",
     "pages/news/index",
     "pages/repo/repo",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/aiface/index",
+    "pages/aiocr/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,8 +20,8 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "首页",
+        "pagePath": "pages/more/index",
+        "text": "探索",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homeselected.png"
       },

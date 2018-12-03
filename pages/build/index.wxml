@@ -1,1 +1,2 @@
 <view>构建</view>
+<i-button type="primary" bindtap="">test</i-button>

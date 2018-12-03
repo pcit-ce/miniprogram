@@ -1,4 +1,9 @@
-<view class='basic_info' data-username="{{username}}" bindtap='toRepo'>
+<view wx:if="{{login_tips}}">
+<view>请登录后查看</view>
+<button bindtap="login" type="primary">立即登录</button>
+</view>
+
+<view class='basic_info' data-username="{{username}}" bindtap='toRepo' wx:if="{{show_user}}">
 <image class="pic" src="{{pic}}"></image>
 <view class='username'>{{username}}</view>
 <view class='git_type'>{{git_type}}</view>
