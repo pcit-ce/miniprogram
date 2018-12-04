@@ -16,12 +16,44 @@ Page({
   },
 
   onShow(): void {
-    console.log(app.tencentAI);
+    const filePath = `${wx.env.USER_DATA_PATH}/src.jpg`;
+
+    try {
+      fs.accessSync(filePath);
+
+      this.setData!({
+        src: '',
+      });
+
+      this.setData!({
+        src: `${wx.env.USER_DATA_PATH}/src.jpg`,
+      });
+    } catch (e) {
+      this.setData!({
+        src: '',
+      });
+    }
   },
 
-  onUnload() {},
+  onUnload() {
+    console.log('onUnload');
+    fs.unlink({ filePath: `${wx.env.USER_DATA_PATH}/src.jpg` });
+    this.setData!({
+      src: '',
+      target_src: '',
+    });
+  },
 
   onLoad() {},
+
+  onHide() {
+    // console.log('onHide');
+    // fs.unlink({ filePath: `${wx.env.USER_DATA_PATH}/src.jpg` });
+    // this.setData!({
+    //   src: '',
+    //   target_src: '',
+    // });
+  },
 
   clear() {
     try {
@@ -42,10 +74,7 @@ Page({
     } catch (e) {
       console.log(e);
 
-      wx.showModal({
-        title: '出错啦',
-        content: JSON.stringify(e),
-      });
+      this.showModal('出错啦', e);
     }
   },
 
@@ -61,6 +90,12 @@ Page({
         },
       });
     })();
+  },
+
+  toTakePhoto() {
+    wx.navigateTo({
+      url: '/pages/aicamera/camera?cache_file=true',
+    });
   },
 
   choosePhoto() {
@@ -106,22 +141,24 @@ Page({
             title: '保存成功，请到系统相册查看',
           });
         },
-        fail(e: any) {
+        fail: (e: any) => {
           console.log(e);
 
-          wx.showModal({
-            title: '出错啦',
-            content: JSON.stringify(e),
-          });
+          this.showModal('出错啦', e);
         },
       });
     })();
   },
 
   preview() {
-    let urls = [this.data.src, this.data.target_src];
+    let urls: string[] = [];
 
-    let caches: string[] = [];
+    // try {
+    //   fs.accessSync(this.data.src);
+    //   urls.push(this.data.src);
+    // } catch (e) {
+    //   console.log(e);
+    // }
 
     try {
       let dir = `${wx.env.USER_DATA_PATH}/aiface`;
@@ -129,13 +166,11 @@ Page({
       let result = fs.readdirSync(dir);
 
       for (let item of result) {
-        caches.push(dir + '/' + item);
+        urls.push(dir + '/' + item);
       }
     } catch (e) {
       console.log(e);
     }
-
-    urls = [...urls, ...caches];
 
     let url_list: string[] = [];
 
@@ -157,7 +192,7 @@ Page({
     }
 
     wx.previewImage({
-      current: this.data.src,
+      current: url_list[0],
       urls: url_list,
     });
   },
@@ -195,11 +230,8 @@ Page({
             content: '请到控制台查看',
           });
         },
-        fail(e) {
-          wx.showModal({
-            title: '出错啦',
-            content: JSON.stringify(e),
-          });
+        fail: e => {
+          this.showModal('出错啦', e);
         },
       });
     })();
@@ -251,10 +283,7 @@ Page({
     })().catch(e => {
       wx.hideLoading({});
       console.log(e);
-      wx.showModal({
-        title: '发生错误',
-        content: JSON.stringify(e),
-      });
+      this.showModal('出错啦', e);
     });
   },
 
@@ -295,10 +324,7 @@ Page({
     })().catch(e => {
       wx.hideLoading({});
 
-      wx.showModal({
-        title: '错误发生',
-        content: JSON.stringify(e),
-      });
+      this.showModal('出错啦', e);
     });
   },
 
@@ -329,8 +355,9 @@ Page({
       this.writeTargetFile(result.data.image);
 
       wx.hideLoading({});
-    })().catch(() => {
+    })().catch(e => {
       wx.hideLoading({});
+      this.showModal('出错啦', e);
     });
   },
 
@@ -358,8 +385,10 @@ Page({
       this.writeTargetFile(result.data.image);
 
       wx.hideLoading({});
-    })().catch(() => {
+    })().catch(e => {
       wx.hideLoading({});
+
+      this.showModal('出错啦', e);
     });
   },
 
@@ -394,11 +423,7 @@ Page({
       wx.hideLoading({});
     })().catch(e => {
       wx.hideLoading({});
-
-      wx.showModal({
-        title: '错误发生',
-        content: JSON.stringify(e),
-      });
+      this.showModal('出错啦', e);
     });
   },
 
@@ -430,10 +455,14 @@ Page({
       .catch(e => {
         wx.hideLoading({});
 
-        wx.showModal({
-          title: '错误发生',
-          content: JSON.stringify(e),
-        });
+        this.showModal('出错误啦', e);
       });
+  },
+
+  showModal(title: string, e: any) {
+    wx.showModal({
+      title,
+      content: JSON.stringify(e),
+    });
   },
 });

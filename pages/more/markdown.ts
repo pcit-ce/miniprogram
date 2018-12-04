@@ -1,32 +1,30 @@
-// pages/news/index.js
-let common = require('common.js');
+// pages/more/changelog.js
+
+import { IMyApp } from '../../app';
+
+const app = getApp<IMyApp>();
 
 Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    news: [
-      {
-        id: 100,
-        type: 'success',
-        title: '2018 年余额已不足',
-        desc: 'Add oil',
-      },
-      {
-        id: 1000,
-        type: 'info',
-        title: 'tool + social',
-        desc: 'pcit based ai',
-      },
-    ],
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-    common.sayHello();
+    wx.showLoading({
+      title: '加载中',
+    });
+
+    let data = app.towxml.toJson(app.globalData.MDData, 'markdown');
+    data.theme = 'light';
+    this.setData!({
+      data,
+    });
+
+    wx.hideLoading({});
   },
 
   /**
@@ -63,8 +61,4 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(): any {},
-
-  close(res: any) {
-    console.log(res);
-  },
 });

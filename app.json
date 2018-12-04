@@ -9,7 +9,9 @@
     "pages/repo/repo",
     "pages/login/login",
     "pages/aiface/index",
-    "pages/aiocr/index"
+    "pages/aicamera/camera",
+    "pages/aiocr/index",
+    "pages/more/markdown"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,8 +20,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/more/index",
         "text": "探索",
         "iconPath": "images/home.png",
@@ -50,5 +51,8 @@
         "selectedIconPath": "images/newsselected.png"
       }
     ]
-  }
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx767dab1b29691501"
+  ]
 }

@@ -1,2 +1,26 @@
-<!--pages/news/index.wxml-->
-<text>即将支持</text>
+<i-alert type="success" show-icon desc closable bind:close="close">
+  pcit-ce/ce build success
+  <view slot="desc">build time 10min</view>
+</i-alert>
+
+<i-alert type="info" show-icon desc closable bind:close="close">
+  khs1994-docker/lnmp enable
+  <view slot="desc">enjoy pcit</view>
+</i-alert>
+
+<i-alert type="warning" show-icon desc closable bind:close="close">
+  username/demo 构建配额不足
+  <view slot="desc">请联系管理员</view>
+</i-alert>
+
+<i-alert type="error" show-icon desc closable bind:close="close">
+  xiaoer/test .pcit.yml validate error
+  <view slot="desc">please checkout .pcit.yml file</view>
+</i-alert>
+
+<view wx:for="{{news}}" wx:for-item="item" wx:key="id">
+<i-alert type="{{item.type}}" show-icon desc closable data-id="{{item.id}}" bind:close="close">
+  {{item.title}}
+  <view slot="desc">{{item.desc}}</view>
+</i-alert>
+</view>

@@ -1,10 +1,9 @@
 // pages/ocrai/index.js
 
 import { IMyApp } from '../../app';
-
 const app = getApp<IMyApp>();
-
 const aiCommon = require('../aicommon/index');
+const fs = wx.getFileSystemManager();
 
 Page({
   /**
@@ -33,7 +32,23 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+    this.setData!({
+      src: '',
+    });
+
+    // 获取 src 文件状态
+    try {
+      const srcPath = `${wx.env.USER_DATA_PATH}/src.jpg`;
+      fs.accessSync(srcPath);
+
+      this.setData!({
+        src: srcPath,
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -43,7 +58,15 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {},
+  onUnload: function() {
+    const filePath = `${wx.env.USER_DATA_PATH}/src.jpg`;
+
+    fs.unlink({ filePath });
+
+    this.setData!({
+      src: '',
+    });
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -136,6 +159,12 @@ Page({
         title: '出错啦',
         content: JSON.stringify(e),
       });
+    });
+  },
+
+  toTakePhoto() {
+    wx.navigateTo({
+      url: '../aicamera/camera?device_position=back',
     });
   },
 

@@ -21,6 +21,10 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
+    this.main();
+  },
+
+  main() {
     wx.showLoading({
       title: '加载中',
       mask: true,
@@ -102,6 +106,7 @@ Page({
         wx.showModal({
           title: '复制成功',
           content: '粘贴到浏览器访问',
+          showCancel: false,
         });
       },
     });

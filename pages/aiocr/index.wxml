@@ -1,10 +1,14 @@
 <!--pages/ocrai/index.wxml-->
 
-<import src="/pages/aicommon/camera.wxml"/>
+<!-- <import src="/pages/aicommon/camera.wxml"/>
 
 <template is="camera" data="{{...template_data}}">
 
-</template>
+</template> -->
+
+<image wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
+
+<button bindtap="toTakePhoto" type="primary" class="item">拍摄</button>
 
 <view>
 <textarea auto-height placeholder="OCR 识别结果,点击可复制到剪贴板" maxlength="-1"

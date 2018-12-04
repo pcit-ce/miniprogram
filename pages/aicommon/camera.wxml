@@ -1,6 +1,4 @@
 <template name="camera">
   <camera device-position="{{device_position}}" class='camera' bindtap="choosePhoto"></camera>
   <button class="takephoto" bindtap="takePhoto" type="primary">拍摄</button>
-  <button class="choose" bindtap="choosePhoto">从相册选择</button>
-  <image mode='scaleToFill' wx:if="{{src}}" src="{{src}}"></image>
 </template>

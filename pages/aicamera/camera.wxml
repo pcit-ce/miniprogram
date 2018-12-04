@@ -1,0 +1,4 @@
+<import src="../aicommon/camera"/>
+
+<template is="camera" data="{{...template_data}}">
+</template>

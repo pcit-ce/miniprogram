@@ -1,31 +1,11 @@
 /* pages/profile/index.wxss */
 
-.basic_info{
-  border: 1rpx solid blue;
-  position: relative;
+@import "/weui/weui.wxss";
+
+.item {
+  margin-top: 2vh;
 }
 
-.pic {
-  width: 200rpx;
-  height: 200rpx;
-}
-
-.username {
-  /* float: right; */
-  position: absolute;
-  left: 300rpx;
-  top: 30rpx;
-}
-
-.git_type {
-  position: absolute;
-  /* float: right; */
-  left: 300rpx;
-  top: 100rpx;
-}
-
-.orgs {
-  position: relative;
-  border: 1rpx solid #666;
-  margin-top: 30rpx;
+.btn-login,.btn-logout {
+  margin-top: 2vh;
 }

@@ -1,9 +1,12 @@
-<import src="../aicommon/camera"/>
+<!-- <import src="../aicommon/camera"/>
 
 <template is="camera" data="{{...template_data}}">
-</template>
+</template> -->
 
+<image wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
 <image wx:if="{{target_src}}" src="{{target_src}}" mode='scaleToFill'></image>
+
+<button bindtap="toTakePhoto" type="primary" class="item">拍摄</button>
 
 <button bindtap="upload" class="item" type="primary">上传图片</button>
 <button bindtap="save" class="item" type="primary">保存</button>

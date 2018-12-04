@@ -1,13 +1,115 @@
 <!--pages/more/index.wxml-->
 <view class="page">
+<i-notice-bar icon="systemprompt" loop>
+  欢迎使用 PCIT 微信小程序。
+</i-notice-bar>
 
-<view bindtap="openFaceAI" class="item">Face AI 体验馆</view>
+<i-grid class="i-grid-top">
+  <!-- <i-grid-item>
+    <i-grid-icon>
+    </i-grid-icon>
+    <i-grid-label>
+    </i-grid-label>
+  </i-grid-item> -->
+  <i-grid-item bindtap="openFaceAI">
+    <i-grid-icon>👩</i-grid-icon>
+    <i-grid-label>Face AI</i-grid-label>
+    </i-grid-item>
+  <i-grid-item bindtap="openOCRAI">
+    <i-grid-icon>📃</i-grid-icon>
+    <i-grid-label>OCR AI</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openImageAI">
+    <i-grid-icon>📸</i-grid-icon>
+    <i-grid-label>Image AI</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item>
+    <i-grid-icon>📚</i-grid-icon>
+    <i-grid-label>Translate</i-grid-label>
+  </i-grid-item>
+  <i-grid-item>
+    <i-grid-icon>🎍</i-grid-icon>
+    <i-grid-label>NLP AI</i-grid-label>
+  </i-grid-item>
+  <i-grid-item>
+    <i-grid-icon>🔊</i-grid-icon>
+    <i-grid-label>Audio AI</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item wx:if="{{alpha}}">
+    <i-grid-icon>👩‍👩‍👧‍👧</i-grid-icon>
+    <i-grid-label>匿名聊</i-grid-label>
+  </i-grid-item>
+  <i-grid-item wx:if="{{alpha}}">
+    <i-grid-icon>🎉</i-grid-icon>
+    <i-grid-label>技术社区</i-grid-label>
+  </i-grid-item>
+  <i-grid-item>
+    <i-grid-icon>🐳</i-grid-icon>
+    <i-grid-label>Docker</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+<i-grid-item bindtap="openSystem">
+  <i-grid-icon>📱</i-grid-icon>
+  <i-grid-label>系统信息</i-grid-label>
+</i-grid-item>
+<i-grid-item bindtap="openStoreAuth">
+  <i-grid-icon>🖖</i-grid-icon>
+  <i-grid-label>生物认证</i-grid-label>
+</i-grid-item>
+<i-grid-item bindtap="openAIFaceLogin">
+  <i-grid-icon>👩‍💻</i-grid-icon>
+  <i-grid-label>AI 鉴权</i-grid-label>
+</i-grid-item>
+</i-grid>
+
+<i-grid>
+<i-grid-item bindtap="openCluster">
+  <i-grid-icon>💻</i-grid-icon>
+  <i-grid-label>PCIT 集群</i-grid-label>
+</i-grid-item>
+<i-grid-item bindtap="openUpdate">
+  <i-grid-icon>🔔</i-grid-icon>
+  <i-grid-label>检查更新</i-grid-label>
+</i-grid-item>
+<i-grid-item bindtap="openChangelog">
+  <i-grid-icon>📑</i-grid-icon>
+  <i-grid-label>历史更新</i-grid-label>
+</i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openVerify">
+    <i-grid-icon>🔧</i-grid-icon>
+    <i-grid-label>PCIT 认证</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openDonate">
+    <i-grid-icon>💰</i-grid-icon>
+    <i-grid-label>赞赏 Donate</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openCXYL">
+    <i-grid-icon>💂‍</i-grid-icon>
+    <i-grid-label>晨曦雨露</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<!-- <view bindtap="openFaceAI" class="item">Face AI 体验馆</view>
 
 <view bindtap="openOCRAI" class="item">OCR AI 体验馆</view>
 
 <view bindtap="openChat" class="item">匿名聊</view>
 
-<view bindtap="openClub" class="item">技术社区</view>
+<view bindtap="openClub" class="item">技术社区</view> -->
 
 <view class="weui-footer">
     <view class="weui-footer__text">Copyright ©khs1994.com</view>

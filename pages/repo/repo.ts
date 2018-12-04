@@ -1,6 +1,8 @@
 // pages/repo/repo.wxml.js
 
-let app = getApp();
+import { IMyApp } from '../../app';
+
+let app = getApp<IMyApp>();
 
 Page({
   /**
@@ -13,7 +15,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function(options: any) {
     let { git_type, username } = options;
 
     let pcit = new app.pcit.PCIT(
@@ -23,9 +25,9 @@ Page({
 
     const pcit_repo = pcit.repo;
 
-    pcit_repo.listByOwner(git_type, username).then(res => {
+    pcit_repo.listByOwner(git_type, username).then((res: any) => {
       let repos = res.data;
-      this.setData({
+      this.setData!({
         repos,
       });
       console.log(this.data.repos);
@@ -65,5 +67,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {},
+  onShareAppMessage: function(): any {},
 });

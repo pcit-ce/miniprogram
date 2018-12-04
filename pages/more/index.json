@@ -1,1 +1,10 @@
-{}
+{
+  "usingComponents": {
+    "i-notice-bar": "../../iviewui/dist/notice-bar/index",
+    "i-grid": "../../iviewui/dist/grid/index",
+    "i-grid-item": "../../iviewui/dist/grid-item/index",
+    "i-grid-icon": "../../iviewui/dist/grid-icon/index",
+    "i-grid-label": "../../iviewui/dist/grid-label/index"
+
+  }
+}

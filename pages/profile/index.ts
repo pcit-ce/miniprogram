@@ -3,6 +3,7 @@
 import { IMyApp } from '../../app';
 
 const app = getApp<IMyApp>();
+const fs = wx.getFileSystemManager();
 
 Page({
   /**
@@ -13,14 +14,15 @@ Page({
     pic: '',
     git_type: '',
     orgs: [],
-    show_user: false,
     login_tips: true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {},
+  onLoad: function() {
+    this.login();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -31,7 +33,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.login();
+    // this.login();
+  },
+
+  logout() {
+    let git_type = 'github';
+
+    this.setData!({
+      login_tips: true,
+    });
+
+    fs.unlinkSync(`${wx.env.USER_DATA_PATH}/token_${git_type}`);
+
+    app.globalData.PCIT_TOKEN = '';
   },
 
   login() {
@@ -39,12 +53,15 @@ Page({
 
     // 读取 token 文件
     try {
-      app.globalData.PCIT_TOKEN = wx
-        .getFileSystemManager()
-        .readFileSync(`${wx.env.USER_DATA_PATH}/token_${git_type}`, 'utf8');
+      app.globalData.PCIT_TOKEN = fs.readFileSync(
+        `${wx.env.USER_DATA_PATH}/token_${git_type}`,
+        'utf8',
+      );
     } catch (e) {
       console.log(e);
     }
+
+    console.log(app.globalData.PCIT_TOKEN);
 
     // token 不存在
     if (!app.globalData.PCIT_TOKEN) {
@@ -82,6 +99,12 @@ Page({
     pcit_user.current().then((res: any) => {
       console.log(res);
       let { username, git_type, pic } = res.data[0];
+
+      pic = pic.replace(
+        /a.*?com/g,
+        app.globalData.PCIT_HOST + '/proxy_github_image',
+      );
+
       this.setData!({ username, git_type, pic });
     });
 
@@ -89,6 +112,18 @@ Page({
     pcit_org.list().then((res: any) => {
       console.log(res);
       let orgs = res.data;
+
+      for (let item in orgs) {
+        let pic = orgs[item]['pic'];
+        let new_pic = pic.replace(
+          /a.*?com/g,
+          app.globalData.PCIT_HOST + '/proxy_github_image',
+        );
+
+        console.log(new_pic);
+
+        orgs[item]['pci'] = new_pic;
+      }
 
       this.setData!({ orgs });
     });

@@ -3,17 +3,21 @@
 import TencentAI from '@khs1994/tencent-ai';
 
 const Towxml = require('/towxml/main');
+const PCIT = require('@pcit/pcit-js');
 
 export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void;
 
   globalData: {
     userInfo?: wx.UserInfo;
+    PCIT_HOST: string;
     PCIT_ENTRYPOINT: string;
     PCIT_TOKEN: any;
     TENCENT_AI_APP_KEY: any;
     TENCENT_AI_APP_ID: any;
     tencentAI: any;
+    cloudEnv: string;
+    MDData: string;
   };
   towxml: any;
   pcit: any;
@@ -25,7 +29,7 @@ App<IMyApp>({
   getSecret(): void {
     // 云函数
     wx.cloud.init({
-      env: 'pro-1e94dd',
+      env: this.globalData.cloudEnv,
     });
 
     const db = wx.cloud.database();
@@ -93,19 +97,18 @@ App<IMyApp>({
   },
   globalData: {
     userInfo: undefined,
-    PCIT_ENTRYPOINT: 'https://ci2.khs1994.com:10000/api',
+    PCIT_HOST: 'ci.khs1994.com',
+    PCIT_ENTRYPOINT: 'https://ci.khs1994.com/api',
+    // PCIT_HOST: 'ci.khs1994.com:10000',
+    // PCIT_ENTRYPOINT: 'https://ci2.khs1994.com:10000/api',
     PCIT_TOKEN: '',
     TENCENT_AI_APP_KEY: '',
     TENCENT_AI_APP_ID: '',
     tencentAI: TencentAI,
+    cloudEnv: 'pro-1e94dd',
+    MDData: '',
   },
   towxml: new Towxml(),
-  get pcit() {
-    const PCIT = require('@pcit/pcit-js');
-
-    return PCIT;
-  },
-  get tencentAI(): any {
-    return new TencentAI('x', 'x');
-  },
+  pcit: PCIT,
+  tencentAI: new TencentAI('x', 'x'),
 });

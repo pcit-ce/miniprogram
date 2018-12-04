@@ -1,22 +1,8 @@
-.camera {
-  width: 100vw;
-  height: 84vh;
-}
-
-.takephoto,.choose{
-  height: 7vh;
-  margin-top: 1vh;
-}
-
-.choose{
-  margin-bottom: 2vh;
-}
-
 .item{
   margin-bottom: 2vh;
 }
 
 image {
   width: 100vw;
-  height: 84vh;
+  height: 90vh;
 }

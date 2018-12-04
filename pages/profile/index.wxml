@@ -1,17 +1,58 @@
 <view wx:if="{{login_tips}}">
-<view>请登录后查看</view>
-<button bindtap="login" type="primary">立即登录</button>
+
+<view class="item" bindtap="login">
+<i-card title="" extra="khs1994 📒" thumb="/images/github.png" full>
+  <view slot="content">@khs1994</view>
+  <view slot="footer">GitHub</view>
+</i-card>
 </view>
 
-<view class='basic_info' data-username="{{username}}" bindtap='toRepo' wx:if="{{show_user}}">
-<image class="pic" src="{{pic}}"></image>
-<view class='username'>{{username}}</view>
-<view class='git_type'>{{git_type}}</view>
+<view class="item" bindtap="login">
+<i-card title="" extra="pcit-ce 📒" thumb="/images/github.png" full>
+  <view slot="content">@pcit-ce</view>
+  <view slot="footer">GitHub</view>
+</i-card>
+</view>
+
+<view class="item" bindtap="login">
+<i-card title="" extra="khs1994-docker 📒" thumb="/images/github.png" full>
+  <view slot="content">@khs1994-docker</view>
+  <view slot="footer">GitHub</view>
+</i-card>
+</view>
+
+<view class="item" bindtap="login">
+<i-card title="" extra="khs1994-php 📒" thumb="/images/github.png" full>
+  <view slot="content">@khs1994-php</view>
+  <view slot="footer">GitHub</view>
+</i-card>
+</view>
+
+<button class="btn-login" bindtap="login" type="primary">立即登录</button>
+
+</view>
+
+<view wx:else>
+<view class="item">
+<view class='basic_info' data-username="{{username}}" bindtap='toRepo'>
+<i-card title="" extra="{{username}} 📒" thumb="{{pic}}" full>
+  <view slot="content">@{{username}}</view>
+  <view slot="footer">{{git_type}}</view>
+</i-card>
+</view>
 </view>
 
 <view class='orgs' wx:for="{{orgs}}">
-  <view bindtap='toRepo' data-username="{{item.username}}">
-<image class="pic" src="{{item.pic}}"></image>
-<view class='username'>{{item.username}}</view>
+  <view class="item" bindtap='toRepo' data-username="{{item.username}}">
+    <i-card title="" extra="{{item.username}} 📒" thumb="{{item.pic}}" full>
+    <view slot="content">@{{item.username}}</view>
+    <view slot="footer">{{git_type}}</view>
+    </i-card>
+  </view>
 </view>
+
+<view class="weui-fotter btn-logout">
+<button type="warn" bindtap="logout">注销</button>
+</view>
+
 </view>
