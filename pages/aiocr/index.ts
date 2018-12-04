@@ -2,7 +2,7 @@
 
 import { IMyApp } from '../../app';
 const app = getApp<IMyApp>();
-const aiCommon = require('../aicommon/index');
+import * as aiCommon from '../aicommon/index';
 const fs = wx.getFileSystemManager();
 
 Page({
@@ -11,10 +11,6 @@ Page({
    */
   data: {
     src: '',
-    template_data: {
-      src: '',
-      device_position: 'back',
-    },
     data: '',
     text: '',
   },
@@ -164,7 +160,7 @@ Page({
 
   toTakePhoto() {
     wx.navigateTo({
-      url: '../aicamera/camera?device_position=back',
+      url: '../aicamera/backcamera?device_position=back',
     });
   },
 

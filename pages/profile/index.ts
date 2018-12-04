@@ -21,6 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
+    console.log('onload');
     this.login();
   },
 
@@ -33,6 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    console.log('onshow');
     // this.login();
   },
 
@@ -71,7 +73,7 @@ Page({
         content: '立即使用 GitHub 账号登录',
         success(res: wx.ShowModalSuccessCallbackResult) {
           if (res.confirm) {
-            wx.navigateTo({
+            wx.redirectTo({
               url: '/pages/login/login',
             });
           } else {

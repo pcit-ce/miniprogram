@@ -1,6 +1,6 @@
 // pages/aiface/camera.js
 
-const aicommon = require('../aicommon/index.js');
+import aicommon = require('../aicommon/index.js');
 
 Page({
   /**
@@ -8,9 +8,6 @@ Page({
    */
   data: {
     cache_file: false,
-    template_data: {
-      device_position: '',
-    },
     device_position: '',
   },
 
@@ -18,19 +15,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options: any) {
-    // console.log('onload');
-    console.log(options);
-    // console.log(this.data);
-
     let { device_position = 'front', cache_file = false } = options;
-
-    console.log(device_position);
 
     this.setData!({
       cache_file,
-      template_data: {
-        device_position,
-      },
       device_position,
     });
   },
@@ -74,7 +62,7 @@ Page({
 
   takePhoto() {
     (async () => {
-      let filePath = await aicommon.takePhoto();
+      let filePath:string = <string>await aicommon.takePhoto();
 
       console.log(filePath);
 

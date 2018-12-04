@@ -9,9 +9,10 @@
     "pages/repo/repo",
     "pages/login/login",
     "pages/aiface/index",
-    "pages/aicamera/camera",
     "pages/aiocr/index",
-    "pages/more/markdown"
+    "pages/more/markdown",
+    "pages/aicamera/camera",
+    "pages/aicamera/backcamera"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,12 +26,6 @@
         "text": "探索",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homeselected.png"
-      },
-      {
-        "pagePath": "pages/build/index",
-        "text": "构建",
-        "iconPath": "images/build.png",
-        "selectedIconPath": "images/buildselected.png"
       },
       {
         "pagePath": "pages/profile/index",

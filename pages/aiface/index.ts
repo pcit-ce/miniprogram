@@ -1,7 +1,7 @@
 import { IMyApp } from '../../app';
 
 const app = getApp<IMyApp>();
-const aiCommon = require('../aicommon/index.js');
+import * as aiCommon from '../aicommon/index';
 const fs = wx.getFileSystemManager();
 
 Page({
@@ -9,7 +9,7 @@ Page({
     src: '',
     target_src: '',
     template_data: {
-      'device-position': 'front',
+      device_position: 'front',
       src: '',
     },
     dirPath: `${wx.env.USER_DATA_PATH}/aiface`,

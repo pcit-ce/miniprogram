@@ -3,7 +3,7 @@
 <template is="camera" data="{{...template_data}}">
 </template> -->
 
-<camera device-position="front"
+<camera device-position="back"
   class='camera' bindtap="choosePhoto"></camera>
 
 <button class="takephoto" bindtap="takePhoto" type="primary">拍摄</button>

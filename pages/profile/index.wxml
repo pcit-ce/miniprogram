@@ -42,7 +42,7 @@
 </view>
 </view>
 
-<view class='orgs' wx:for="{{orgs}}">
+<view class='orgs' wx:for="{{orgs}}" wx:key="pic">
   <view class="item" bindtap='toRepo' data-username="{{item.username}}">
     <i-card title="" extra="{{item.username}} 📒" thumb="{{item.pic}}" full>
     <view slot="content">@{{item.username}}</view>

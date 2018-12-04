@@ -1,4 +1,4 @@
-module.exports.takePhoto = () => {
+export function takePhoto(){
   const ctx = wx.createCameraContext();
 
   return new Promise((resolve, reject) => {
@@ -14,11 +14,11 @@ module.exports.takePhoto = () => {
   });
 };
 
-module.exports.choosePhoto = () => {
+export function choosePhoto() {
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       count: 1,
-      success(res) {
+      success(res:any) {
         resolve(res.tempFiles[0].path);
       },
       fail(e) {
@@ -28,7 +28,7 @@ module.exports.choosePhoto = () => {
   });
 };
 
-module.exports.getImage = (src) => {
+export function getImage(src:any) {
 
   if (!src) {
     // 返回顶部

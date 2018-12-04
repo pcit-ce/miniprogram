@@ -1,4 +1,18 @@
 <template name="camera">
-  <camera device-position="{{device_position}}" class='camera' bindtap="choosePhoto"></camera>
+
+{{device_position}}
+
+<view wx:if="{{device_position === 'front'}}">
+  <camera device-position="front"
+  class='camera' bindtap="choosePhoto"></camera>
+  front
+</view>
+
+<view wx:else>
+  <camera device-position="back"
+  class='camera' bindtap="choosePhoto"></camera>
+  back
+</view>
+
   <button class="takephoto" bindtap="takePhoto" type="primary">拍摄</button>
 </template>
