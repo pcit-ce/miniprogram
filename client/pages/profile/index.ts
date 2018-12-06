@@ -21,13 +21,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-      this.login();
+    this.login();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() { },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -50,7 +50,6 @@ Page({
   },
 
   login() {
-
     let git_type = 'github';
 
     // 读取 token 文件
@@ -68,6 +67,7 @@ Page({
     // token 不存在
     if (!app.globalData.PCIT_TOKEN) {
       // 登录模态窗
+      wx.stopPullDownRefresh({});
       wx.showModal({
         title: '登录',
         content: '立即使用 GitHub 账号登录',
@@ -98,7 +98,7 @@ Page({
     const pcit_org = pcit.org;
 
     wx.showLoading({
-      'title':"加载中",
+      title: '加载中',
     });
 
     wx.showNavigationBarLoading({});
@@ -135,30 +135,32 @@ Page({
 
       this.setData!({ orgs });
 
-      wx.hideLoading({});
-      wx.hideNavigationBarLoading({});
-      wx.stopPullDownRefresh({});
+      setTimeout(() => {
+        wx.hideLoading({});
+        wx.hideNavigationBarLoading({});
+        wx.stopPullDownRefresh({});
+      }, 600);
     });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() { },
+  onUnload: function() {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
     wx.showNavigationBarLoading({
-      success(){
+      success() {
         console.log('success');
-      }
+      },
     });
 
     this.login();
@@ -167,19 +169,19 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() { },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any { },
+  onShareAppMessage: function(): any {},
 
   toRepo(event: any) {
     let username = event.currentTarget.dataset.username;
     wx.navigateTo({
       url: `/pages/repo/repo?git_type=${
         this.data.git_type
-        }&username=${username}`,
+      }&username=${username}`,
     });
   },
 });

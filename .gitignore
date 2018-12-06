@@ -10,3 +10,5 @@ package-lock.json
 /client/app.js
 
 /client/pages/**/*.js
+
+/client/utils/**/*.js

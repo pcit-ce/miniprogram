@@ -80,9 +80,9 @@ Page({
     });
   },
 
-  back(){
+  back() {
     wx.switchTab({
       url: '/pages/profile/index',
     });
-  }
+  },
 });

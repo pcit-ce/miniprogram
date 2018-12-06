@@ -24,7 +24,7 @@ Page({
       data,
     });
 
-    wx.hideLoading({});
+    setTimeout(() => wx.hideLoading({}), 900);
   },
 
   /**

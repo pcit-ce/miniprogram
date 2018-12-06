@@ -1,7 +1,8 @@
 {
-  "usingComponents":{
-    "i-card":"../../iviewui/dist/card/index"
+  "usingComponents": {
+    "i-card": "../../iviewui/dist/card/index"
   },
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "个人主页"
 }

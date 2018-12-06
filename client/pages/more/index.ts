@@ -152,4 +152,53 @@ Page({
       });
     })();
   },
+
+  openStoreAuth() {
+    (async () => {
+      await new Promise((resolve, reject) => {
+        wx.checkIsSoterEnrolledInDevice({
+          checkAuthMode: 'fingerPrint',
+          success: res => {
+            console.log(res);
+
+            if (res.isEnrolled) {
+              resolve(true);
+            }
+
+            reject(false);
+          },
+          fail(e) {
+            reject(e);
+          },
+        });
+      });
+
+      await new Promise((resolve, reject) => {
+        wx.startSoterAuthentication({
+          requestAuthModes: 'fingerPrint',
+          challenge: '123', //(new Date).getTime().toString(),
+          authContent: '请验证',
+          success: res => {
+            console.log(res);
+
+            wx.showModal({
+              title: '验证通过',
+              content: JSON.stringify(res),
+            });
+
+            resolve(res);
+          },
+          fail(e: any) {
+            console.log(e);
+            reject(e);
+          },
+        });
+      });
+    })().catch((e: any) => {
+      wx.showModal({
+        title: '出错啦',
+        content: JSON.stringify(e),
+      });
+    });
+  },
 });

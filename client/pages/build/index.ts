@@ -18,7 +18,19 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() {
+    wx.startSoterAuthentication({
+      requestAuthModes: 'fingerPrint',
+      challenge: '123456',
+      authContent: '请用指纹解锁',
+      success(res) {
+        console.log(res);
+      },
+      fail(e) {
+        console.log(e);
+      },
+    });
+  },
 
   /**
    * 生命周期函数--监听页面显示

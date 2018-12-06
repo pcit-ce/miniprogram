@@ -62,7 +62,7 @@ Page({
 
   takePhoto() {
     (async () => {
-      let filePath:string = <string>await aicommon.takePhoto();
+      let filePath: string = <string>await aicommon.takePhoto();
 
       console.log(filePath);
 

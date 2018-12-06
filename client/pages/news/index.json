@@ -3,5 +3,6 @@
     "i-alert": "/iviewui/dist/alert/index"
   },
   "enablePullDownRefresh": true,
-  "backgroundTextStyle": "dark"
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "通知"
 }

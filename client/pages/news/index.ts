@@ -24,8 +24,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
-  },
+  onLoad: function() {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -56,8 +55,8 @@ Page({
     // 从服务器获取新消息
     let news_new_id = 1011;
 
-    for(let item of this.data.news){
-      if (item.id === news_new_id){
+    for (let item of this.data.news) {
+      if (item.id === news_new_id) {
         console.log(item);
         console.log('消息已存在');
         wx.stopPullDownRefresh({});
@@ -90,8 +89,8 @@ Page({
     let news = this.data.news;
     let news_old_id = 1;
 
-    for(let item of news){
-      if(item.id === news_old_id){
+    for (let item of news) {
+      if (item.id === news_old_id) {
         console.log('到底啦');
         return;
       }

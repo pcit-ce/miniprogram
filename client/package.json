@@ -7,7 +7,7 @@
     "qs": "^6.6.0"
   },
   "scripts": {
-    "prettier": "npx prettier --write ./**/*.ts",
+    "prettier": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
     "cleanup": "npx rimraf node_modules/node-fetch node_modules/towxml",
     "postinstall": "npm run cleanup",
     "compile": "npx tsc"

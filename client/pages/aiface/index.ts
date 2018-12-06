@@ -44,7 +44,7 @@ Page({
     });
   },
 
-  onLoad() { },
+  onLoad() {},
 
   onHide() {
     // console.log('onHide');
@@ -183,7 +183,7 @@ Page({
     );
 
     if (JSON.stringify(url_list) === '[]') {
-      this.showModal('出错啦', '没找到图片😂',false);
+      this.showModal('出错啦', '没找到图片😂', false);
 
       return;
     }
@@ -234,11 +234,11 @@ Page({
   writeTargetFile(image: string) {
     const file_path = `${
       wx.env.USER_DATA_PATH
-      }/aiface/${new Date().getTime()}.jpg`;
+    }/aiface/${new Date().getTime()}.jpg`;
 
     try {
       fs.mkdirSync(`${wx.env.USER_DATA_PATH}/aiface`);
-    } catch (e) { }
+    } catch (e) {}
 
     fs.writeFileSync(file_path, image, 'base64');
 

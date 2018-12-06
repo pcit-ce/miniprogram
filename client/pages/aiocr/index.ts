@@ -17,12 +17,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() { },
+  onLoad: function() {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() { },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -48,7 +48,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() { },
+  onHide: function() {},
 
   /**
    * 生命周期函数--监听页面卸载
@@ -66,17 +66,17 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() { },
+  onPullDownRefresh: function() {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() { },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any { },
+  onShareAppMessage: function(): any {},
 
   general() {
     let image = this.getImage();
@@ -201,7 +201,12 @@ Page({
     return this.data.src;
   },
 
-  showModal(title: string = '出错啦', content: string, isJSON: boolean = true, showCancel: boolean = false) {
+  showModal(
+    title: string = '出错啦',
+    content: string,
+    isJSON: boolean = true,
+    showCancel: boolean = false,
+  ) {
     wx.showModal({
       title,
       content: isJSON ? JSON.stringify(content) : content,

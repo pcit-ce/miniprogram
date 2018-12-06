@@ -6,6 +6,17 @@
 
 </template> -->
 
+<view class="weui-grids">
+  <view class="weui-grid" bindtap="general">
+  <view class="weui-grid__icon">😁</view>
+  <view class="weui-grid__label">通用 OCR</view>
+  </view>
+  <view class="weui-grid" bindtap="handwriting">
+  <view class="weui-grid__icon">😁</view>
+  <view class="weui-grid__label">手写体 OCR</view>
+  </view>
+</view>
+
 <image wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
 
 <button bindtap="toTakePhoto" type="primary" class="item">拍摄</button>
@@ -15,7 +26,3 @@
 value="{{text}}" disabled class="ocr_output" bindtap="tapOCROutput"
 ></textarea>
 </view>
-
-<button type="default" hover-class="none" bindtap="general" class="item">通用 OCR</button>
-
-<button type="default" hover-class="none" bindtap="handwriting" class="item">手写体 OCR</button>

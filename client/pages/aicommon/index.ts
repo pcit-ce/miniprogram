@@ -1,4 +1,4 @@
-export function takePhoto(){
+export function takePhoto() {
   const ctx = wx.createCameraContext();
 
   return new Promise((resolve, reject) => {
@@ -12,13 +12,13 @@ export function takePhoto(){
       },
     });
   });
-};
+}
 
 export function choosePhoto() {
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       count: 1,
-      success(res:any) {
+      success(res: any) {
         resolve(res.tempFiles[0].path);
       },
       fail(e) {
@@ -26,10 +26,9 @@ export function choosePhoto() {
       },
     });
   });
-};
+}
 
-export function getImage(src:any) {
-
+export function getImage(src: any) {
   if (!src) {
     // 返回顶部
     wx.pageScrollTo({
@@ -39,7 +38,7 @@ export function getImage(src:any) {
 
     wx.showModal({
       title: '提示',
-      content: "请先拍摄",
+      content: '请先拍摄',
       showCancel: false,
     });
 
@@ -47,4 +46,4 @@ export function getImage(src:any) {
   }
 
   return src;
-};
+}

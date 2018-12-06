@@ -44,7 +44,7 @@ Page({
           about_data: data,
         });
 
-        wx.hideLoading({});
+        setTimeout(() => wx.hideLoading({}), 900);
       },
       (e: any) => {
         console.log(e);
