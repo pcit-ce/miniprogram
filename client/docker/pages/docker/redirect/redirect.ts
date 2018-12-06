@@ -1,54 +1,46 @@
-// pages/repo/repo.wxml.js
+// pages/docker/redirect.js
 
-import { IMyApp } from '../../app';
+import { IMyApp } from '../../../../app';
 
-let app = getApp<IMyApp>();
+const app = getApp<IMyApp>();
 
 Page({
   /**
    * 页面的初始数据
    */
-  data: {
-    repos: [],
-  },
+  data: {},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options: any) {
-    let { git_type, username } = options;
+    console.log(options);
 
-    let pcit = new app.pcit.PCIT(
-      app.globalData.PCIT_TOKEN,
-      app.globalData.PCIT_ENTRYPOINT,
-    );
+    let { key = false } = options;
 
-    const pcit_repo = pcit.repo;
+    if (key) {
+      console.log(key);
 
-    pcit_repo.listByOwner(git_type, username).then((res: any) => {
-      let repos = res.data;
+      let url = `https://ci.khs1994.com/proxy_github_raw/yeasy/docker_practice/master/${key}`;
 
-      if (JSON.stringify(repos) === '[]') {
-        wx.showModal({
-          title: '空空如也',
-          content: '构建列表为空',
-          showCancel: false,
-          success() {
-            wx.navigateBack({
-              delta: 1,
-            });
-          },
-        });
-
-        return;
+      if (key === 'README.md') {
+        url =
+          'https://ci.khs1994.com/proxy_github_raw/khs1994-docker/docker_practice/master/README.md';
       }
 
-      this.setData!({
-        repos,
+      wx.request({
+        url,
+        success(res: any) {
+          app.globalData.MDData = res.data;
+
+          wx.redirectTo({
+            url: '../content/content',
+          });
+        },
       });
 
-      console.log(this.data.repos);
-    });
+      return;
+    }
   },
 
   /**

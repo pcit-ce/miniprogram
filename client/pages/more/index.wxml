@@ -26,15 +26,15 @@
 </i-grid>
 
 <i-grid>
-  <i-grid-item>
+  <i-grid-item bindtap="openTranslateAI">
     <i-grid-icon>📚</i-grid-icon>
     <i-grid-label>Translate</i-grid-label>
   </i-grid-item>
-  <i-grid-item>
+  <i-grid-item bindtap="openNLPAI">
     <i-grid-icon>🎍</i-grid-icon>
     <i-grid-label>NLP AI</i-grid-label>
   </i-grid-item>
-  <i-grid-item>
+  <i-grid-item bindtap="openAudioAI">
     <i-grid-icon>🔊</i-grid-icon>
     <i-grid-label>Audio AI</i-grid-label>
   </i-grid-item>
@@ -71,7 +71,7 @@
 </i-grid>
 
 <i-grid>
-<i-grid-item bindtap="openCluster">
+<i-grid-item bindtap="openPCITCluster">
   <i-grid-icon>💻</i-grid-icon>
   <i-grid-label>PCIT 集群</i-grid-label>
 </i-grid-item>

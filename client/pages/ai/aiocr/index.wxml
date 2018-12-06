@@ -13,7 +13,8 @@
   </view>
   <view class="weui-grid" bindtap="handwriting">
   <view class="weui-grid__icon">😁</view>
-  <view class="weui-grid__label">手写体 OCR</view>
+  <!-- <view class="weui-grid__label">手写体 OCR</view> -->
+  <view class="weui-grid__label">开发中</view>
   </view>
 </view>
 

@@ -1,9 +1,4 @@
-// pages/docker/redirect.js
-
-import { IMyApp } from '../../../app';
-
-const app = getApp<IMyApp>();
-
+// pages/ai/audio/index.js
 Page({
   /**
    * 页面的初始数据
@@ -13,28 +8,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options: any) {
-    console.log(options);
-
-    let { key = false } = options;
-
-    if (key) {
-      console.log(key);
-
-      wx.request({
-        url: `https://ci.khs1994.com/proxy_github_raw/yeasy/docker_practice/master/${key}`,
-        success(res: any) {
-          app.globalData.MDData = res.data;
-
-          wx.redirectTo({
-            url: '/pages/more/markdown',
-          });
-        },
-      });
-
-      return;
-    }
-  },
+  onLoad: function() {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成

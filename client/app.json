@@ -8,11 +8,15 @@
     "pages/profile/login",
     "pages/news/index",
     "pages/repo/repo",
-    "pages/aiface/index",
-    "pages/aiocr/index",
-    "pages/more/markdown",
-    "pages/aicamera/camera",
-    "pages/aicamera/backcamera"
+    "pages/ai/aiface/index",
+    "pages/ai/aiocr/index",
+    "pages/ai/aicamera/camera",
+    "pages/ai/aicamera/backcamera",
+    "pages/ai/audio/index",
+    "pages/ai/image/index",
+    "pages/ai/nlp/index",
+    "pages/ai/translate/index",
+    "pages/more/markdown"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,12 +31,6 @@
         "text": "探索",
         "iconPath": "images/home.png",
         "selectedIconPath": "images/homeselected.png"
-      },
-      {
-        "pagePath": "pages/build/index",
-        "text": "构建",
-        "iconPath": "images/build.png",
-        "selectedIconPath": "images/buildselected.png"
       },
       {
         "pagePath": "pages/profile/index",
@@ -59,7 +57,11 @@
     {
       "root": "docker",
       "name": "docker",
-      "pages": ["pages/docker/index", "pages/docker/redirect"]
+      "pages": [
+        "pages/docker/index/index",
+        "pages/docker/redirect/redirect",
+        "pages/docker/content/content"
+      ]
     }
   ],
   "preloadRule": {

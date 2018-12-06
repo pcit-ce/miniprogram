@@ -2,7 +2,7 @@ const Towxml = require('../client/towxml/main');
 const towxml = new Towxml();
 const fs = require('fs');
 
-const targetPath = '../client/docker/pages/docker/summary.js';
+const targetPath = '../client/docker/pages/docker/index/summary.js';
 
 try {
   fs.accessSync(targetPath);

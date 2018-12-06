@@ -1,0 +1,20 @@
+<!--pages/ai/translate/index.wxml-->
+
+<form>
+<picker bindchange="selectSource" mode="selector" value="{{source}}" range="{{sourceAvailable}}">
+  <text>当前{{sourceAvailable[source]}}</text>
+</picker>
+
+<picker bindchange="selectTarget" mode="selector" value="{{target}}" range="{{targetAvailable}}">
+  <text>目标{{targetAvailable[target]}}</text>
+</picker>
+
+<textarea id="input" bindinput="bindinput" value="{{input}}"></textarea>
+</form>
+
+<view class="weui-grids">
+  <view class="weui-grid" bindtap="textTranslate">
+    <view class="weui-grid__icon">😁</view>
+    <view class="weui-grid__label">中英互译</view>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<!--pages/ai/audio/index.wxml-->
+<view>
+  <view class="weui-grids">
+    <view class="weui-grid">
+      <view class="weui-grid__icon">😁</view>
+      <view class="weui-grid__label">语音合成</view>
+    </view>
+  </view>
+</view>

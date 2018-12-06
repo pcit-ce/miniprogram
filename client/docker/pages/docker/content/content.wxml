@@ -1,0 +1,5 @@
+<import src="/towxml/entry.wxml"/>
+
+<template is="entry" data="{{...data}}">
+
+</template>

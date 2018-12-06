@@ -1,0 +1,3 @@
+/* pages/ai/audio/index.wxss */
+
+@import '/weui/weui.wxss';

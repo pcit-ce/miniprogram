@@ -1,6 +1,6 @@
 // pages/ocrai/index.js
 
-import { IMyApp } from '../../app';
+import { IMyApp } from '../../../app';
 const app = getApp<IMyApp>();
 import * as aiCommon from '../aicommon/index';
 const fs = wx.getFileSystemManager();

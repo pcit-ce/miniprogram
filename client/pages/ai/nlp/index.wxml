@@ -1,0 +1,12 @@
+<!--pages/ai/nlp/index.wxml-->
+
+<form>
+<textarea></textarea>
+</form>
+
+<view class="weui-grids">
+  <view class="weui-grid">
+    <view class="weui-grid__icon">😁</view>
+    <view class="weui-grid__label">分词</view>
+  </view>
+</view>

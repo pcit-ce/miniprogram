@@ -1,0 +1,3 @@
+/* pages/ai/nlp/index.wxss */
+
+@import '/weui/weui.wxss';

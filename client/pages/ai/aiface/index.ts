@@ -1,4 +1,4 @@
-import { IMyApp } from '../../app';
+import { IMyApp } from '../../../app';
 
 const app = getApp<IMyApp>();
 import * as aiCommon from '../aicommon/index';

@@ -54,13 +54,37 @@ Page({
 
   openFaceAI() {
     wx.navigateTo({
-      url: '/pages/aiface/index',
+      url: '/pages/ai/aiface/index',
     });
   },
 
   openOCRAI() {
     wx.navigateTo({
-      url: '/pages/aiocr/index',
+      url: '/pages/ai/aiocr/index',
+    });
+  },
+
+  openImageAI() {
+    wx.navigateTo({
+      url: '/pages/ai/image/index',
+    });
+  },
+
+  openTranslateAI() {
+    wx.navigateTo({
+      url: '/pages/ai/translate/index',
+    });
+  },
+
+  openNLPAI() {
+    wx.navigateTo({
+      url: '/pages/ai/nlp/index',
+    });
+  },
+
+  openAudioAI() {
+    wx.navigateTo({
+      url: '/pages/ai/audio/index',
     });
   },
 
@@ -204,7 +228,52 @@ Page({
 
   openDocker() {
     wx.navigateTo({
-      url: '/docker/pages/docker/index',
+      url: '/docker/pages/docker/index/index',
+    });
+  },
+
+  openPCITCluster() {
+    wx.showModal({
+      title: '集群监控',
+      content: JSON.stringify({
+        status: 'runing',
+        health: true,
+      }),
+    });
+  },
+  openVerify() {
+    app.globalData.MDData = `
+# PCIT 认证
+
+如果你的项目使用了 PCIT ,请联系我们，我们会将优质开源项目展示到我们的成功案例中。
+
+    `;
+
+    wx.navigateTo({
+      url: './markdown',
+    });
+  },
+  openDonate() {
+    app.globalData.MDData = `
+# 感谢以下赞助商
+
+|日期|名字|金额|
+| :-- | :-- | :-- |
+| 2018-11-30 | \`lichnow\`   | ￥100 |
+| 2018-10-26 | \`云服务推广\` | ￥50  |
+
+> 访问 zan.khs1994.com 打赏 PCIT
+    `;
+
+    wx.navigateTo({
+      url: './markdown',
+    });
+  },
+
+  openAIFaceLogin() {
+    wx.showModal({
+      title: '通过',
+      content: '您已通过 AI 鉴权',
     });
   },
 });
