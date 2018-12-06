@@ -11,19 +11,18 @@ Page({
    */
   data: {
     src: '',
-    data: '',
     text: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {},
+  onLoad: function() { },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() { },
 
   /**
    * 生命周期函数--监听页面显示
@@ -49,7 +48,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {},
+  onHide: function() { },
 
   /**
    * 生命周期函数--监听页面卸载
@@ -67,17 +66,17 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {},
+  onPullDownRefresh: function() { },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
+  onReachBottom: function() { },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any {},
+  onShareAppMessage: function(): any { },
 
   general() {
     let image = this.getImage();
@@ -102,13 +101,10 @@ Page({
       data = data.join('');
 
       this.setData!({
-        data,
         text: data,
       });
 
       wx.hideLoading({});
-
-      this.showModal();
 
       // result = await app.tencentAI.nlp.wordseg(data);
 
@@ -151,10 +147,7 @@ Page({
     })().catch((e: any) => {
       console.log(e);
       wx.hideLoading({});
-      wx.showModal({
-        title: '出错啦',
-        content: JSON.stringify(e),
-      });
+      this.showModal('出错啦', e);
     });
   },
 
@@ -202,25 +195,17 @@ Page({
         duration: 1000,
       });
 
-      this.setData!({
-        data: '请先拍摄',
-      });
-
-      this.showModal();
+      this.showModal(undefined, '请先拍摄', false);
     }
 
     return this.data.src;
   },
 
-  showModal() {
+  showModal(title: string = '出错啦', content: string, isJSON: boolean = true, showCancel: boolean = false) {
     wx.showModal({
-      title: '提示',
-      content: this.data.data,
-    });
-
-    // 清空数据
-    this.setData!({
-      data: '',
+      title,
+      content: isJSON ? JSON.stringify(content) : content,
+      showCancel,
     });
   },
 });

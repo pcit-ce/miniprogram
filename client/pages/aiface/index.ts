@@ -44,7 +44,7 @@ Page({
     });
   },
 
-  onLoad() {},
+  onLoad() { },
 
   onHide() {
     // console.log('onHide');
@@ -183,10 +183,7 @@ Page({
     );
 
     if (JSON.stringify(url_list) === '[]') {
-      wx.showModal({
-        title: '出错啦',
-        content: '没找到图片😂',
-      });
+      this.showModal('出错啦', '没找到图片😂',false);
 
       return;
     }
@@ -224,11 +221,8 @@ Page({
       wx.cloud.uploadFile({
         cloudPath,
         filePath,
-        success() {
-          wx.showModal({
-            title: '上传成功',
-            content: '请到控制台查看',
-          });
+        success: () => {
+          this.showModal('上传成功', '请到控制台查看');
         },
         fail: e => {
           this.showModal('出错啦', e);
@@ -240,11 +234,11 @@ Page({
   writeTargetFile(image: string) {
     const file_path = `${
       wx.env.USER_DATA_PATH
-    }/aiface/${new Date().getTime()}.jpg`;
+      }/aiface/${new Date().getTime()}.jpg`;
 
     try {
       fs.mkdirSync(`${wx.env.USER_DATA_PATH}/aiface`);
-    } catch (e) {}
+    } catch (e) { }
 
     fs.writeFileSync(file_path, image, 'base64');
 
@@ -459,10 +453,12 @@ Page({
       });
   },
 
-  showModal(title: string, e: any) {
+  showModal(title: string, e: any, isJSON: boolean = true, showCancel = false) {
+    console.log(showCancel);
     wx.showModal({
       title,
-      content: JSON.stringify(e),
+      content: isJSON ? JSON.stringify(e) : e,
+      showCancel,
     });
   },
 });

@@ -39,7 +39,8 @@ export function getImage(src:any) {
 
     wx.showModal({
       title: '提示',
-      content: "请先拍摄"
+      content: "请先拍摄",
+      showCancel: false,
     });
 
     return '';

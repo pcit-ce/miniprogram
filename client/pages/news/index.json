@@ -1,5 +1,7 @@
 {
   "usingComponents": {
     "i-alert": "/iviewui/dist/alert/index"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

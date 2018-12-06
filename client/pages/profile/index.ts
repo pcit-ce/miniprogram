@@ -21,14 +21,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-    console.log('onload');
-    this.login();
+      this.login();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() { },
 
   /**
    * 生命周期函数--监听页面显示
@@ -51,6 +50,7 @@ Page({
   },
 
   login() {
+
     let git_type = 'github';
 
     // 读取 token 文件
@@ -74,7 +74,7 @@ Page({
         success(res: wx.ShowModalSuccessCallbackResult) {
           if (res.confirm) {
             wx.redirectTo({
-              url: '/pages/login/login',
+              url: '/pages/profile/login',
             });
           } else {
           }
@@ -96,6 +96,12 @@ Page({
 
     const pcit_user = pcit.user;
     const pcit_org = pcit.org;
+
+    wx.showLoading({
+      'title':"加载中",
+    });
+
+    wx.showNavigationBarLoading({});
 
     // 展示用户界面
     pcit_user.current().then((res: any) => {
@@ -128,40 +134,52 @@ Page({
       }
 
       this.setData!({ orgs });
+
+      wx.hideLoading({});
+      wx.hideNavigationBarLoading({});
+      wx.stopPullDownRefresh({});
     });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {},
+  onHide: function() { },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {},
+  onUnload: function() { },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {},
+  onPullDownRefresh: function() {
+    wx.showNavigationBarLoading({
+      success(){
+        console.log('success');
+      }
+    });
+
+    this.login();
+  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {},
+  onReachBottom: function() { },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any {},
+  onShareAppMessage: function(): any { },
 
   toRepo(event: any) {
     let username = event.currentTarget.dataset.username;
     wx.navigateTo({
       url: `/pages/repo/repo?git_type=${
         this.data.git_type
-      }&username=${username}`,
+        }&username=${username}`,
     });
   },
 });

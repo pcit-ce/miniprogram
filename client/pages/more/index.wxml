@@ -92,7 +92,7 @@
   </i-grid-item>
   <i-grid-item bindtap="openDonate">
     <i-grid-icon>💰</i-grid-icon>
-    <i-grid-label>赞赏 Donate</i-grid-label>
+    <i-grid-label>赞赏列表</i-grid-label>
   </i-grid-item>
 </i-grid>
 

@@ -7,6 +7,6 @@ node_modules
 
 package-lock.json
 
-app.js
+/client/app.js
 
-pages/**/*.js
+/client/pages/**/*.js

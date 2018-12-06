@@ -1,3 +1,10 @@
+<view wx:for="{{news}}" wx:for-item="item" wx:key="id">
+<i-alert type="{{item.type}}" show-icon desc closable data-id="{{item.id}}" bind:close="close">
+  {{item.title}}
+  <view slot="desc">{{item.desc}}</view>
+</i-alert>
+</view>
+
 <i-alert type="success" show-icon desc closable bind:close="close">
   pcit-ce/ce build success
   <view slot="desc">build time 10min</view>
@@ -17,10 +24,3 @@
   xiaoer/test .pcit.yml validate error
   <view slot="desc">please checkout .pcit.yml file</view>
 </i-alert>
-
-<view wx:for="{{news}}" wx:for-item="item" wx:key="id">
-<i-alert type="{{item.type}}" show-icon desc closable data-id="{{item.id}}" bind:close="close">
-  {{item.title}}
-  <view slot="desc">{{item.desc}}</view>
-</i-alert>
-</view>

@@ -76,9 +76,13 @@ Page({
       app.globalData.PCIT_TOKEN = token;
 
       // 跳转页面
-      wx.switchTab({
-        url: '/pages/profile/index',
-      });
+      this.back();
     });
   },
+
+  back(){
+    wx.switchTab({
+      url: '/pages/profile/index',
+    });
+  }
 });

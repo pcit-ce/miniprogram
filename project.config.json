@@ -13,9 +13,9 @@
 		"autoAudits": false
 	},
 	"scripts": {
-		"beforeCompile": "npm run compile",
-		"beforePreview": "npm run compile",
-		"beforeUpload": "npm run compile"
+		"beforeCompile": "cd client && npm run compile",
+		"beforePreview": "cd client && npm run compile",
+		"beforeUpload": "cd client && npm run compile"
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.1",
@@ -23,6 +23,7 @@
 	"projectname": "PCIT",
 	"isGameTourist": false,
 	"cloudfunctionRoot": "functions/",
+	"miniprogramRoot": "client",
 	"condition": {
 		"search": {
 			"current": -1,
