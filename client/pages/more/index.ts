@@ -204,7 +204,7 @@ Page({
 
   openDocker() {
     wx.navigateTo({
-      url: '../docker/index',
+      url: '/docker/pages/docker/index',
     });
   },
 });

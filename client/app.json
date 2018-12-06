@@ -12,9 +12,7 @@
     "pages/aiocr/index",
     "pages/more/markdown",
     "pages/aicamera/camera",
-    "pages/aicamera/backcamera",
-    "pages/docker/index",
-    "pages/docker/redirect"
+    "pages/aicamera/backcamera"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -56,5 +54,18 @@
       }
     ]
   },
-  "navigateToMiniProgramAppIdList": ["wx767dab1b29691501"]
+  "navigateToMiniProgramAppIdList": ["wx767dab1b29691501"],
+  "subpackages": [
+    {
+      "root": "docker",
+      "name": "docker",
+      "pages": ["pages/docker/index", "pages/docker/redirect"]
+    }
+  ],
+  "preloadRule": {
+    "pages/more/index": {
+      "network": "all",
+      "packages": ["docker"]
+    }
+  }
 }

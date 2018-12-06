@@ -1,6 +1,6 @@
 // pages/docker/redirect.js
 
-import { IMyApp } from '../../app';
+import { IMyApp } from '../../../app';
 
 const app = getApp<IMyApp>();
 
@@ -27,7 +27,7 @@ Page({
           app.globalData.MDData = res.data;
 
           wx.redirectTo({
-            url: '../more/markdown',
+            url: '/pages/more/markdown',
           });
         },
       });
