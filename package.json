@@ -1,5 +1,6 @@
 {
   "scripts": {
-    "prettier": "cd client && npm run prettier"
+    "prettier": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
+    "docker": "cd docker && node serverrender.js"
   }
 }

@@ -15,6 +15,7 @@ Page({
     git_type: '',
     orgs: [],
     login_tips: true,
+    show_logout: false,
   },
 
   /**
@@ -139,6 +140,9 @@ Page({
         wx.hideLoading({});
         wx.hideNavigationBarLoading({});
         wx.stopPullDownRefresh({});
+        this.setData!({
+          show_logout: true,
+        });
       }, 600);
     });
   },

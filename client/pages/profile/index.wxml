@@ -51,7 +51,7 @@
   </view>
 </view>
 
-<view class="weui-fotter btn-logout">
+<view class="weui-fotter btn-logout" wx:if="{{show_logout}}">
 <button type="warn" bindtap="logout">注销</button>
 </view>
 

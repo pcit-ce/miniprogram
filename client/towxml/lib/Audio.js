@@ -46,7 +46,7 @@ module.exports = (option) => {
 
             let articleData = global.__towxmldata__[_ts.dataId].article,
                 playerData = global.__towxmldata__[_ts.dataId].audio[_ts.playerId];
-            
+
             // 检查如果数据没有被应用到页面上则中止操作
             if(!_ts.updateKey){
                 return;
@@ -67,7 +67,7 @@ module.exports = (option) => {
 
             // 设置封面图片
             playerData.child[1].child[0].attr.src = option.poster;
-            
+
             // 设置进度条
             playerData.child[2].child[0].attr.style = `width:${option.currentTime / option.duration * 100}%`;
 
@@ -155,18 +155,20 @@ module.exports = (option) => {
         }
 
         // 数字补位
-        fillIn = val => {
-            return `${val < 10 ? '0' : ''}${val}`;
-        }
+        // fillIn = val => {
+        //     return `${val < 10 ? '0' : ''}${val}`;
+        // }
 
-        // 格式化时间  
-        formatTime = time => {
-            let fillIn = this.fillIn,
-                second = Math.floor(time % 60),
-                minute = Math.floor(time / 60 % 60),
-                hour = Math.floor(time / 60 / 60);
-            return `${fillIn(hour)}:${fillIn(minute)}:${fillIn(second)}`;
-        }
+        // 格式化时间
+        //formatTime = time => {
+            // let fillIn = this.fillIn,
+            //     second = Math.floor(time % 60),
+            //     minute = Math.floor(time / 60 % 60),
+            //     hour = Math.floor(time / 60 / 60);
+            // return `${fillIn(hour)}:${fillIn(minute)}:${fillIn(second)}`;
+
+          //  return `1:2:3`;
+        //}
     };
     return new Audio(option);
 };

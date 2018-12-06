@@ -1,14 +1,18 @@
-// pages/more/changelog.js
+// pages/docker/index.js
 
-import { IMyApp } from '../../app';
+// import { IMyApp } from '../../app';
 
-const app = getApp<IMyApp>();
+// const app = getApp<IMyApp>();
+
+const data = require('./summary.js');
 
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    data: '',
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -18,13 +22,25 @@ Page({
       title: '加载中',
     });
 
-    let data = app.towxml.toJson(app.globalData.MDData, 'markdown');
+    // wx.request({
+    // url: 'https://ci.khs1994.com/proxy_github_raw/yeasy/docker_practice/master/SUMMARY.md',
+    // success:(res:any)=>{
+    // app.globalData.MDData = res.data;
+
+    // wx.redirectTo({
+    //   url: '../more/markdown',
+    // });
+
+    // const towxml = app.towxml.toJson(res.data, 'markdown');
     data.theme = 'light';
+
     this.setData!({
       data,
     });
+    // },
+    // });
 
-    setTimeout(() => wx.hideLoading({}), 900);
+    setTimeout(() => wx.hideLoading({}), 1000);
   },
 
   /**
@@ -61,7 +77,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(): any {},
-
   __bind_touchend() {},
   __bind_touchstart() {},
 

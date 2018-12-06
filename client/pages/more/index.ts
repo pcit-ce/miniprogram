@@ -201,4 +201,10 @@ Page({
       });
     });
   },
+
+  openDocker() {
+    wx.navigateTo({
+      url: '../docker/index',
+    });
+  },
 });

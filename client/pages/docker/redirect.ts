@@ -1,4 +1,4 @@
-// pages/more/changelog.js
+// pages/docker/redirect.js
 
 import { IMyApp } from '../../app';
 
@@ -13,18 +13,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {
-    wx.showLoading({
-      title: '加载中',
-    });
+  onLoad: function(options: any) {
+    console.log(options);
 
-    let data = app.towxml.toJson(app.globalData.MDData, 'markdown');
-    data.theme = 'light';
-    this.setData!({
-      data,
-    });
+    let { key = false } = options;
 
-    setTimeout(() => wx.hideLoading({}), 900);
+    if (key) {
+      console.log(key);
+
+      wx.request({
+        url: `https://ci.khs1994.com/proxy_github_raw/yeasy/docker_practice/master/${key}`,
+        success(res: any) {
+          app.globalData.MDData = res.data;
+
+          wx.redirectTo({
+            url: '../more/markdown',
+          });
+        },
+      });
+
+      return;
+    }
   },
 
   /**
@@ -61,13 +70,4 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(): any {},
-
-  __bind_touchend() {},
-  __bind_touchstart() {},
-
-  __bind_tap() {},
-
-  __bind_touchmove() {},
-
-  __bind_touchcancel() {},
 });

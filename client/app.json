@@ -12,7 +12,9 @@
     "pages/aiocr/index",
     "pages/more/markdown",
     "pages/aicamera/camera",
-    "pages/aicamera/backcamera"
+    "pages/aicamera/backcamera",
+    "pages/docker/index",
+    "pages/docker/redirect"
   ],
   "window": {
     "backgroundTextStyle": "light",
