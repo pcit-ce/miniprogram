@@ -21,7 +21,7 @@ export interface IMyApp {
   };
   towxml: any;
   pcit: any;
-  tencentAI: any;
+  tencentAI: TencentAI;
   getSecret(): void;
 }
 

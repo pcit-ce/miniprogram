@@ -60,13 +60,15 @@ Page({
   textTranslate() {
     console.log(this.data.input);
 
-    app.tencentAI.translate.texttranslate('hello').then((res: any) => {
-      console.log(res);
+    (async () => {
+      const result = await app.tencentAI.translate.texttranslate(
+        this.data.input,
+      );
 
       this.setData!({
-        input: res.data.target_text,
+        input: result.data.target_text,
       });
-    });
+    })().catch(e => this.showModal(undefined, e));
   },
 
   selectSource(res: any) {
@@ -82,6 +84,19 @@ Page({
   bindinput(res: any) {
     this.setData!({
       input: res.detail.value,
+    });
+  },
+
+  showModal(
+    title: string = '出错啦',
+    content: any,
+    isJson: boolean = true,
+    showCancel: boolean = false,
+  ) {
+    wx.showModal({
+      title,
+      content: isJson ? JSON.stringify(content) : content,
+      showCancel,
     });
   },
 });

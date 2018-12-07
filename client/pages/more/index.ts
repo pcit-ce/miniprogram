@@ -108,6 +108,7 @@ Page({
         wx.showModal({
           title: '系统信息',
           content: JSON.stringify(res),
+          showCancel: false,
         });
       },
     });
@@ -208,6 +209,7 @@ Page({
             wx.showModal({
               title: '验证通过',
               content: JSON.stringify(res),
+              showCancel: false,
             });
 
             resolve(res);
@@ -222,6 +224,7 @@ Page({
       wx.showModal({
         title: '出错啦',
         content: JSON.stringify(e),
+        showCancel: false,
       });
     });
   },
@@ -239,6 +242,7 @@ Page({
         status: 'runing',
         health: true,
       }),
+      showCancel: false,
     });
   },
   openVerify() {
@@ -274,6 +278,7 @@ Page({
     wx.showModal({
       title: '通过',
       content: '您已通过 AI 鉴权',
+      showCancel: false,
     });
   },
 });

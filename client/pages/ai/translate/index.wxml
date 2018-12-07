@@ -9,7 +9,7 @@
   <text>目标{{targetAvailable[target]}}</text>
 </picker>
 
-<textarea id="input" bindinput="bindinput" value="{{input}}"></textarea>
+<textarea id="input" bindinput="bindinput" value="{{input}}" placeholder="请输入"></textarea>
 </form>
 
 <view class="weui-grids">

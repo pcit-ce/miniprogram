@@ -1,9 +1,18 @@
-// pages/ai/audio/index.js
+import { IMyApp } from '../../../app';
+
+const app = getApp<IMyApp>();
+
+const fs = wx.getFileSystemManager();
+
+const filePath = `${wx.env.USER_DATA_PATH}/audio.mp3`;
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    input: '',
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -44,4 +53,57 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(): any {},
+
+  bindinput(res: any) {
+    this.setData!({
+      input: res.detail.value,
+    });
+  },
+
+  bindconfirm(res: any) {
+    console.log(res);
+  },
+
+  tta() {
+    const text = this.data.input;
+
+    (async () => {
+      let result = await app.tencentAI.speech.tta(text, 0);
+
+      await new Promise((resolve, reject) => {
+        fs.writeFile({
+          filePath,
+          data: result.data.voice,
+          encoding: 'base64',
+          success() {
+            resolve(true);
+          },
+          fail() {
+            reject(false);
+          },
+        });
+      });
+
+      const cia = wx.createInnerAudioContext();
+
+      cia.src = filePath;
+
+      cia.autoplay = true;
+    })().catch(e => {
+      this.showModal(undefined, e);
+    });
+  },
+
+  showModal(
+    title: string = '出错啦',
+    content: any,
+    isJson: boolean = true,
+    showCancel: boolean = false,
+  ) {
+    wx.showModal({
+      title,
+      content: isJson ? JSON.stringify(content) : content,
+      showCancel,
+    });
+  },
 });

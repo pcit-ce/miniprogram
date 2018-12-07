@@ -1,11 +1,11 @@
 <!--pages/ai/nlp/index.wxml-->
 
 <form>
-<textarea></textarea>
+<textarea bindinput="bindinput" value="{{input}}" maxlength="-1" placeholder="请输入"></textarea>
 </form>
 
 <view class="weui-grids">
-  <view class="weui-grid">
+  <view class="weui-grid" bindtap="wordseg">
     <view class="weui-grid__icon">😁</view>
     <view class="weui-grid__label">分词</view>
   </view>

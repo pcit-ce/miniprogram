@@ -1,3 +1,9 @@
 /* pages/ai/image/index.wxss */
 
 @import '/weui/weui.wxss';
+
+image {
+  width: 100vw;
+  height: 90vh;
+  margin-bottom: 1vh;
+}

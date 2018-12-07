@@ -68,7 +68,6 @@ Page({
     // token 不存在
     if (!app.globalData.PCIT_TOKEN) {
       // 登录模态窗
-      wx.stopPullDownRefresh({});
       wx.showModal({
         title: '登录',
         content: '立即使用 GitHub 账号登录',
@@ -81,6 +80,11 @@ Page({
           }
         },
       });
+
+      setTimeout(() => {
+        wx.stopPullDownRefresh({});
+        wx.hideNavigationBarLoading({});
+      }, 600);
 
       return;
     }

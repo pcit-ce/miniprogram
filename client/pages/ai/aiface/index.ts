@@ -3,6 +3,7 @@ import { IMyApp } from '../../../app';
 const app = getApp<IMyApp>();
 import * as aiCommon from '../aicommon/index';
 const fs = wx.getFileSystemManager();
+const filePath = `${wx.env.USER_DATA_PATH}/src.jpg`;
 
 Page({
   data: {
@@ -16,8 +17,6 @@ Page({
   },
 
   onShow(): void {
-    const filePath = `${wx.env.USER_DATA_PATH}/src.jpg`;
-
     try {
       fs.accessSync(filePath);
 
@@ -26,7 +25,7 @@ Page({
       });
 
       this.setData!({
-        src: `${wx.env.USER_DATA_PATH}/src.jpg`,
+        src: filePath,
       });
     } catch (e) {
       this.setData!({
@@ -37,7 +36,7 @@ Page({
 
   onUnload() {
     console.log('onUnload');
-    fs.unlink({ filePath: `${wx.env.USER_DATA_PATH}/src.jpg` });
+    fs.unlink({ filePath });
     this.setData!({
       src: '',
       target_src: '',
@@ -46,14 +45,7 @@ Page({
 
   onLoad() {},
 
-  onHide() {
-    // console.log('onHide');
-    // fs.unlink({ filePath: `${wx.env.USER_DATA_PATH}/src.jpg` });
-    // this.setData!({
-    //   src: '',
-    //   target_src: '',
-    // });
-  },
+  onHide() {},
 
   clear() {
     try {
@@ -94,7 +86,7 @@ Page({
 
   toTakePhoto() {
     wx.navigateTo({
-      url: '/pages/aicamera/camera?cache_file=true',
+      url: '../aicamera/camera?cache_file=true',
     });
   },
 

@@ -1,7 +1,15 @@
-<!--pages/ai/image/index.wxml-->
+<button bindtap="takephoto" type="primary">拍摄</button>
+
+<image src="{{src}}" wx:if="{{src}}"></image>
+
 <view>
   <view class="weui-grids">
+    <view class="weui-grid" bindtap="imagetotext">
     <view class="weui-grid__icon">😁</view>
-    <view class="weui-grid__label">图片鉴黄</view>
+    <view class="weui-grid__label">一句话描述</view>
+    </view>
   </view>
 </view>
+
+<textarea bindblur="bindTextAreaBlur" placeholder="分析结果" value="{{output}}"
+maxlength="-1" auto-height disabled/>

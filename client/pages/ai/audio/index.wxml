@@ -1,7 +1,9 @@
 <!--pages/ai/audio/index.wxml-->
+<textarea bindconfirm="bindconfirm" bindinput="bindinput" value="{{input}}" placeholder="请输入" maxlength="150"/>
+
 <view>
   <view class="weui-grids">
-    <view class="weui-grid">
+    <view class="weui-grid" bindtap="tta">
       <view class="weui-grid__icon">😁</view>
       <view class="weui-grid__label">语音合成</view>
     </view>

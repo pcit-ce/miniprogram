@@ -1,9 +1,16 @@
 // pages/ai/nlp/index.js
+
+import { IMyApp } from '../../../app';
+
+const app = getApp<IMyApp>();
+
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    input: '',
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -44,4 +51,35 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(): any {},
+
+  wordseg() {
+    (async () => {
+      const result = await app.tencentAI.nlp.wordseg(this.data.input);
+
+      console.log(result);
+
+      this.setData!({
+        input: JSON.stringify(result.data),
+      });
+    })().catch(e => this.showModal(undefined, e));
+  },
+
+  bindinput(res: any) {
+    this.setData!({
+      input: res.detail.value,
+    });
+  },
+
+  showModal(
+    title: string = '出错啦',
+    content: any,
+    isJson: boolean = true,
+    showCancel: boolean = false,
+  ) {
+    wx.showModal({
+      title,
+      content: isJson ? JSON.stringify(content) : content,
+      showCancel,
+    });
+  },
 });

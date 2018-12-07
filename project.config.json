@@ -14,8 +14,8 @@
   },
   "scripts": {
     "beforeCompile": "cd client && npm run compile",
-    "beforePreview": "cd client && npm run compile",
-    "beforeUpload": "cd client && npm run compile"
+    "beforePreview": "cd client && npm run compile-pro",
+    "beforeUpload": "cd client && npm run compile-pro"
   },
   "compileType": "miniprogram",
   "libVersion": "2.4.1",
