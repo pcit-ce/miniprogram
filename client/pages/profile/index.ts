@@ -74,7 +74,7 @@ Page({
         success(res: wx.ShowModalSuccessCallbackResult) {
           if (res.confirm) {
             wx.redirectTo({
-              url: '/pages/profile/login',
+              url: './login/login',
             });
           } else {
           }

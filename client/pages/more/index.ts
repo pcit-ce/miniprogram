@@ -173,7 +173,7 @@ Page({
       wx.hideLoading({});
 
       wx.navigateTo({
-        url: './markdown',
+        url: '../markdown/markdown',
       });
     })();
   },
@@ -230,8 +230,15 @@ Page({
   },
 
   openDocker() {
+    wx.navigateToMiniProgram({
+      appId: 'wxb830c3abf8a658a5',
+      path: '/pages/docker/index/index?from=pcit',
+    });
+  },
+
+  openLaravel() {
     wx.navigateTo({
-      url: '/docker/pages/docker/index/index',
+      url: '/gitbook/pages/index/index',
     });
   },
 
@@ -254,7 +261,7 @@ Page({
     `;
 
     wx.navigateTo({
-      url: './markdown',
+      url: '../markdown/markdown',
     });
   },
   openDonate() {
@@ -270,7 +277,7 @@ Page({
     `;
 
     wx.navigateTo({
-      url: './markdown',
+      url: '../markdown/markdown',
     });
   },
 

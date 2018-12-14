@@ -1,6 +1,8 @@
 {
   "scripts": {
     "prettier": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
-    "docker": "cd docker && node serverrender.js"
+    "gitbook": "cd gitbook && node serverrender.js && php ./tojson.php",
+    "precleanup": "npx rimraf ./client/gitbook/pages/index/summary.js",
+    "cleanup": "npx rimraf ./client/gitbook/pages/content/summary.ts"
   }
 }

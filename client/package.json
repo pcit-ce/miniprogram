@@ -9,8 +9,8 @@
   "scripts": {
     "cleanup": "npx rimraf node_modules/node-fetch node_modules/towxml",
     "postinstall": "npm run cleanup",
-    "compile": "cd ../ && npm run docker && cd client && npx tsc",
-    "compile-pro": "cd ../ && npm run docker && cd client && npx tsc --inlineSourceMap false --inlineSources false"
+    "compile": "cd ../ && npm run gitbook && cd client && npx tsc",
+    "compile-pro": "cd ../ && npm run gitbook && cd client && npx tsc --inlineSourceMap false --inlineSources false"
   },
   "devDependencies": {
     "@types/wx": "github:khs1994/types-wx",

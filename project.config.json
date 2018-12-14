@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "postcss": true,
     "minified": true,
@@ -18,7 +18,7 @@
     "beforeUpload": "cd client && npm run compile-pro"
   },
   "compileType": "miniprogram",
-  "libVersion": "2.4.1",
+  "libVersion": "2.4.2",
   "appid": "wxbc5e22d529a1c5d0",
   "projectname": "PCIT",
   "isGameTourist": false,

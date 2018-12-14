@@ -56,6 +56,13 @@
 </i-grid>
 
 <i-grid>
+  <i-grid-item bindtap="openLaravel">
+    <i-grid-icon>📗</i-grid-icon>
+    <i-grid-label>Laravel 文档</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
 <i-grid-item bindtap="openSystem">
   <i-grid-icon>📱</i-grid-icon>
   <i-grid-label>系统信息</i-grid-label>

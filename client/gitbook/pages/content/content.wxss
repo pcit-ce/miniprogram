@@ -1,0 +1,36 @@
+@import '/towxml/style/main.wxss';
+@import '/towxml/style/theme/light.wxss';
+@import '/towxml/style/theme/dark.wxss';
+@import '/weui/weui.wxss';
+
+page {
+  height: 100%;
+}
+
+.weui-footer__text {
+  font-size: 40rpx;
+  padding-bottom: 11vh;
+}
+
+button {
+  display: inline-block;
+  width: 32.4vw;
+}
+
+.h2w-light .h2w__a {
+  color: #36a1f0;
+  border-bottom-color: #36a1f0;
+}
+
+.h2w-dark .h2w__a {
+  color: #36a1f0;
+  border-bottom-color: #36a1f0;
+}
+
+.h2w__a {
+  border-bottom-color: #36a1f0;
+}
+
+.dark {
+  background: #000!important;
+}

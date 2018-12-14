@@ -1,6 +1,6 @@
 // pages/login.js
 
-import { IMyApp } from '../../app';
+import { IMyApp } from '../../../app';
 
 const app = getApp<IMyApp>();
 

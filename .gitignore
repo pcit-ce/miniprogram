@@ -10,5 +10,8 @@ package-lock.json
 /client/app.js
 
 /client/pages/**/*.js
-/client/docker/**/*.js
+/client/gitbook/**/*.js
+/client/gitbook/pages/content/summary.ts
 /client/utils/**/*.js
+
+/gitbook/summary.ts

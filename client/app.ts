@@ -18,6 +18,8 @@ export interface IMyApp {
     tencentAI: any;
     cloudEnv: string;
     MDData: string;
+    baseUrl: string;
+    theme: string;
   };
   towxml: any;
   pcit: any;
@@ -107,6 +109,8 @@ App<IMyApp>({
     tencentAI: TencentAI,
     cloudEnv: 'pro-1e94dd',
     MDData: '',
+    theme: '',
+    baseUrl: 'https://gitee.com/khs1994-website/laravel5.5-docs.zh-cn/raw/5.5/',
   },
   towxml: new Towxml(),
   pcit: PCIT,

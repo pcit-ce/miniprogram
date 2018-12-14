@@ -5,7 +5,7 @@
     "pages/about/index",
     "pages/build/index",
     "pages/profile/index",
-    "pages/profile/login",
+    "pages/profile/login/login",
     "pages/news/index",
     "pages/repo/repo",
     "pages/ai/aiface/index",
@@ -16,7 +16,7 @@
     "pages/ai/image/index",
     "pages/ai/nlp/index",
     "pages/ai/translate/index",
-    "pages/more/markdown"
+    "pages/markdown/markdown"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -52,22 +52,21 @@
       }
     ]
   },
-  "navigateToMiniProgramAppIdList": ["wx767dab1b29691501"],
+  "navigateToMiniProgramAppIdList": [
+    "wx767dab1b29691501",
+    "wxb830c3abf8a658a5"
+  ],
   "subpackages": [
     {
-      "root": "docker",
-      "name": "docker",
-      "pages": [
-        "pages/docker/index/index",
-        "pages/docker/redirect/redirect",
-        "pages/docker/content/content"
-      ]
+      "root": "gitbook",
+      "name": "gitbook",
+      "pages": ["pages/index/index", "pages/content/content"]
     }
   ],
   "preloadRule": {
     "pages/more/index": {
       "network": "all",
-      "packages": ["docker"]
+      "packages": ["gitbook"]
     }
   }
 }
