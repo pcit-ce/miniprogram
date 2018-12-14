@@ -1,10 +1,8 @@
 // pages/docker/index.js
 
-// import { IMyApp } from '../../../app';
+import { IMyApp } from '../../../app';
 
-// const app = getApp<IMyApp>();
-
-const data = require('./summary.js');
+const app = getApp<IMyApp>();
 
 Page({
   /**
@@ -12,33 +10,56 @@ Page({
    */
   data: {
     data: '',
+    gitbook: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {},
+  onLoad: function(options: any) {
+    this.setData!({
+      gitbook: options.gitbook,
+    });
+  },
+
+  request(url: string): any {
+    return new Promise((resolve: any, reject: any) => {
+      wx.request({
+        url,
+        success(res: any) {
+          resolve(res.data);
+        },
+        fail(e) {
+          reject(e);
+        },
+      });
+    });
+  },
 
   show() {
-    // wx.request({
-    // url: 'https://ci.khs1994.com/proxy_github_raw/yeasy/docker_practice/master/SUMMARY.md',
-    // success:(res:any)=>{
-    // app.globalData.MDData = res.data;
+    let summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
+      this.data.gitbook
+    }/SUMMARY.md`;
+    let summary_json_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
+      this.data.gitbook
+    }/SUMMARY.json`;
 
-    // wx.redirectTo({
-    //   url: '../more/markdown',
-    // });
+    Promise.all([
+      this.request(summary_url),
+      this.request(summary_json_url),
+    ]).then(res => {
+      console.log(res);
 
-    // const towxml = app.towxml.toJson(res.data, 'markdown');
-    // const theme = app.globalData.theme;
+      const data = app.towxml.toJson(res[0], 'markdown');
 
-    // data.theme = theme;
+      data.theme = 'light';
 
-    this.setData!({
-      data,
+      this.setData!({
+        data,
+      });
+
+      app.globalData.summaryData = res[1];
     });
-    // },
-    // });
 
     // wx.setNavigationBarColor({
     //   backgroundColor: theme === 'dark' ? '#000000': '#ffffff',

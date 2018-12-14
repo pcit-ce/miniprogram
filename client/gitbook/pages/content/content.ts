@@ -1,7 +1,7 @@
 import { IMyApp } from '../../../app';
 
 const app = getApp<IMyApp>();
-import { next, before } from './next_page';
+import { next, before } from './lib/next_page';
 // const MenuData = require('../index/summary.js');
 
 Page({
@@ -23,12 +23,19 @@ Page({
     showNotice: true,
     noticeBGColor: '#fff',
     tabbarMode: 'light',
+    gitbook: '',
   },
   onUnload() {
     app.globalData.MDData = '';
   },
   onLoad(options: any) {
     console.log('onload');
+
+    let gitbook = options.gitbook;
+    this.setData!({
+      gitbook,
+    });
+
     this.load(options);
   },
   onPullDownRefresh() {
@@ -116,12 +123,12 @@ Page({
     let data;
 
     if (isCache) {
-      data = JSON.parse(wx.getStorageSync(key));
+      data = JSON.parse(wx.getStorageSync(`${this.data.gitbook}_${key}`));
     } else {
       data = app.towxml.toJson(this.data.MDData, 'markdown');
 
       wx.setStorage({
-        key,
+        key: `${this.data.gitbook}_${key}`,
         data: JSON.stringify(data),
       });
     }
@@ -255,7 +262,7 @@ Page({
       },
     });
 
-    if (cache && wx.getStorageSync(key)) {
+    if (cache && wx.getStorageSync(`${this.data.gitbook}_${key}`)) {
       this.show(key, true);
 
       return;

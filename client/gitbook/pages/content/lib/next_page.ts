@@ -1,11 +1,11 @@
-import summary from './summary';
+import { IMyApp } from '../../../../app';
 
-const obj = JSON.parse(summary);
+const app = getApp<IMyApp>();
 
 function getIndex(key: any) {
   let result: any;
-
-  obj.forEach((item: any, i: any) => {
+  let summary = app.globalData.summaryData;
+  summary.forEach((item: any, i: any) => {
     for (let item_item in item) {
       if (item_item === key) {
         result = i;
@@ -31,7 +31,8 @@ function parse(result: any) {
 
 export function next(key: any): any {
   let index = getIndex(key);
-  let result = obj[index + 1];
+  let summary = app.globalData.summaryData;
+  let result = summary[index + 1];
   if (result) {
     return parse(result);
   }
@@ -41,7 +42,8 @@ export function next(key: any): any {
 
 export function before(key: any): any {
   let index = getIndex(key);
-  let result = obj[index - 1];
+  let summary = app.globalData.summaryData;
+  let result = summary[index - 1];
   if (result) {
     return parse(result);
   }

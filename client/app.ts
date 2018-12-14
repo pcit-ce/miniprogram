@@ -20,6 +20,7 @@ export interface IMyApp {
     MDData: string;
     baseUrl: string;
     theme: string;
+    summaryData: Array<any>;
   };
   towxml: any;
   pcit: any;
@@ -111,6 +112,7 @@ App<IMyApp>({
     MDData: '',
     theme: '',
     baseUrl: 'https://gitee.com/khs1994-website/laravel5.5-docs.zh-cn/raw/5.5/',
+    summaryData: [],
   },
   towxml: new Towxml(),
   pcit: PCIT,

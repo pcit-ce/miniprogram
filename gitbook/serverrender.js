@@ -2,27 +2,33 @@ const Towxml = require('../client/towxml/main');
 const towxml = new Towxml();
 const fs = require('fs');
 
-let targetPath = '../client/gitbook/pages/index/summary.js';
+function render(gitbook) {
+  let targetPath = `../client/gitbook/pages/index/${gitbook}_summary.js`;
 
-try {
-  fs.accessSync(targetPath);
-  console.log('file exists');
+  try {
+    fs.accessSync(targetPath);
+    console.log('file exists');
 
-} catch (e) {
+  } catch (e) {
 
-  //Markdown转towxml数据
-  let data = towxml.toJson(fs.readFileSync('./summary.md', 'utf-8'), 'markdown');
+    //Markdown转towxml数据
+    let data = towxml.toJson(fs.readFileSync(`${gitbook}./summary.md`, 'utf-8'), 'markdown');
 
-  fs.writeFileSync(targetPath, 'module.exports=' + JSON.stringify(data));
+    fs.writeFileSync(targetPath, 'module.exports=' + JSON.stringify(data));
 
-  // htm转towxml数据
-  // let data = towxml.toJson('<h1>Article title</h1>','html');
+    // htm转towxml数据
+    // let data = towxml.toJson('<h1>Article title</h1>','html');
+  }
 }
 
-targetPath = '../client/gitbook/pages/content/summary.ts';
+let gitbook = 'laravel';
+
+reader(gitbook);
+
+targetPath = `../client/gitbook/pages/content/${gitbook}_summary.ts`;
 
 try {
   fs.accessSync(targetPath);
-}catch(e){
-  fs.copyFileSync('./summary.ts',targetPath)
+} catch (e) {
+  fs.copyFileSync(`${gitbook}./summary.ts`, targetPath)
 }

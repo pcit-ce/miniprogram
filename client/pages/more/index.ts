@@ -238,7 +238,13 @@ Page({
 
   openLaravel() {
     wx.navigateTo({
-      url: '/gitbook/pages/index/index',
+      url: '/gitbook/pages/index/index?gitbook=laravel5.5-docs.zh-cn',
+    });
+  },
+
+  openKubernetes() {
+    wx.navigateTo({
+      url: '/gitbook/pages/index/index?gitbook=kubernetes-handbook',
     });
   },
 

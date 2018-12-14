@@ -60,6 +60,10 @@
     <i-grid-icon>📗</i-grid-icon>
     <i-grid-label>Laravel 文档</i-grid-label>
   </i-grid-item>
+  <i-grid-item bindtap="openKubernetes">
+    <i-grid-icon>📗</i-grid-icon>
+    <i-grid-label>Kubernetes</i-grid-label>
+  </i-grid-item>
 </i-grid>
 
 <i-grid>

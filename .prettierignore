@@ -4,6 +4,4 @@ client/towxml
 client/iviewui/dist
 package-lock.json
 
-client/gitbook/pages/content/summary.ts
-
-gitbook/summary.ts
+gitbook/**/SUMMARY.json

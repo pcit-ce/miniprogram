@@ -1,13 +1,15 @@
 <?php
 
-$fh = fopen('summary.md','r+');
+function tojson($gitbook){
+
+$fh = fopen('./'.$gitbook.'/SUMMARY.md','r+');
 
 $array = [];
 
 while(!feof($fh)){
   $line = fgets($fh);
 
-  $key = explode('?key=',$line)[1] ?? null;
+  $key = explode('&key=',$line)[1] ?? null;
   $key = rtrim($key,")\n");
 
   $name = explode('[',$line)[1] ?? null;
@@ -18,5 +20,11 @@ while(!feof($fh)){
   }
 }
 
-file_put_contents('./summary.ts',
-"const summary = \n `" . json_encode($array,JSON_UNESCAPED_UNICODE) . "`\n export default summary;");
+file_put_contents('./'.$gitbook.'/SUMMARY.json',json_encode($array,JSON_UNESCAPED_UNICODE));
+}
+
+$gitbooks = ['laravel','kubernetes'];
+
+foreach ($gitbooks as $gitbook) {
+ tojson($gitbook);
+}

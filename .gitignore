@@ -11,7 +11,6 @@ package-lock.json
 
 /client/pages/**/*.js
 /client/gitbook/**/*.js
-/client/gitbook/pages/content/summary.ts
 /client/utils/**/*.js
 
-/gitbook/summary.ts
+/gitbook/**/SUMMARY.json
