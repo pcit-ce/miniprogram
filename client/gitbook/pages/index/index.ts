@@ -48,7 +48,7 @@ Page({
       this.request(summary_url),
       this.request(summary_json_url),
     ]).then(res => {
-      console.log(res);
+      // console.log(res);
 
       const data = app.towxml.toJson(res[0], 'markdown');
 

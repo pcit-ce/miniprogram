@@ -1,6 +1,7 @@
 <!--pages/more/index.wxml-->
 <view class="page">
-<i-notice-bar icon="systemprompt" loop>
+
+<i-notice-bar icon="systemprompt" loop speed="1200">
   欢迎使用 PCIT 微信小程序。
 </i-notice-bar>
 
@@ -71,6 +72,10 @@
   <i-grid-icon>📱</i-grid-icon>
   <i-grid-label>系统信息</i-grid-label>
 </i-grid-item>
+<i-grid-item bindtap="openSettings">
+  <i-grid-icon>⚙</i-grid-icon>
+  <i-grid-label>系统设置</i-grid-label>
+</i-grid-item>
 <i-grid-item bindtap="openStoreAuth">
   <i-grid-icon>🖖</i-grid-icon>
   <i-grid-label>生物认证</i-grid-label>
@@ -109,7 +114,7 @@
 
 <i-grid>
   <i-grid-item bindtap="openCXYL">
-    <i-grid-icon>💂‍</i-grid-icon>
+    <i-grid-icon>👩‍👩‍👦‍👦‍</i-grid-icon>
     <i-grid-label>晨曦雨露</i-grid-label>
   </i-grid-item>
 </i-grid>

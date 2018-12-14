@@ -134,6 +134,7 @@ Page({
     }
 
     const theme = app.globalData.theme;
+
     data.theme = theme;
     console.log(theme);
 
@@ -238,8 +239,8 @@ Page({
     //   showMenu: true,
     // });
 
-    wx.switchTab({
-      url: '../index/index',
+    wx.navigateBack({
+      delta: 1,
     });
   },
 
@@ -275,16 +276,20 @@ Page({
 
     // const base_url = 'https://gitee.com/docker_practice/docker_practice/raw/master';
 
-    const base_url = app.globalData.baseUrl;
+    // const base_url = app.globalData.baseUrl;
 
     // let url = `https://ci.khs1994.com/proxy_github_raw/yeasy/docker_practice/master/${key}`;
 
-    let url = `${base_url}/${key}`;
+    // let url = `${base_url}/${key}`;
 
-    if (key === 'README.md' || key === 'miniprogram.md') {
-      // url = 'https://ci.khs1994.com/proxy_github_raw/khs1994-docker/docker_practice/master/README.md';
-      url = `https://gitee.com/khs1994-docker/docker_practice/raw/master/${key}`;
-    }
+    // if (key === 'README.md' || key === 'miniprogram.md') {
+    //   // url = 'https://ci.khs1994.com/proxy_github_raw/khs1994-docker/docker_practice/master/README.md';
+    //   url = `https://gitee.com/khs1994-docker/docker_practice/raw/master/${key}`;
+    // }
+
+    let url = `https://gitee.com/khs1994-website/${
+      this.data.gitbook
+    }/raw/master/${key}`;
 
     wx.request({
       url,

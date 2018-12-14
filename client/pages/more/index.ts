@@ -294,4 +294,10 @@ Page({
       showCancel: false,
     });
   },
+
+  openSettings() {
+    wx.navigateTo({
+      url: '../settings/settings',
+    });
+  },
 });

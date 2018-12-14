@@ -1,0 +1,16 @@
+<i-panel>
+<i-cell-group>
+  <i-cell title="护眼模式">
+    <i-switch value="{{isDark}}" bind:change="themeChange" slot="footer">
+      <i-icon type="right" slot="close"></i-icon>
+      <i-icon type="close" slot="close"></i-icon>
+    </i-switch>
+  </i-cell>
+</i-cell-group>
+</i-panel>
+
+<i-panel>
+  <i-cell title="评分">
+  <i-rate bind:change="rate" value="{{rate}}" count="5" slot="footer"></i-rate>
+  </i-cell>
+</i-panel>

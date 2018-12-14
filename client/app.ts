@@ -1,8 +1,9 @@
-//app.js
-
 import TencentAI from '@khs1994/tencent-ai';
-
+// @ts-ignore
 const Towxml = require('/towxml/main');
+// @ts-ignore
+// import PCIT from '@pcit/pcit-js';
+
 const PCIT = require('@pcit/pcit-js');
 
 export interface IMyApp {
@@ -17,15 +18,15 @@ export interface IMyApp {
     TENCENT_AI_APP_ID: any;
     tencentAI: any;
     cloudEnv: string;
-    MDData: string;
-    baseUrl: string;
     theme: string;
     summaryData: Array<any>;
+    MDData: string;
   };
   towxml: any;
   pcit: any;
   tencentAI: TencentAI;
   getSecret(): void;
+  getTheme(): void;
 }
 
 App<IMyApp>({
@@ -62,11 +63,22 @@ App<IMyApp>({
       );
   },
 
+  getTheme() {
+    wx.getStorage({
+      key: 'theme',
+      success: (res: any) => {
+        this.globalData.theme = res.data;
+      },
+    });
+  },
+
   onLaunch: function() {
     // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs);
+    // var logs = wx.getStorageSync('logs') || [];
+    // logs.unshift(Date.now());
+    // wx.setStorageSync('logs', logs);
+
+    this.getTheme();
 
     // 登录
     wx.login({
@@ -109,10 +121,9 @@ App<IMyApp>({
     TENCENT_AI_APP_ID: '',
     tencentAI: TencentAI,
     cloudEnv: 'pro-1e94dd',
-    MDData: '',
-    theme: '',
-    baseUrl: 'https://gitee.com/khs1994-website/laravel5.5-docs.zh-cn/raw/5.5/',
+    theme: 'light',
     summaryData: [],
+    MDData: '',
   },
   towxml: new Towxml(),
   pcit: PCIT,

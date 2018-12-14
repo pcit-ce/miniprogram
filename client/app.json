@@ -16,7 +16,8 @@
     "pages/ai/image/index",
     "pages/ai/nlp/index",
     "pages/ai/translate/index",
-    "pages/markdown/markdown"
+    "pages/markdown/markdown",
+    "pages/settings/settings"
   ],
   "window": {
     "backgroundTextStyle": "light",
