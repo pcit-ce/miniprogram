@@ -4,7 +4,7 @@
 <img width="200" src="https://user-images.githubusercontent.com/16733187/49062650-de41ea00-f24f-11e8-9f22-99b5cd3d0195.jpg">
 </p>
 
-<p align="center"><strong>即将发布，敬请期待</strong></p>
+<p align="center"><strong>微信扫码 立即体验</strong></p>
 
 ## ENTRYPOINT
 
@@ -42,6 +42,4 @@ App({
 
 ## 致谢
 
-```bash
-"towxml": "^2.1.3"
-```
+- https://github.com/pcit-ce/miniprogram/network/dependencies

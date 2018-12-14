@@ -1,8 +1,14 @@
 {
   "scripts": {
+    "preinstall": "echo don't exec install command in this folder && exit 1",
     "prettier": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
     "gitbook": "cd gitbook && node serverrender.js && php ./tojson.php",
     "precleanup": "npx rimraf ./client/gitbook/pages/index/summary.js",
     "cleanup": "npx rimraf ./client/gitbook/pages/content/summary.ts"
+  },
+  "devDependencies": {
+    "towxml": "*",
+    "weui-wxss": "*",
+    "iview-weapp": "*"
   }
 }
