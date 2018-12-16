@@ -244,7 +244,7 @@ Page({
 
   openKubernetes() {
     wx.navigateTo({
-      url: '/gitbook/pages/index/index?gitbook=kubernetes-handbook',
+      url: '/gitbook/pages/index/index?gitbook=kubernetes',
     });
   },
 

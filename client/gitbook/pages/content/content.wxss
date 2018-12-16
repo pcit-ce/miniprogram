@@ -34,3 +34,7 @@ button {
 .dark {
   background: #000!important;
 }
+
+.page {
+  padding-bottom: 100rpx;
+}

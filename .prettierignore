@@ -5,3 +5,4 @@ client/iviewui/dist
 package-lock.json
 
 gitbook/**/SUMMARY.json
+gitbook/**/*.md

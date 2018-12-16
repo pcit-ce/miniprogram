@@ -1,5 +1,5 @@
 <!-- <progress percent="{{percent}}" stroke-width="3px" activeColor="{{progressColor}}"></progress> -->
-<view style="height:100%;background-color:{{noticeBGColor}}">
+<view class="page" style="height:100%;background-color:{{noticeBGColor}}">
 <!-- <i-notice-bar icon="systemprompt" loop
 wx:if="{{showNotice}}" backgroundcolor="{{noticeBGColor}}" color="#36a1f0"
 speed="1200"
