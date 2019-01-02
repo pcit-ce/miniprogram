@@ -1,6 +1,10 @@
 <!--pages/more/index.wxml-->
 <view class="page">
 
+<view class="nav" style="height:{{nav_height * 2}}rpx">
+
+</view>
+
 <i-notice-bar icon="systemprompt" loop speed="1200">
   欢迎使用 PCIT 微信小程序。
 </i-notice-bar>

@@ -22,20 +22,6 @@ Page({
     });
   },
 
-  request(url: string): any {
-    return new Promise((resolve: any, reject: any) => {
-      wx.request({
-        url,
-        success(res: any) {
-          resolve(res.data);
-        },
-        fail(e) {
-          reject(e);
-        },
-      });
-    });
-  },
-
   show() {
     let summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
       this.data.gitbook
@@ -44,9 +30,11 @@ Page({
       this.data.gitbook
     }/SUMMARY.json`;
 
+    const fetch = require('wx-fetch');
+
     Promise.all([
-      this.request(summary_url),
-      this.request(summary_json_url),
+      fetch(summary_url).then((e: any) => e.text()),
+      fetch(summary_json_url).then((e: any) => e.text()),
     ]).then(res => {
       // console.log(res);
 

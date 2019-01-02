@@ -23,7 +23,8 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "list": [
@@ -61,7 +62,7 @@
     {
       "root": "gitbook",
       "name": "gitbook",
-      "pages": ["pages/index/index", "pages/content/content"]
+      "pages": ["pages/index/index", "pages/content/index"]
     }
   ],
   "preloadRule": {
