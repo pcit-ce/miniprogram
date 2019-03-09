@@ -14,6 +14,7 @@ Page({
       src: '',
     },
     dirPath: `${wx.env.USER_DATA_PATH}/aiface`,
+    topHeight: 0,
   },
 
   onShow(): void {
@@ -43,7 +44,11 @@ Page({
     });
   },
 
-  onLoad() {},
+  onLoad() {
+    this.setData!({
+      topHeight: app.globalData.topHeight,
+    });
+  },
 
   onHide() {},
 

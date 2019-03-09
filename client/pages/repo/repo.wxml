@@ -1,4 +1,5 @@
-<!--pages/repo/repo.wxml.wxml-->
+<view style="margin-top:{{topHeight}}px"></view>
+
 <view wx:for="{{repos}}">
   <view class='repo'>
     <view>{{item.repo_full_name}}</view>

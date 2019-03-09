@@ -1,3 +1,5 @@
+<view style="margin-top:{{topHeight}}px"></view>
+
 <view wx:for="{{news}}" wx:for-item="item" wx:key="id">
 <i-alert type="{{item.type}}" show-icon desc closable data-id="{{item.id}}" bind:close="close">
   {{item.title}}

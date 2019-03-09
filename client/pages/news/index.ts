@@ -1,10 +1,12 @@
-// pages/news/index.js
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    topHeight: 0,
     news: [
       {
         id: 100,
@@ -24,7 +26,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {},
+  onLoad: function() {
+    this.setData!({
+      topHeight: app.globalData.topHeight,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

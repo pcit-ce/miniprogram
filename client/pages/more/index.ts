@@ -1,8 +1,15 @@
 // pages/more/index.js
 
 import { IMyApp } from '../../app';
-
 const app = getApp<IMyApp>();
+
+wx.getNetworkType({
+  success(res) {
+    wx.showToast({
+      title: res.networkType + '已连接',
+    });
+  },
+});
 
 Page({
   /**
@@ -10,7 +17,7 @@ Page({
    */
   data: {
     alpha: false,
-    nav_height: '',
+    topHeight: 0,
   },
 
   /**
@@ -22,7 +29,7 @@ Page({
     console.log(menuBtn);
 
     this.setData!({
-      nav_height: menuBtn.top,
+      topHeight: app.globalData.topHeight,
     });
   },
 
@@ -245,16 +252,40 @@ Page({
     });
   },
 
-  openLaravel() {
+  openGitbook(name: string) {
     wx.navigateTo({
-      url: '/gitbook/pages/index/index?gitbook=laravel5.5-docs.zh-cn',
+      url: '/gitbook/pages/index/index?gitbook=' + name,
     });
   },
 
+  openLaravel() {
+    this.openGitbook('laravel5.5-docs.zh-cn');
+  },
+
   openKubernetes() {
-    wx.navigateTo({
-      url: '/gitbook/pages/index/index?gitbook=kubernetes',
+    this.openGitbook('kubernetes');
+  },
+
+  openTypeScriptZhCn() {
+    this.openGitbook('typescript-docs.zh-cn');
+  },
+
+  openTypeScript() {
+    this.openGitbook('typescript-docs.us-en');
+  },
+
+  openNginx() {
+    this.openGitbook('nginx-docs.zh-cn');
+  },
+
+  openGolang() {
+    wx.navigateToMiniProgram({
+      appId: 'wx4e37655ebd5fd6f8',
     });
+  },
+
+  openPHPUnit() {
+    this.openGitbook('phpunit');
   },
 
   openPCITCluster() {
@@ -306,7 +337,32 @@ Page({
 
   openSettings() {
     wx.navigateTo({
-      url: '../settings/settings',
+      url: '../tools/settings/settings',
     });
+  },
+
+  openNFC() {
+    wx.navigateTo({
+      url: '../tools/nfc/nfc',
+    });
+  },
+  navigateTo(res: any) {
+    wx.navigateTo({
+      url:
+        '../tools/content/index?list=' +
+        encodeURIComponent(JSON.stringify(res)),
+    });
+  },
+  openScanCode() {
+    wx.scanCode({
+      success: res => {
+        this.navigateTo(res);
+      },
+    });
+  },
+
+  openButtonInfo() {
+    const res = wx.getMenuButtonBoundingClientRect();
+    this.navigateTo(res);
   },
 });

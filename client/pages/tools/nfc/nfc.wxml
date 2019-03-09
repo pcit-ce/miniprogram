@@ -1,0 +1,4 @@
+<view style="margin-top:{{topHeight}}px"></view>
+<button bindtap="stopHCE">stopHCE</button>
+<button bindtap="startHCE">startHCE</button>
+<button bindtap="getHCEState">startHCE</button>

@@ -11,6 +11,7 @@ Page({
   data: {
     data: '',
     gitbook: '',
+    topHeight: 0,
   },
 
   /**
@@ -20,13 +21,22 @@ Page({
     this.setData!({
       gitbook: options.gitbook,
     });
+
+    wx.getSystemInfo({
+      success: res => {
+        this.setData!({
+          topHeight: res.statusBarHeight,
+        });
+      },
+    });
   },
 
   show() {
-    let summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
+    const summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
       this.data.gitbook
     }/SUMMARY.md`;
-    let summary_json_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
+
+    const summary_json_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
       this.data.gitbook
     }/SUMMARY.json`;
 
@@ -46,7 +56,7 @@ Page({
         data,
       });
 
-      app.globalData.summaryData = res[1];
+      app.globalData.summaryData = JSON.parse(res[1]);
     });
 
     // wx.setNavigationBarColor({

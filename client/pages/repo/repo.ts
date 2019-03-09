@@ -10,6 +10,7 @@ Page({
    */
   data: {
     repos: [],
+    topHeight: 0,
   },
 
   /**
@@ -45,6 +46,7 @@ Page({
 
       this.setData!({
         repos,
+        topHeight: app.globalData.topHeight,
       });
 
       console.log(this.data.repos);

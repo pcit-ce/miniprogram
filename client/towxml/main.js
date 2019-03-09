@@ -21,7 +21,7 @@ class towxml {
 				return _ts.m.highlight.highlightAuto(code).value;
 			}
 		};
-		
+
 		_ts.m.toJson = require('./lib/toJson');
 		_ts.m.highlight = require('./plugins/hljs/index');
 
@@ -89,7 +89,7 @@ class towxml {
 			app = option.app,
 			appData = app.data,
 			base = option.base || '';
-		
+
 		let eachData,
 			dataId = data.id;
 
@@ -100,8 +100,8 @@ class towxml {
 				// 处理所有相对资源的src路径
 				if(
 					base &&
-					data.attr && 
-					data.attr.src && 
+					data.attr &&
+					data.attr.src &&
 					data.attr.src.indexOf('//') < 0
 				){
 					data.attr.src = `${base}${data.attr.src}`;
@@ -158,7 +158,7 @@ class towxml {
 				let aItem = item.split(':'),
 					bindType = aItem[0],		// 事件绑定类型
 					evenType = aItem[1];		// 事件类型
-				
+
 
 				// 检查，如果有添加自定义事件，则运行该事件
 				app[`__${bindType}_${evenType}`] = (event)=>{
@@ -167,12 +167,12 @@ class towxml {
 						runFun = app[funName];
 
 					// 为audio标签绑定音频播放
-					if(event && 
-						event.type === 'tap' && 
+					if(event &&
+						event.type === 'tap' &&
 						event.currentTarget &&
 						event.currentTarget.dataset &&
 						event.currentTarget.dataset._el &&
-						event.currentTarget.dataset._el._e && 
+						event.currentTarget.dataset._el._e &&
 						event.currentTarget.dataset._el._e.tagName === 'audio'){
 						app.__audioPlayAndPause__(event);
 					};
@@ -189,9 +189,10 @@ class towxml {
 			});
 			app[`__todo_checkboxChange`] = (event)=>{};
 		};
-		
+
 		return data;
 	}
 };
 
-module.exports = towxml;
+// module.exports = towxml;
+exports.default = towxml;

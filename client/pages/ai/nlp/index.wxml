@@ -1,4 +1,4 @@
-<!--pages/ai/nlp/index.wxml-->
+<view style="margin-top:{{topHeight}}px"></view>
 
 <form>
 <textarea bindinput="bindinput" value="{{input}}" maxlength="-1" placeholder="请输入"></textarea>

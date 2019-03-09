@@ -1,7 +1,10 @@
 {
   "pages": [
     "pages/more/index",
-    "pages/logs/logs",
+    "pages/tools/logs/logs",
+    "pages/tools/nfc/nfc",
+    "pages/tools/settings/settings",
+    "pages/tools/content/index",
     "pages/about/index",
     "pages/build/index",
     "pages/profile/index",
@@ -16,8 +19,7 @@
     "pages/ai/image/index",
     "pages/ai/nlp/index",
     "pages/ai/translate/index",
-    "pages/markdown/markdown",
-    "pages/settings/settings"
+    "pages/markdown/markdown"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -56,7 +58,8 @@
   },
   "navigateToMiniProgramAppIdList": [
     "wx767dab1b29691501",
-    "wxb830c3abf8a658a5"
+    "wxb830c3abf8a658a5",
+    "wx4e37655ebd5fd6f8"
   ],
   "subpackages": [
     {

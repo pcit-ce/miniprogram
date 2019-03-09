@@ -2,7 +2,7 @@
 
 <template is="camera" data="{{...template_data}}">
 </template> -->
-
+<view style="margin-top:{{topHeight}}px"></view>
 <image wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
 <image wx:if="{{target_src}}" src="{{target_src}}" mode='scaleToFill'></image>
 

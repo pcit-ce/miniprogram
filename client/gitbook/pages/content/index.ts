@@ -10,11 +10,11 @@ Page({
     key: '',
     next_key: '',
     before_key: '',
-    startX: '',
-    startY: '',
-    endX: '',
-    endY: '',
-    percent: 0,
+    // startX: '',
+    // startY: '',
+    // endX: '',
+    // endY: '',
+    // percent: 0,
     intervalNum: 0,
     progressColor: '#36a1f0',
     showMenu: false,
@@ -290,6 +290,9 @@ Page({
     let url = `https://gitee.com/khs1994-website/${
       this.data.gitbook
     }/raw/master/${key}`;
+
+    // url 解码
+    // url = decodeURIComponent(url);
 
     wx.request({
       url,

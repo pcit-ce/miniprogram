@@ -1,4 +1,4 @@
-import { IMyApp } from '../../app';
+import { IMyApp } from '../../../app';
 
 const app = getApp<IMyApp>();
 
@@ -9,6 +9,9 @@ Page({
   data: {
     isDark: false,
     rate: 0,
+    topHeight: 0,
+    systemInfo: [],
+    userInfo: [],
   },
 
   /**
@@ -17,6 +20,25 @@ Page({
   onLoad: function() {
     this.getTheme();
     this.getRate();
+    this.setData!({
+      topHeight: app.globalData.topHeight,
+    });
+
+    wx.getSystemInfo({
+      success: res => {
+        this.setData!({
+          systemInfo: res,
+        });
+      },
+    });
+
+    wx.getUserInfo({
+      success: res => {
+        this.setData!({
+          userInfo: res.userInfo,
+        });
+      },
+    });
   },
 
   getRate() {

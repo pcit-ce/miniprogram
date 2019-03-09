@@ -1,0 +1,9 @@
+<view style="margin-top:{{topHeight}}px"></view>
+
+<block wx:for="{{list}}">
+<i-panel>
+  <i-cell title="{{index}}">
+  {{item}}
+  </i-cell>
+</i-panel>
+</block>

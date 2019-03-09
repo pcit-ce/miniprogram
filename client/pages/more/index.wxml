@@ -1,9 +1,7 @@
 <!--pages/more/index.wxml-->
+<view style="height:{{topHeight}}px"></view>
+
 <view class="page">
-
-<view class="nav" style="height:{{nav_height * 2}}rpx">
-
-</view>
 
 <i-notice-bar icon="systemprompt" loop speed="1200">
   欢迎使用 PCIT 微信小程序。
@@ -21,27 +19,38 @@
     <i-grid-label>Face AI</i-grid-label>
     </i-grid-item>
   <i-grid-item bindtap="openOCRAI">
-    <i-grid-icon>📃</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/OCR.svg"></image></i-grid-icon>
     <i-grid-label>OCR AI</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openImageAI">
-    <i-grid-icon>📸</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/image.svg"></image></i-grid-icon>
     <i-grid-label>Image AI</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openTranslateAI">
-    <i-grid-icon>📚</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/translate.svg"></image></i-grid-icon>
     <i-grid-label>Translate</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openNLPAI">
-    <i-grid-icon>🎍</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/nlp.svg"></image></i-grid-icon>
     <i-grid-label>NLP AI</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openAudioAI">
-    <i-grid-icon>🔊</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/audio.svg"></image></i-grid-icon>
     <i-grid-label>Audio AI</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openTypeScriptZhCn">
+    <i-grid-icon><image src="/images/icos/typescript.svg"></image></i-grid-icon>
+    <i-grid-label>TypeScript 中文</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openTypeScript">
+    <i-grid-icon><image src="/images/icos/typescript.svg"></image></i-grid-icon>
+    <i-grid-label>TypeScript</i-grid-label>
   </i-grid-item>
 </i-grid>
 
@@ -55,70 +64,100 @@
     <i-grid-label>技术社区</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openDocker">
-    <i-grid-icon>🐳</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/docker.svg"></image></i-grid-icon>
     <i-grid-label>Docker</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openKubernetes">
+    <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
+    <i-grid-label>Kubernetes</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openGolang">
+    <i-grid-icon><image src="/images/icos/golang.svg"></image></i-grid-icon>
+    <i-grid-label>Go 文档</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openLaravel">
-    <i-grid-icon>📗</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/laravel.svg"></image></i-grid-icon>
     <i-grid-label>Laravel 文档</i-grid-label>
   </i-grid-item>
-  <i-grid-item bindtap="openKubernetes">
-    <i-grid-icon>🌌</i-grid-icon>
-    <i-grid-label>Kubernetes</i-grid-label>
+  <i-grid-item bindtap="openPHPUnit">
+    <i-grid-icon><image src="/images/icos/phpunit.svg"></image></i-grid-icon>
+    <i-grid-label>PHPUnit 文档</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
-<i-grid-item bindtap="openSystem">
+  <i-grid-item bindtap="openNginx">
+    <i-grid-icon><image src="/images/icos/nginx.svg"></image></i-grid-icon>
+    <i-grid-label>NGINX 文档</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+<!-- <i-grid-item bindtap="openSystem">
   <i-grid-icon>📱</i-grid-icon>
   <i-grid-label>系统信息</i-grid-label>
-</i-grid-item>
+</i-grid-item> -->
 <i-grid-item bindtap="openSettings">
-  <i-grid-icon>⚙</i-grid-icon>
+  <i-grid-icon><image src="/images/icos/settings.svg"></image></i-grid-icon>
   <i-grid-label>系统设置</i-grid-label>
 </i-grid-item>
 <i-grid-item bindtap="openStoreAuth">
-  <i-grid-icon>🖖</i-grid-icon>
+  <i-grid-icon><image src="/images/icos/storeAuth.svg"></image></i-grid-icon>
   <i-grid-label>生物认证</i-grid-label>
 </i-grid-item>
 <i-grid-item bindtap="openAIFaceLogin">
-  <i-grid-icon>👩‍💻</i-grid-icon>
+  <i-grid-icon><image src="/images/icos/faceLogin.svg"></image></i-grid-icon>
   <i-grid-label>AI 鉴权</i-grid-label>
 </i-grid-item>
 </i-grid>
 
 <i-grid>
 <i-grid-item bindtap="openPCITCluster">
-  <i-grid-icon>💻</i-grid-icon>
+  <i-grid-icon><image src="/images/icos/cluster.svg"></image></i-grid-icon>
   <i-grid-label>PCIT 集群</i-grid-label>
 </i-grid-item>
 <i-grid-item bindtap="openUpdate">
-  <i-grid-icon>🔔</i-grid-icon>
+  <i-grid-icon><image src="/images/icos/checkUpdate.svg"></image></i-grid-icon>
   <i-grid-label>检查更新</i-grid-label>
 </i-grid-item>
 <i-grid-item bindtap="openChangelog">
-  <i-grid-icon>📑</i-grid-icon>
+  <i-grid-icon><image src="/images/icos/changelog.svg"></image></i-grid-icon>
   <i-grid-label>历史更新</i-grid-label>
 </i-grid-item>
 </i-grid>
 
 <i-grid>
+<i-grid-item bindtap="openNFC">
+  <i-grid-icon><image src="/images/icos/nfc.svg"></image></i-grid-icon>
+  <i-grid-label>NFC</i-grid-label>
+</i-grid-item>
+<i-grid-item bindtap="openScanCode">
+  <i-grid-icon><image src="/images/icos/scanCode.svg"></image></i-grid-icon>
+  <i-grid-label>扫描二维码</i-grid-label>
+</i-grid-item>
+<i-grid-item bindtap="openButtonInfo">
+  <i-grid-icon><image src="/images/icos/button.svg"></image></i-grid-icon>
+  <i-grid-label>获取胶囊按钮信息</i-grid-label>
+</i-grid-item>
+</i-grid>
+
+<i-grid>
   <i-grid-item bindtap="openVerify">
-    <i-grid-icon>🔧</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/verify.svg"></image></i-grid-icon>
     <i-grid-label>PCIT 认证</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openDonate">
-    <i-grid-icon>💰</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/zan.svg"></image></i-grid-icon>
     <i-grid-label>赞赏列表</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openCXYL">
-    <i-grid-icon>👩‍👩‍👦‍👦‍</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/cxyl.svg"></image></i-grid-icon>
     <i-grid-label>晨曦雨露</i-grid-label>
   </i-grid-item>
 </i-grid>

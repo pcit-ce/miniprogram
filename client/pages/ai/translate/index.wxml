@@ -1,5 +1,7 @@
 <!--pages/ai/translate/index.wxml-->
 
+<view style="margin-top:{{topHeight}}px"></view>
+
 <form>
 <picker bindchange="selectSource" mode="selector" value="{{source}}" range="{{sourceAvailable}}">
   <text>当前{{sourceAvailable[source]}}</text>

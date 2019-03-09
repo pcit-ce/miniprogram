@@ -1,4 +1,6 @@
 <!--pages/ai/audio/index.wxml-->
+<view style="margin-top:{{topHeight}}px"></view>
+
 <textarea bindconfirm="bindconfirm" bindinput="bindinput" value="{{input}}" placeholder="请输入" maxlength="150"/>
 
 <view>

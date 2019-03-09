@@ -1,10 +1,6 @@
 import TencentAI from '@khs1994/tencent-ai';
-// @ts-ignore
-const Towxml = require('/towxml/main');
-// @ts-ignore
-// import PCIT from '@pcit/pcit-js';
-
-const PCIT = require('@pcit/pcit-js');
+import Towxml from './towxml/main';
+import PCIT from '@pcit/pcit-js';
 
 export interface IMyApp {
   userInfoReadyCallback?(res: wx.UserInfo): void;
@@ -21,6 +17,7 @@ export interface IMyApp {
     theme: string;
     summaryData: Array<any>;
     MDData: string;
+    topHeight: any;
   };
   towxml: any;
   pcit: any;
@@ -109,6 +106,12 @@ App<IMyApp>({
         }
       },
     });
+
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.topHeight = res.statusBarHeight;
+      },
+    });
   },
   globalData: {
     userInfo: undefined,
@@ -124,6 +127,7 @@ App<IMyApp>({
     theme: 'light',
     summaryData: [],
     MDData: '',
+    topHeight: 0,
   },
   towxml: new Towxml(),
   pcit: PCIT,

@@ -6,6 +6,8 @@
 
 </template> -->
 
+<view style="margin-top:{{topHeight}}px"></view>
+
 <view class="weui-grids">
   <view class="weui-grid" bindtap="general">
   <view class="weui-grid__icon">😁</view>

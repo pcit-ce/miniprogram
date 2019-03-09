@@ -16,6 +16,7 @@ Page({
     orgs: [],
     login_tips: true,
     show_logout: false,
+    topHeight: 0,
   },
 
   /**
@@ -23,6 +24,9 @@ Page({
    */
   onLoad: function() {
     this.login();
+    this.setData!({
+      topHeight: app.globalData.topHeight,
+    });
   },
 
   /**

@@ -1,8 +1,7 @@
 // pages/upload/index.js
 
-// import {IMyApp} from '../../app';
-
-// const app = getApp<IMyApp>();
+import { IMyApp } from '../../app';
+const app = getApp<IMyApp>();
 
 Page({
   /**
@@ -13,7 +12,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {},
+  onLoad: function() {
+    this.setData!({
+      topHeight: app.globalData.topHeight,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

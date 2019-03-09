@@ -1,7 +1,6 @@
 // pages/ai/translate/index.js
 
 import { IMyApp } from '../../../app';
-
 const app = getApp<IMyApp>();
 
 Page({
@@ -13,14 +12,18 @@ Page({
     source: 0,
     target: 1,
     sourceAvailable: ['中文', '英文'],
-
     targetAvailable: ['中文', '英文'],
+    topHeight: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function() {},
+  onLoad: function() {
+    this.setData!({
+      topHeight: app.globalData.topHeight,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

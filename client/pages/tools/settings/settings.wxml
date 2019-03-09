@@ -1,4 +1,22 @@
+<view style="margin-top:{{topHeight}}px"></view>
 <i-panel>
+
+<block wx:for="{{systemInfo}}">
+<i-panel>
+  <i-cell title="{{index}}">
+  {{item}}
+  </i-cell>
+</i-panel>
+</block>
+
+<block wx:for="{{userInfo}}">
+<i-panel>
+  <i-cell title="{{index}}">
+  {{item}}
+  </i-cell>
+</i-panel>
+</block>
+
 <i-cell-group>
   <i-cell title="护眼模式">
     <i-switch value="{{isDark}}" bind:change="themeChange" slot="footer">

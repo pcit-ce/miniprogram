@@ -4,17 +4,21 @@ declare(strict_types=1);
 
 function tojson($gitbook): void
 {
-    $fh = fopen('./'.$gitbook.'/SUMMARY.md', 'r+b');
+    $fh = fopen('./'.$gitbook.'/SUMMARY.md', 'r+');
 
     $array = [];
 
     while (!feof($fh)) {
         $line = fgets($fh);
 
-        $key = explode('&key=', $line)[1] ?? null;
+        try{
+            $key = explode('&key=', $line)[1] ?? null;
+        }catch(Throwable $e){
+            continue;
+        }
 
         if (!$key) {
-            return;
+            continue;
         }
 
         $key = rtrim($key, ")\n");
@@ -28,7 +32,13 @@ function tojson($gitbook): void
     file_put_contents('./'.$gitbook.'/SUMMARY.json', json_encode($array, JSON_UNESCAPED_UNICODE));
 }
 
-$gitbooks = ['laravel', 'kubernetes'];
+$gitbooks = [
+  'kubernetes',
+  'laravel5.5-docs.zh-cn',
+  'nginx-docs.zh-cn',
+  'typescript-docs.us-en',
+  'typescript-docs.zh-cn',
+ ];
 
 foreach ($gitbooks as $gitbook) {
     tojson($gitbook);
