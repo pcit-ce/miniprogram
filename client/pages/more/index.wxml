@@ -15,7 +15,7 @@
     </i-grid-label>
   </i-grid-item> -->
   <i-grid-item bindtap="openFaceAI">
-    <i-grid-icon>👩</i-grid-icon>
+    <i-grid-icon><image src="/images/icos/faceAI.svg"></image></i-grid-icon>
     <i-grid-label>Face AI</i-grid-label>
     </i-grid-item>
   <i-grid-item bindtap="openOCRAI">
@@ -80,8 +80,15 @@
 <i-grid>
   <i-grid-item bindtap="openLaravel">
     <i-grid-icon><image src="/images/icos/laravel.svg"></image></i-grid-icon>
-    <i-grid-label>Laravel 文档</i-grid-label>
+    <i-grid-label>Laravel 中文文档</i-grid-label>
   </i-grid-item>
+  <i-grid-item bindtap="openLaravelUsEn">
+    <i-grid-icon><image src="/images/icos/laravel.svg"></image></i-grid-icon>
+    <i-grid-label>Laravel5.8 文档</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
   <i-grid-item bindtap="openPHPUnit">
     <i-grid-icon><image src="/images/icos/phpunit.svg"></image></i-grid-icon>
     <i-grid-label>PHPUnit 文档</i-grid-label>

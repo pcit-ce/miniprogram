@@ -21,6 +21,8 @@ speed="1200"
 <template is="entry" data="{{...MenuData}}"/>
 </i-drawer>
 
+<view style="height:10vh;background-color:{{noticeBGColor}}"></view>
+
 <i-tab-bar fixed bind:change="tabbar" i-class="{{tabbarMode}}">
   <i-tab-bar-item key="before" icon="return" wx:if="{{before_key}}"></i-tab-bar-item>
   <i-tab-bar-item key="menu" icon="createtask"></i-tab-bar-item>

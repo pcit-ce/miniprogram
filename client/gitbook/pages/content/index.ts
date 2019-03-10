@@ -24,6 +24,7 @@ Page({
     noticeBGColor: '#fff',
     tabbarMode: 'light',
     gitbook: '',
+    branch: 'master',
   },
   onUnload() {
     app.globalData.MDData = '';
@@ -81,6 +82,7 @@ Page({
     // }, 20);
 
     let key = options.key;
+    const branch = options.branch ? options.branch : 'master';
 
     let folder = this.getFolder(key);
 
@@ -99,6 +101,7 @@ Page({
       next_key,
       before_key,
       // intervalNum,
+      branch,
     });
 
     console.log(before_key, key, next_key);
@@ -123,12 +126,14 @@ Page({
     let data;
 
     if (isCache) {
-      data = JSON.parse(wx.getStorageSync(`${this.data.gitbook}_${key}`));
+      data = JSON.parse(
+        wx.getStorageSync(`${this.data.gitbook}_${this.data.branch}_${key}`),
+      );
     } else {
       data = app.towxml.toJson(this.data.MDData, 'markdown');
 
       wx.setStorage({
-        key: `${this.data.gitbook}_${key}`,
+        key: `${this.data.gitbook}_${this.data.branch}_${key}`,
         data: JSON.stringify(data),
       });
     }
@@ -263,7 +268,10 @@ Page({
       },
     });
 
-    if (cache && wx.getStorageSync(`${this.data.gitbook}_${key}`)) {
+    if (
+      cache &&
+      wx.getStorageSync(`${this.data.gitbook}_${this.data.branch}_${key}`)
+    ) {
       this.show(key, true);
 
       return;
@@ -287,9 +295,9 @@ Page({
     //   url = `https://gitee.com/khs1994-docker/docker_practice/raw/master/${key}`;
     // }
 
-    let url = `https://gitee.com/khs1994-website/${
-      this.data.gitbook
-    }/raw/master/${key}`;
+    let url = `https://gitee.com/khs1994-website/${this.data.gitbook}/raw/${
+      this.data.branch
+    }/${key}`;
 
     // url 解码
     // url = decodeURIComponent(url);

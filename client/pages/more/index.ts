@@ -262,6 +262,10 @@ Page({
     this.openGitbook('laravel5.5-docs.zh-cn');
   },
 
+  openLaravelUsEn() {
+    this.openGitbook('laravel5.8-docs.us-en');
+  },
+
   openKubernetes() {
     this.openGitbook('kubernetes');
   },
