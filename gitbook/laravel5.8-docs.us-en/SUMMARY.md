@@ -1,9 +1,17 @@
 # 来源 GitHub:laravel/docs
 
-* [Laravel 5.8](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=readme.md)
+* [README](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=readme.md)
+* Release Notes
+    * [Laravel 5.8](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=releases.md)
+    * [Laravel 5.7](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.7&key=releases.md)
+    * [Laravel 5.6](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.6&key=releases.md)
+    * [Laravel 5.5](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.5&key=releases.md)            
+* Upgrade Guide
+    * [Laravel 5.8](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=upgrade.md)
+    * [Laravel 5.7](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.7&key=upgrade.md)
+    * [Laravel 5.6](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.6&key=upgrade.md)
+    * [Laravel 5.5](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.5&key=upgrade.md)         
 * Prologue
-    * [Release Notes](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=releases.md)
-    * [Upgrade Guide](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=upgrade.md)
     * [Contribution Guide](../content/index?gitbook=laravel5.8-docs.us-en&branch=master&key=contributions.md)
 * Getting Started
     * [Installation](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=installation.md)
@@ -29,7 +37,8 @@
     - [URL Generation](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=urls.md)
     * [Session](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=session.md)
     * [Validation](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=validation.md)
-    * [Errors & Logging](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=errors.md)
+    * [Errors Handling](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=errors.md)
+    * [Logging](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=logging.md)
 * Frontend
     * [Blade Templates](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=blade.md)
     * [Localization](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=localization.md)
@@ -39,6 +48,7 @@
     * [Authentication](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=authentication.md)
     * [API Authentication](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=passport.md)
     * [Authorization](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=authorization.md)
+    * [Email Verification](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=verification.md)
     * [Encryption](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=encryption.md)
     * [Hashing](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=hashing.md)
     * [Password Reset](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=passwords.md)
@@ -72,13 +82,16 @@
 * Testing
     * [Getting Started](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=testing.md)
     * [HTTP Tests](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=http-tests.md)
+    * [Console Tests]()
     * [Browser Tests](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=dusk.md)
     * [Database](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=database-testing.md)
     * [Mocking](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=mocking.md)
 * Official Packages
     * [Cashier](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=billing.md)
+    * [Dusk](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=dusk.md)
     * [Envoy](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=envoy.md)
     - [Horizon](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=horizon.md)
     * [Passport](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=passport.md)
     * [Scout](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=scout.md)
     - [Socialite](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=socialite.md)
+    * [Telescope](../content/index?gitbook=laravel5.8-docs.us-en&branch=5.8&key=telescope.md)

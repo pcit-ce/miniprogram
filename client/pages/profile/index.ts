@@ -1,9 +1,10 @@
 // pages/profile/index.js
 
 import { IMyApp } from '../../app';
-
 const app = getApp<IMyApp>();
+
 const fs = wx.getFileSystemManager();
+import PCIT from '@pcit/pcit-js';
 
 Page({
   /**
@@ -98,7 +99,7 @@ Page({
     });
 
     // TODO 检查 token 过期
-    const pcit = new app.pcit.PCIT(
+    const pcit = new PCIT(
       app.globalData.PCIT_TOKEN,
       app.globalData.PCIT_ENTRYPOINT,
     );
@@ -113,9 +114,9 @@ Page({
     wx.showNavigationBarLoading({});
 
     // 展示用户界面
-    pcit_user.current().then((res: any) => {
-      console.log(res);
-      let { username, git_type, pic } = res.data[0];
+    pcit_user.current().then((current: any) => {
+      console.log(current);
+      let { username, git_type, pic } = current[0];
 
       pic = pic.replace(
         /a.*?com/g,
@@ -126,9 +127,8 @@ Page({
     });
 
     // 展示用户组织列表
-    pcit_org.list().then((res: any) => {
-      console.log(res);
-      let orgs = res.data;
+    pcit_org.list().then((orgs: any) => {
+      console.log(orgs);
 
       for (let item in orgs) {
         let pic = orgs[item]['pic'];

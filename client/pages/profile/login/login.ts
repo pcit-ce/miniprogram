@@ -1,14 +1,50 @@
 // pages/login.js
 
 import { IMyApp } from '../../../app';
-
 const app = getApp<IMyApp>();
+import PCIT from '@pcit/pcit-js';
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {},
+
+  formSubmit(event: any) {
+    console.log(event);
+
+    let { git_type = 'github', username, password } = event.detail.value;
+
+    console.log(username, password);
+
+    let pcit = new PCIT('', app.globalData.PCIT_ENTRYPOINT);
+
+    let pcit_user = pcit.user;
+
+    pcit_user.getToken(git_type, username, password).then((res: any) => {
+      console.log(res);
+
+      let token = res.token;
+
+      // token 写入文件
+      wx.getFileSystemManager().writeFileSync(
+        `${wx.env.USER_DATA_PATH}/token_${git_type}`,
+        token,
+        'utf8',
+      );
+
+      app.globalData.PCIT_TOKEN = token;
+
+      // 跳转页面
+      this.back();
+    });
+  },
+
+  back() {
+    wx.switchTab({
+      url: '/pages/profile/index',
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -49,40 +85,4 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function(): any {},
-
-  formSubmit(event: any) {
-    console.log(event);
-
-    let { git_type = 'github', username, password } = event.detail.value;
-
-    console.log(username, password);
-
-    let pcit = new app.pcit.PCIT('', app.globalData.PCIT_ENTRYPOINT);
-
-    let pcit_user = pcit.user;
-
-    pcit_user.getToken(git_type, username, password).then((res: any) => {
-      console.log(res);
-
-      let token = res.data.token;
-
-      // token 写入文件
-      wx.getFileSystemManager().writeFileSync(
-        `${wx.env.USER_DATA_PATH}/token_${git_type}`,
-        token,
-        'utf8',
-      );
-
-      app.globalData.PCIT_TOKEN = token;
-
-      // 跳转页面
-      this.back();
-    });
-  },
-
-  back() {
-    wx.switchTab({
-      url: '/pages/profile/index',
-    });
-  },
 });

@@ -1,3 +1,1 @@
-declare const towxml: any;
-
-export default towxml;
+declare module "towxml";

@@ -6,7 +6,6 @@
     "gitbook:pwcp": "powershell cp -r -force ./gitbook/* ~/github/pcit_gitbook_summary"
   },
   "devDependencies": {
-    "towxml": "*",
     "weui-wxss": "*",
     "iview-weapp": "*"
   }

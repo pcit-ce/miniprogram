@@ -5,7 +5,8 @@
     "@khs1994/tencent-ai": "^18.12.0",
     "@pcit/pcit-js": "^18.12.0-beta.7",
     "qs": "^6.6.0",
-    "wx-fetch": "github:khs1994/wx-fetch"
+    "wx-fetch": "github:khs1994/wx-fetch",
+    "towxml": "github:pcit-ce/towxml"
   },
   "scripts": {
     "cleanup": "npx rimraf node_modules/node-fetch node_modules/towxml",

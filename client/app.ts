@@ -1,5 +1,5 @@
 import TencentAI from '@khs1994/tencent-ai';
-import Towxml from './towxml/main';
+import * as Towxml from 'towxml';
 import PCIT from '@pcit/pcit-js';
 
 export interface IMyApp {
@@ -130,6 +130,6 @@ App<IMyApp>({
     topHeight: 0,
   },
   towxml: new Towxml(),
-  pcit: PCIT,
+  pcit: new PCIT('', 'https://ci.khs1994.com/api'),
   tencentAI: new TencentAI('x', 'x'),
 });

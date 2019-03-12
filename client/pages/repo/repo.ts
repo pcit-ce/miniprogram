@@ -1,8 +1,9 @@
 // pages/repo/repo.wxml.js
 
 import { IMyApp } from '../../app';
-
 let app = getApp<IMyApp>();
+
+import PCIT from '@pcit/pcit-js';
 
 Page({
   /**
@@ -19,16 +20,14 @@ Page({
   onLoad: function(options: any) {
     let { git_type, username } = options;
 
-    let pcit = new app.pcit.PCIT(
+    let pcit = new PCIT(
       app.globalData.PCIT_TOKEN,
       app.globalData.PCIT_ENTRYPOINT,
     );
 
     const pcit_repo = pcit.repo;
 
-    pcit_repo.listByOwner(git_type, username).then((res: any) => {
-      let repos = res.data;
-
+    pcit_repo.listByOwner(git_type, username).then((repos: any) => {
       if (JSON.stringify(repos) === '[]') {
         wx.showModal({
           title: '空空如也',

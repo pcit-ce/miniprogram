@@ -1,7 +1,4 @@
-// pages/about/index.js
-
 import { IMyApp } from '../../app';
-
 const app = getApp<IMyApp>();
 
 Page({
@@ -30,13 +27,11 @@ Page({
       mask: true,
     });
 
-    const pcit = new app.pcit.PCIT('', app.globalData.PCIT_ENTRYPOINT);
-
-    const pcit_system = pcit.system;
+    const pcit_system = app.pcit.system;
 
     pcit_system.about().then(
       (res: any) => {
-        let data = app.towxml.toJson(res.data.data, 'markdown');
+        let data = app.towxml.toJson(res.data, 'markdown');
 
         data.theme = 'light';
 
