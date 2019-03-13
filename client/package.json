@@ -5,12 +5,13 @@
     "@khs1994/tencent-ai": "^18.12.0",
     "@pcit/pcit-js": "^18.12.0-beta.7",
     "qs": "^6.6.0",
-    "wx-fetch": "github:khs1994/wx-fetch",
-    "towxml": "github:pcit-ce/towxml"
+    "towxml": "github:pcit-ce/towxml",
+    "wx-fetch": "github:khs1994/wx-fetch"
   },
   "scripts": {
-    "cleanup": "npx rimraf node_modules/node-fetch node_modules/towxml",
+    "cleanup": "npx rimraf node_modules/node-fetch",
     "postinstall": "npm run cleanup",
+    "postupdate": "npm run cleanup",
     "compile": "cd ../ && npm run gitbook && cd client && npx tsc",
     "compile-pro": "cd ../ && npm run gitbook && cd client && npx tsc --inlineSourceMap false --inlineSources false"
   },

@@ -1,6 +1,6 @@
 /* pages/ai/image/index.wxss */
 
-@import '/weui/weui.wxss';
+@import '/ui/weui/weui.wxss';
 
 image {
   width: 100vw;

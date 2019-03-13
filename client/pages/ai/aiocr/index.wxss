@@ -1,6 +1,6 @@
 /* pages/ocrai/index.wxss */
 
-@import '/weui/weui.wxss';
+@import '/ui/weui/weui.wxss';
 
 .item{
   margin-bottom: 2vh;

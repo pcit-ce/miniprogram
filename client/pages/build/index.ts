@@ -23,7 +23,7 @@ Page({
    */
   onReady: function() {
     wx.startSoterAuthentication({
-      requestAuthModes: 'fingerPrint',
+      requestAuthModes: ['fingerPrint'],
       challenge: '123456',
       authContent: '请用指纹解锁',
       success(res) {

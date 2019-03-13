@@ -2,4 +2,4 @@
 
 @import '/towxml/style/main.wxss';
 @import '/towxml/style/theme/light.wxss';
-@import '/weui/weui.wxss';
+@import '/ui/weui/weui.wxss';

@@ -1,4 +1,4 @@
-export function takePhoto() {
+export function takePhoto():Promise<string> {
   const ctx = wx.createCameraContext();
 
   return new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ export function takePhoto() {
   });
 }
 
-export function choosePhoto() {
+export function choosePhoto():Promise<string> {
   return new Promise((resolve, reject) => {
     wx.chooseImage({
       count: 1,

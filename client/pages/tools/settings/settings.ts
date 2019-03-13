@@ -10,8 +10,8 @@ Page({
     isDark: false,
     rate: 0,
     topHeight: 0,
-    systemInfo: [],
-    userInfo: [],
+    systemInfo: {},
+    userInfo: {},
   },
 
   /**

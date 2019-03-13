@@ -216,7 +216,7 @@ Page({
 
       await new Promise((resolve, reject) => {
         wx.startSoterAuthentication({
-          requestAuthModes: 'fingerPrint',
+          requestAuthModes: ['fingerPrint'],
           challenge: '123', //(new Date).getTime().toString(),
           authContent: '请验证',
           success: res => {
@@ -368,5 +368,11 @@ Page({
   openButtonInfo() {
     const res = wx.getMenuButtonBoundingClientRect();
     this.navigateTo(res);
+  },
+
+  openTxVideo(){
+    wx.navigateTo({
+      url: '../tools/tx_video/index'
+    });
   },
 });

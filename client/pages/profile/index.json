@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "i-card": "../../iviewui/dist/card/index"
+    "i-card": "../../ui/iviewui/card/index"
   },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark",

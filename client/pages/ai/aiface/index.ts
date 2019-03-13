@@ -83,7 +83,7 @@ Page({
         src: result,
         template_data: {
           src: result,
-          'device-position': 'front',
+          device_position: 'front',
         },
       });
     })();
@@ -103,7 +103,7 @@ Page({
         src: result,
         template_data: {
           src: result,
-          'device-position': 'front',
+          device_position: 'front',
         },
       });
     })();

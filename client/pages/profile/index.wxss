@@ -1,6 +1,4 @@
-/* pages/profile/index.wxss */
-
-@import "/weui/weui.wxss";
+@import "/ui/weui/weui.wxss";
 
 .item {
   margin-top: 2vh;

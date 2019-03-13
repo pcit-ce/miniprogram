@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "i-button": "../../iviewui/dist/button/index"
+    "i-button": "../../ui/iviewui/button/index"
   },
   "navigationBarTitleText": "构建"
 }

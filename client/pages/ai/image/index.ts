@@ -13,6 +13,7 @@ Page({
   data: {
     src: '',
     topHeight: 0,
+    output: '',
   },
 
   /**

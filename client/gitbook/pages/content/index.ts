@@ -63,7 +63,7 @@ Page({
 
     wx.showNavigationBarLoading({});
     this.setData!({
-      percent: 0,
+      // percent: 0,
       progressColor: '#36a1f0',
       showNotice: true,
       noticeBGColor,
@@ -278,9 +278,9 @@ Page({
     }
 
     // @ts-ignore
-    wx.reportAnalytics('pages', {
-      page: key,
-    });
+    // wx.reportAnalytics('pages', {
+    //   page: key,
+    // });
 
     // const base_url = 'https://gitee.com/docker_practice/docker_practice/raw/master';
 

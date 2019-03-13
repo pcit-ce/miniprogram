@@ -5,6 +5,7 @@
     "pages/tools/nfc/nfc",
     "pages/tools/settings/settings",
     "pages/tools/content/index",
+    "pages/tools/tx_video/index",
     "pages/about/index",
     "pages/build/index",
     "pages/profile/index",
@@ -72,6 +73,12 @@
     "pages/more/index": {
       "network": "all",
       "packages": ["gitbook"]
+    }
+  },
+  "plugins":{
+    "tencentvideo":{
+      "version":"1.2.5",
+      "provider":"wxa75efa648b60994b"
     }
   }
 }

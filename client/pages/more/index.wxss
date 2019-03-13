@@ -1,6 +1,4 @@
-/* pages/more/index.wxss */
-
-@import '../../weui/weui.wxss';
+@import '../../ui/weui/weui.wxss';
 
 .item {
   width: 100vw;

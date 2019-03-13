@@ -1,10 +1,10 @@
 {
   "usingComponents": {
-    "i-notice-bar": "../../iviewui/dist/notice-bar/index",
-    "i-grid": "../../iviewui/dist/grid/index",
-    "i-grid-item": "../../iviewui/dist/grid-item/index",
-    "i-grid-icon": "../../iviewui/dist/grid-icon/index",
-    "i-grid-label": "../../iviewui/dist/grid-label/index"
+    "i-notice-bar": "/ui/iviewui/notice-bar/index",
+    "i-grid": "/ui/iviewui/grid/index",
+    "i-grid-item": "/ui/iviewui/grid-item/index",
+    "i-grid-icon": "/ui/iviewui/grid-icon/index",
+    "i-grid-label": "/ui/iviewui/grid-label/index"
   },
   "navigationBarTitleText": "PCIT"
 }

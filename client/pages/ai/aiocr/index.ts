@@ -13,6 +13,10 @@ Page({
     src: '',
     text: '',
     topHeight: 0,
+    template_data: {
+      device_position: 'front',
+      src: '',
+    },
   },
 
   /**
@@ -174,7 +178,7 @@ Page({
         src: res,
         template_data: {
           src: res,
-          'device-position': 'back',
+          device_position: 'back',
         },
       });
     });
@@ -186,7 +190,7 @@ Page({
         src: res,
         template_data: {
           src: res,
-          'device-position': 'back',
+          device_position: 'back',
         },
       });
     });
