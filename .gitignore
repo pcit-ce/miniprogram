@@ -5,7 +5,7 @@ miniprogram_npm
 
 node_modules
 
-package-lock.json
+!package-lock.json
 
 /client/app.js
 

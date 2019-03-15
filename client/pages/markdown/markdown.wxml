@@ -2,6 +2,6 @@
 
 <template is="entry" data="{{...data}}"/>
 
-<view class="weui-footer">
+<!-- <view class="weui-footer">
   <view class="weui-footer__text">Copyright ©khs1994.com</view>
-</view>
+</view> -->

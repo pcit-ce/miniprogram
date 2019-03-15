@@ -1,1 +1,3 @@
-<txv-video vid="{{vid}}" playerid="txv1"></txv-video>
+<txv-video vid="{{vid}}" playerid="{{vid}}"
+  defn="auto"
+></txv-video>

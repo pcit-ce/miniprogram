@@ -19,7 +19,8 @@
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
-    "newLine": "LF"
+    "newLine": "LF",
+    "lib": ["ESNext", "dom"]
   },
   "include": ["./**/*.ts"],
   "exclude": ["node_modules", "miniprogram_dist", "**/*.spec.ts"]

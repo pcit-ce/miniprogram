@@ -11,9 +11,9 @@ function tojson($gitbook): void
     while (!feof($fh)) {
         $line = fgets($fh);
 
-        try{
+        try {
             $key = explode('&key=', $line)[1] ?? null;
-        }catch(Throwable $e){
+        } catch (Throwable $e) {
             continue;
         }
 

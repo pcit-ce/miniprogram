@@ -1,5 +1,7 @@
 # PCIT WeChat Miniprogram
 
+**为开发者服务的一站式小程序。**
+
 <p align="center">
 <img width="200" src="https://user-images.githubusercontent.com/16733187/49062650-de41ea00-f24f-11e8-9f22-99b5cd3d0195.jpg">
 </p>

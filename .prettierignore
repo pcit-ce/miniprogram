@@ -1,8 +1,10 @@
 client/node_modules
 client/miniprogram_npm
 client/towxml
-client/iviewui/dist
+client/ui
 package-lock.json
 
 gitbook/**/SUMMARY.json
 gitbook/**/*.md
+wuss
+iviewui

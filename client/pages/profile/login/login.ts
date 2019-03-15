@@ -3,6 +3,8 @@
 import { IMyApp } from '../../../app';
 const app = getApp<IMyApp>();
 import PCIT from '@pcit/pcit-js';
+import GitHub from '../../../utils/github/index';
+const gh = new GitHub();
 
 Page({
   /**
@@ -11,33 +13,41 @@ Page({
   data: {},
 
   formSubmit(event: any) {
-    console.log(event);
+    // console.log(event);
 
     let { git_type = 'github', username, password } = event.detail.value;
 
-    console.log(username, password);
+    // console.log(username, password);
 
-    let pcit = new PCIT('', app.globalData.PCIT_ENTRYPOINT);
+    (async () => {
+      try {
+        let result: any = await gh.auth.login.login(username, password);
+        console.log(result);
 
-    let pcit_user = pcit.user;
+        let pcit = new PCIT('', app.globalData.PCIT_ENTRYPOINT);
+        let pcit_user = pcit.user;
+        let pcitResult = await pcit_user.getToken(git_type, username, password);
 
-    pcit_user.getToken(git_type, username, password).then((res: any) => {
-      console.log(res);
+        let token = pcitResult.token;
 
-      let token = res.token;
+        // token 写入文件
+        wx.getFileSystemManager().writeFileSync(
+          `${wx.env.USER_DATA_PATH}/token_${git_type}`,
+          token,
+          'utf8',
+        );
 
-      // token 写入文件
-      wx.getFileSystemManager().writeFileSync(
-        `${wx.env.USER_DATA_PATH}/token_${git_type}`,
-        token,
-        'utf8',
-      );
+        app.globalData.PCIT_TOKEN = token;
 
-      app.globalData.PCIT_TOKEN = token;
-
-      // 跳转页面
-      this.back();
-    });
+        // 跳转页面
+        this.back();
+      } catch (e) {
+        wx.showToast({
+          title: '密码错误',
+          icon: 'none',
+        });
+      }
+    })();
   },
 
   back() {

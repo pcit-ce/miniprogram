@@ -1,0 +1,41 @@
+page {
+  background-color: #F8F8F8;
+}
+
+.project {
+  background-color: #ffffff;
+  margin-bottom: 5vh;
+  margin-left: 1.5vh;
+  margin-right: 1.5vh;
+}
+
+.project_name {
+  font-size: 40rpx;
+  color: #0366d6;
+  padding-top: 2vh;
+}
+
+.project_desc {
+  font-size: 35rpx;
+  margin-top: 1vh;
+  margin-bottom: 2vh;
+}
+
+.round {
+	border-radius: 50%;
+	display: inline-block;
+	height: 12px;
+	position: relative;
+	top: 1px;
+	width: 12px;
+}
+
+.svg {
+  width: 12px;
+  height: 12px;
+}
+
+.currentPeriod{
+  float: right;
+  margin-top: 1vh;
+}

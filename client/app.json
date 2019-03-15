@@ -6,6 +6,7 @@
     "pages/tools/settings/settings",
     "pages/tools/content/index",
     "pages/tools/tx_video/index",
+    "pages/tools/github_trending/index",
     "pages/about/index",
     "pages/build/index",
     "pages/profile/index",
@@ -75,10 +76,10 @@
       "packages": ["gitbook"]
     }
   },
-  "plugins":{
-    "tencentvideo":{
-      "version":"1.2.5",
-      "provider":"wxa75efa648b60994b"
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.2.5",
+      "provider": "wxa75efa648b60994b"
     }
   }
 }

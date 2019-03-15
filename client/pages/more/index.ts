@@ -370,9 +370,14 @@ Page({
     this.navigateTo(res);
   },
 
-  openTxVideo(){
+  openTxVideo() {
     wx.navigateTo({
-      url: '../tools/tx_video/index'
+      url: '../tools/tx_video/index',
+    });
+  },
+  openGitHubTrending() {
+    wx.navigateTo({
+      url: '../tools/github_trending/index',
     });
   },
 });

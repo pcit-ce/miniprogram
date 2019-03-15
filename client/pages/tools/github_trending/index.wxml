@@ -1,0 +1,26 @@
+<view style="margin-top:{{topHeight}}px"></view>
+
+<button bindtap="selectLanguage">语言</button>
+<button bindtap="selectSince">时间 {{since}}</button>
+
+<block wx:for="{{list}}">
+  <view class="project" data-project="{{item.author}}/{{item.name}}"
+    bindtap="openProject">
+    <i-swipeout data-project="{{item.author}}/{{item.name}}" actions="{{swipeoutActions}}" bind:change="bindAction">
+      <view slot="content">
+        <view class="project_name">{{item.author}} / {{item.name}}</view>
+        <view class="project_desc">{{item.description}}</view>
+        <view>
+          <span class="round" style="background-color:{{item.languageColor}}"></span>
+          {{item.language}}
+          <image class="svg" src="/images/github/star.svg"></image>{{item.stars}}
+          <image class="svg" src="/images/github/fork.svg"></image>{{item.forks}}
+        </view>
+        <view style="height:6vh">
+          <view class="currentPeriod">
+          <image class="svg" src="/images/github/star.svg"></image>{{item.currentPeriodStars}} stars <text wx:if="{{since !== 'today'}}"> this </text>{{since}}</view>
+        </view>
+      </view>
+    </i-swipeout>
+  </view>
+</block>

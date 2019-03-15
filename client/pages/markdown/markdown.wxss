@@ -3,3 +3,12 @@
 @import '/towxml/style/main.wxss';
 @import '/towxml/style/theme/light.wxss';
 @import '/ui/weui/weui.wxss';
+
+image {
+  display: none;
+}
+
+.h2w__a {
+  color: #0366d6!important;
+  border-bottom-style: none!important;
+}

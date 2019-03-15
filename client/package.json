@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "@types/wx": "github:khs1994/types-wx",
-    "typescript": "3.2.2"
+    "typescript": "^3.3.3333"
   }
 }
