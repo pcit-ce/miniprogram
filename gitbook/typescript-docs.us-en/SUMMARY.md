@@ -11,6 +11,9 @@
   * [React](../content/index?gitbook=typescript-docs.us-en&key=pages/tutorials/React.md)
 * What's New
   * [TypeScript 3.3](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.3.md)
+  * [TypeScript 3.2](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.2.md)
+  * [TypeScript 3.1](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.1.md)
+  * [TypeScript 3.0](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.0.md)
 * Handbook
   * [Basic Types](../content/index?gitbook=typescript-docs.us-en&key=pages/Basic%20Types.md)
   * [Variable Declarations](../content/index?gitbook=typescript-docs.us-en&key=pages/Variable%20Declarations.md)

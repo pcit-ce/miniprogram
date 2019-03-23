@@ -15,18 +15,26 @@ Page({
   formSubmit(event: any) {
     // console.log(event);
 
+    wx.showLoading({ title: '登录中...' });
+
     let { git_type = 'github', username, password } = event.detail.value;
 
     // console.log(username, password);
 
     (async () => {
       try {
-        let result: any = await gh.auth.login.login(username, password);
-        console.log(result);
-
         let pcit = new PCIT('', app.globalData.PCIT_ENTRYPOINT);
         let pcit_user = pcit.user;
-        let pcitResult = await pcit_user.getToken(git_type, username, password);
+
+        // let result: any = await gh.auth.login.login(username, password);
+        // let pcitResult = await pcit_user.getToken(git_type, username, password);
+
+        const [ghResult, pcitResult] = await Promise.all([
+          gh.auth.login.login(username, password),
+          pcit_user.getToken(git_type, username, password),
+        ]);
+
+        console.log(ghResult);
 
         let token = pcitResult.token;
 
@@ -41,11 +49,13 @@ Page({
 
         // 跳转页面
         this.back();
-      } catch (e) {
+      } catch {
         wx.showToast({
           title: '密码错误',
           icon: 'none',
         });
+      } finally {
+        wx.hideLoading();
       }
     })();
   },

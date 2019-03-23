@@ -66,7 +66,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any {},
+  onShareAppMessage: function(object: any) {
+    console.log(object);
+    return {
+      title: '',
+      path: '',
+      imageUrl: '',
+    };
+  },
 
   openFaceAI() {
     wx.navigateTo({

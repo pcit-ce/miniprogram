@@ -177,15 +177,10 @@ Page({
   },
   onShareAppMessage: function(): any {
     return {
-      title: '开始 Docker 之旅~',
+      title: this.data.gitbook,
       path: '/pages/docker/index/index',
       imageUrl:
         'https://gitee.com/docker_practice/docker_practice/raw/master/_images/cover.jpg',
-      success() {
-        wx.showToast({
-          title: '感谢支持',
-        });
-      },
       fail() {
         wx.showToast({
           title: '转发失败',

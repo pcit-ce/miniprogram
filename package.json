@@ -1,7 +1,7 @@
 {
   "scripts": {
     "preinstall": "echo don't exec install command in this folder && exit 1",
-    "prettier": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
+    "fmt": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
     "gitbook": "cd gitbook && php ./tojson.php",
     "gitbook:pwcp": "powershell cp -r -force ./gitbook/* ~/github/pcit_gitbook_summary"
   },

@@ -1,5 +1,5 @@
 {
-  "description": "项目配置文件。",
+  "description": "PCIT MiniProgram",
   "packOptions": {
     "ignore": []
   },
@@ -14,8 +14,8 @@
   },
   "scripts": {
     "beforeCompile": "cd client && npm run compile",
-    "beforePreview": "cd client && npm run compile-pro",
-    "beforeUpload": "cd client && npm run compile-pro"
+    "beforePreview": "cd client && npm run compile:pro",
+    "beforeUpload": "cd client && npm run compile:pro"
   },
   "compileType": "miniprogram",
   "libVersion": "2.6.2",
@@ -24,6 +24,8 @@
   "isGameTourist": false,
   "cloudfunctionRoot": "functions/",
   "miniprogramRoot": "client/",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "search": {
       "current": -1,

@@ -1,16 +1,15 @@
 # 来源 GitHub:zhongsp/TypeScript
 
-* [快速上手](.../content/index?gitbook=typescript-docs.zh-cn&key=content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/README.md)
+* 快速上手
   * [5分钟了解TypeScript](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/TypeScript%20in%205%20minutes.md)
   * [ASP.NET Core](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/ASP.NET%20Core.md)
   * [ASP.NET 4](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/ASP.NET%204.md)
   * [Gulp](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/Gulp.md)
   * [Knockout.js](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/Knockout.md)
-  * [React与webpack](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/React%20&%20Webpack.md)
+  * [React与webpack](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/React%20%26%20Webpack.md)
   * [React](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/React.md)
-  * [Angular 2](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/Angular%202.md)
   * [从JavaScript迁移到TypeScript](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tutorials/Migrating%20from%20JavaScript.md)
-* [手册](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/README.md)
+* 手册
   * [基础类型](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Basic%20Types.md)
   * [变量声明](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Variable%20Declarations.md)
   * [接口](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Interfaces.md)
@@ -29,7 +28,6 @@
   * [命名空间和模块](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Namespaces%20and%20Modules.md)
   * [模块解析](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Module%20Resolution.md)
   * [声明合并](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Declaration%20Merging.md)
-  * [书写.d.ts文件](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Writing%20Definition%20Files.md)
   * [JSX](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/JSX.md)
   * [Decorators](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Decorators.md)
   * [混入](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Mixins.md)
@@ -45,7 +43,6 @@
 * [工程配置](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tsconfig.json.md)
   * [tsconfig.json](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/tsconfig.json.md)
   * [工程引用](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Project%20References.md)
-  * [NPM包的类型](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Typings%20for%20NPM%20Packages.md)
   * [编译选项](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Compiler%20Options.md)
   * [配置 Watch](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Configuring%20Watch.md)
   * [在MSBuild里使用编译选项](../content/index?gitbook=typescript-docs.zh-cn&key=doc/handbook/Compiler%20Options%20in%20MSBuild.md)

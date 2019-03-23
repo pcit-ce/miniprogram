@@ -5,9 +5,6 @@ import { IMyApp } from '../../../app';
 const app = getApp<IMyApp>();
 
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     data: '',
     gitbook: '',
@@ -29,6 +26,8 @@ Page({
         });
       },
     });
+
+    this.show();
   },
 
   show() {
@@ -59,26 +58,22 @@ Page({
       app.globalData.summaryData = JSON.parse(res[1]);
     });
 
-    // wx.setNavigationBarColor({
-    //   backgroundColor: theme === 'dark' ? '#000000': '#ffffff',
-    //   frontColor: theme === 'dark' ? '#ffffff': '#000000',
-    //   animation: {},
-    // });
-
     setTimeout(() => wx.hideLoading({}), 1000);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: function() {
+    wx.showToast({
+      title: '页面已加载',
+    });
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
-    this.show();
-  },
+  onShow: function() {},
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -103,17 +98,11 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any {
+  onShareAppMessage: function() {
     return {
-      title: '开始 Docker 之旅~',
+      title: this.data.gitbook,
       imageUrl:
         'https://gitee.com/docker_practice/docker_practice/raw/master/_images/cover.jpg',
-      success() {
-        console.log(1);
-        wx.showToast({
-          title: '感谢支持',
-        });
-      },
       fail() {
         wx.showToast({
           title: '转发失败',
