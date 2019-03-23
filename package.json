@@ -3,10 +3,17 @@
     "preinstall": "echo don't exec install command in this folder && exit 1",
     "fmt": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
     "gitbook": "cd gitbook && php ./tojson.php",
-    "gitbook:pwcp": "powershell cp -r -force ./gitbook/* ~/github/pcit_gitbook_summary"
+    "gitbook:pwcp": "powershell cp -r -force ./gitbook/* ~/github/pcit_gitbook_summary",
+    "git:setTemplate": "git config commit.template ./.gittemplate"
   },
   "devDependencies": {
-    "weui-wxss": "*",
-    "iview-weapp": "*"
+    "iview-weapp": "*",
+    "pre-commit": "^1.2.2",
+    "weui-wxss": "*"
+  },
+  "pre-commit": {
+    "run": [
+      "fmt"
+    ]
   }
 }
