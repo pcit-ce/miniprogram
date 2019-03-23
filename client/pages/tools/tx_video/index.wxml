@@ -1,3 +1,4 @@
+<view style="margin-top:{{topHeight}}px"></view>
 <txv-video vid="{{vid}}" playerid="{{vid}}"
   defn="auto"
 ></txv-video>

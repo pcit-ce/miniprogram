@@ -31,6 +31,10 @@ Page({
   },
 
   show() {
+    wx.showLoading({
+      title: '加载中',
+    });
+
     const summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
       this.data.gitbook
     }/SUMMARY.md`;
@@ -44,31 +48,37 @@ Page({
     Promise.all([
       fetch(summary_url).then((e: any) => e.text()),
       fetch(summary_json_url).then((e: any) => e.text()),
-    ]).then(res => {
-      // console.log(res);
+    ]).then(
+      res => {
+        // console.log(res);
 
-      const data = app.towxml.toJson(res[0], 'markdown');
+        const data = app.towxml.toJson(res[0], 'markdown');
 
-      data.theme = 'light';
+        data.theme = 'light';
 
-      this.setData!({
-        data,
-      });
+        this.setData!({
+          data,
+        });
 
-      app.globalData.summaryData = JSON.parse(res[1]);
-    });
+        app.globalData.summaryData = JSON.parse(res[1]);
 
-    setTimeout(() => wx.hideLoading({}), 1000);
+        wx.showToast({
+          title: '成功',
+        });
+      },
+      () => {
+        wx.showToast({
+          icon: 'none',
+          title: '加载失败',
+        });
+      },
+    );
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
-    wx.showToast({
-      title: '页面已加载',
-    });
-  },
+  onReady: function() {},
 
   /**
    * 生命周期函数--监听页面显示

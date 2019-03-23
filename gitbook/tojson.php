@@ -37,6 +37,8 @@ $gitbooks = [
   'laravel5.5-docs.zh-cn',
   'laravel5.8-docs.us-en',
   'nginx-docs.zh-cn',
+  'phpunit-docs.us-en',
+  'phpunit-docs.zh-cn',
   'typescript-docs.us-en',
   'typescript-docs.zh-cn',
  ];

@@ -1,11 +1,11 @@
 <view style="margin-top:{{topHeight}}px"></view>
 
-<button bindtap="selectLanguage">语言</button>
-<button bindtap="selectSince">时间 {{since}}</button>
+<button bind:tap="selectLanguage">语言</button>
+<button bind:tap="selectSince">时间 {{since}}</button>
 
 <block wx:for="{{list}}">
   <view class="project" data-project="{{item.author}}/{{item.name}}"
-    bindtap="openProject">
+    bind:longpress="openProject">
     <i-swipeout data-project="{{item.author}}/{{item.name}}" actions="{{swipeoutActions}}" bind:change="bindAction">
       <view slot="content">
         <view class="project_name">{{item.author}} / {{item.name}}</view>

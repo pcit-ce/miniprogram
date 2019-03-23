@@ -51,6 +51,7 @@ Page({
     });
 
     fs.unlinkSync(`${wx.env.USER_DATA_PATH}/token_${git_type}`);
+    fs.unlinkSync(`${wx.env.USER_DATA_PATH}/github_token`);
 
     app.globalData.PCIT_TOKEN = '';
   },
@@ -155,6 +156,15 @@ Page({
     });
   },
 
+  toRepo(event: any) {
+    let username = event.currentTarget.dataset.username;
+    wx.navigateTo({
+      url: `/pages/repo/repo?git_type=${
+        this.data.git_type
+      }&username=${username}`,
+    });
+  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -186,14 +196,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any {},
-
-  toRepo(event: any) {
-    let username = event.currentTarget.dataset.username;
-    wx.navigateTo({
-      url: `/pages/repo/repo?git_type=${
-        this.data.git_type
-      }&username=${username}`,
-    });
-  },
+  //onShareAppMessage: function() {},
 });

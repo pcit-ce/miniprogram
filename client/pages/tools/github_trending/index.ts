@@ -22,14 +22,22 @@ Page({
 
   openProject(res: any) {
     // console.log(res);
-    const text = res._relatedInfo.anchorTargetText;
     const project = res.currentTarget.dataset.project;
 
-    if (text === '返回' || text === '喜欢') {
-      return;
-    }
+    wx.showLoading({
+      title: '快马加鞭请求中',
+    });
 
     gh.gitData.readme(project).then((res: any) => {
+      if (!res.ok) {
+        wx.hideLoading();
+        wx.showToast({
+          icon: 'none',
+          title: '未找到描述文件！',
+        });
+        return;
+      }
+
       app.globalData.MDData = res.body;
 
       wx.navigateTo({
@@ -69,9 +77,17 @@ Page({
             list: JSON.parse(res.body),
           });
           wx.hideLoading();
+
+          wx.showToast({
+            title: '成功',
+          });
         },
         () => {
           wx.hideLoading();
+
+          wx.showToast({
+            title: '失败',
+          });
         },
       )
       .finally(() => {
@@ -94,8 +110,17 @@ Page({
       (async () => {
         try {
           await gh.activity.staring.star(project);
+
+          wx.showToast({
+            title: '成功',
+          });
         } catch (e) {
-          console.log(e);
+          setTimeout(() => {
+            wx.showToast({
+              icon: 'none',
+              title: '失败，请先登录 GitHub 账号',
+            });
+          }, 500);
         } finally {
           wx.hideLoading();
         }

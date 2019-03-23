@@ -296,7 +296,11 @@ Page({
   },
 
   openPHPUnit() {
-    this.openGitbook('phpunit');
+    this.openGitbook('phpunit-docs.us-en');
+  },
+
+  openPHPUnitZhCn() {
+    this.openGitbook('phpunit-docs.zh-cn');
   },
 
   openPCITCluster() {

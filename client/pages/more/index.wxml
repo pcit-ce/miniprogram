@@ -89,6 +89,10 @@
 </i-grid>
 
 <i-grid>
+  <i-grid-item bindtap="openPHPUnitZhCn">
+    <i-grid-icon><image src="/images/icos/phpunit.svg"></image></i-grid-icon>
+    <i-grid-label>PHPUnit 中文文档</i-grid-label>
+  </i-grid-item>
   <i-grid-item bindtap="openPHPUnit">
     <i-grid-icon><image src="/images/icos/phpunit.svg"></image></i-grid-icon>
     <i-grid-label>PHPUnit 文档</i-grid-label>
