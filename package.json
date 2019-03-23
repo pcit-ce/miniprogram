@@ -4,16 +4,27 @@
     "fmt": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
     "gitbook": "cd gitbook && php ./tojson.php",
     "gitbook:pwcp": "powershell cp -r -force ./gitbook/* ~/github/pcit_gitbook_summary",
-    "git:setTemplate": "git config commit.template ./.gittemplate"
+    "git:setTemplate": "git config commit.template ./.gittemplate",
+    "changelog:all": "npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "changelog:append": "npx conventional-changelog -p angular -i CHANGELOG.md -s",
+    "commit": "git-cz"
   },
   "devDependencies": {
     "iview-weapp": "*",
     "pre-commit": "^1.2.2",
-    "weui-wxss": "*"
+    "weui-wxss": "*",
+    "commitizen": "*",
+    "cz-conventional-changelog": "*",
+    "conventional-changelog-cli": "*"
   },
   "pre-commit": {
     "run": [
       "fmt"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
