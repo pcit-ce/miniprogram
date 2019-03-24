@@ -100,6 +100,17 @@
 </i-grid>
 
 <i-grid>
+  <i-grid-item bindtap="openComposerZhCn">
+    <i-grid-icon><image src="/images/icos/composer.svg"></image></i-grid-icon>
+    <i-grid-label>Composer 中文文档</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openComposer">
+    <i-grid-icon><image src="/images/icos/composer.svg"></image></i-grid-icon>
+    <i-grid-label>Composer 文档</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
   <i-grid-item bindtap="openNginx">
     <i-grid-icon><image src="/images/icos/nginx.svg"></image></i-grid-icon>
     <i-grid-label>NGINX 文档</i-grid-label>

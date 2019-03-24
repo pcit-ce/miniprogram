@@ -266,11 +266,11 @@ Page({
   },
 
   openLaravel() {
-    this.openGitbook('laravel5.5-docs.zh-cn');
+    this.openGitbook('laravel-docs.zh-cn');
   },
 
   openLaravelUsEn() {
-    this.openGitbook('laravel5.8-docs.us-en');
+    this.openGitbook('laravel-docs.us-en');
   },
 
   openKubernetes() {
@@ -287,6 +287,14 @@ Page({
 
   openNginx() {
     this.openGitbook('nginx-docs.zh-cn');
+  },
+
+  openComposer() {
+    this.openGitbook('composer-docs.us-en');
+  },
+
+  openComposerZhCn() {
+    this.openGitbook('composer-docs.zh-cn');
   },
 
   openGolang() {

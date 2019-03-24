@@ -33,9 +33,11 @@ function tojson($gitbook): void
 }
 
 $gitbooks = [
+  'composer-docs.zh-cn',
+  'composer-docs.us-en',
   'kubernetes',
-  'laravel5.5-docs.zh-cn',
-  'laravel5.8-docs.us-en',
+  'laravel-docs.zh-cn',
+  'laravel-docs.us-en',
   'nginx-docs.zh-cn',
   'phpunit-docs.us-en',
   'phpunit-docs.zh-cn',

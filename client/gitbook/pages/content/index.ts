@@ -45,23 +45,24 @@ Page({
     setTimeout(() => wx.stopPullDownRefresh({}), 2000);
   },
   load(options: any) {
+    wx.showLoading({
+      title: '加载中',
+    });
+
     let theme: any = app.globalData.theme;
 
     const noticeBGColor = theme === 'dark' ? '#000000' : '#ffffff';
 
     if (noticeBGColor === '#000000') {
-      wx.setNavigationBarColor({
-        frontColor: '#ffffff',
-        backgroundColor: noticeBGColor,
-        animation: {},
-      });
-
       wx.setBackgroundColor({
         backgroundColor: noticeBGColor,
       });
+    } else {
+      wx.setBackgroundTextStyle({
+        textStyle: 'dark',
+      });
     }
 
-    wx.showNavigationBarLoading({});
     this.setData!({
       // percent: 0,
       progressColor: '#36a1f0',
@@ -69,17 +70,6 @@ Page({
       noticeBGColor,
       tabbarMode: theme,
     });
-    // let time = 1;
-
-    // let intervalNum = setInterval(() => {
-    //   // console.log(time);
-    //   if (time > 50) {
-    //     return;
-    //   }
-    //   this.setData!({
-    //     percent: time++ * 2,
-    //   });
-    // }, 20);
 
     let key = options.key;
     const branch = options.branch ? options.branch : 'master';
@@ -147,33 +137,12 @@ Page({
       data,
     });
 
-    // wx.setNavigationBarColor({
-    //   backgroundColor: theme === 'dark' ? '#000000': '#ffffff',
-    //   frontColor: theme === 'dark' ? '#ffffff': '#000000',
-    //   animation: {},
-    // });
-
-    setTimeout(() => {
-      // clearInterval(this.data.intervalNum);
-
-      // this.setData!({
-      //   percent: 100,
-      //   progressColor: '#fff',
-      // });
-
-      wx.hideNavigationBarLoading({});
-    }, 1000);
-
-    // setTimeout(()=>{
-    //   this.setData!({
-    //     showNotice: false,
-    //   })
-    // },10000);
-
     wx.pageScrollTo({
       scrollTop: 0,
       duration: 700,
     });
+
+    wx.hideLoading();
   },
   onShareAppMessage: function(): any {
     return {

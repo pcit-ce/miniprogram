@@ -6,5 +6,5 @@
     "i-notice-bar": "/ui/iviewui/notice-bar/index"
   },
   "enablePullDownRefresh": true,
-  "backgroundColor": "#36a1f0"
+  "backgroundColor": "#FFFFFF"
 }
