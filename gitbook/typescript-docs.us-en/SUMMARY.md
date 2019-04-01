@@ -10,6 +10,7 @@
   * [Angular](../content/index?gitbook=typescript-docs.us-en&key=pages/tutorials/Angular.md)
   * [React](../content/index?gitbook=typescript-docs.us-en&key=pages/tutorials/React.md)
 * What's New
+  * [TypeScript 3.4](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.4.md)
   * [TypeScript 3.3](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.3.md)
   * [TypeScript 3.2](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.2.md)
   * [TypeScript 3.1](../content/index?gitbook=typescript-docs.us-en&key=pages/release%20notes/TypeScript%203.1.md)

@@ -277,6 +277,10 @@ Page({
     this.openGitbook('kubernetes');
   },
 
+  openKubectl() {
+    this.openGitbook('kubectl-docs.us-en');
+  },
+
   openTypeScriptZhCn() {
     this.openGitbook('typescript-docs.zh-cn');
   },

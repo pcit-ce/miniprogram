@@ -67,13 +67,20 @@
     <i-grid-icon><image src="/images/icos/docker.svg"></image></i-grid-icon>
     <i-grid-label>Docker</i-grid-label>
   </i-grid-item>
+  <i-grid-item bindtap="openGolang">
+    <i-grid-icon><image src="/images/icos/golang.svg"></image></i-grid-icon>
+    <i-grid-label>Go 文档</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
   <i-grid-item bindtap="openKubernetes">
     <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
     <i-grid-label>Kubernetes</i-grid-label>
   </i-grid-item>
-  <i-grid-item bindtap="openGolang">
-    <i-grid-icon><image src="/images/icos/golang.svg"></image></i-grid-icon>
-    <i-grid-label>Go 文档</i-grid-label>
+  <i-grid-item bindtap="openKubectl">
+    <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
+    <i-grid-label>Kubectl</i-grid-label>
   </i-grid-item>
 </i-grid>
 
@@ -167,10 +174,10 @@
 </i-grid>
 
 <i-grid>
-<i-grid-item bindtap="openTxVideo">
+<!-- <i-grid-item bindtap="openTxVideo">
   <i-grid-icon><image src="/images/icos/tencent_video.svg"></image></i-grid-icon>
   <i-grid-label>视频</i-grid-label>
-</i-grid-item>
+</i-grid-item> -->
 <i-grid-item bindtap="openGitHubTrending">
   <i-grid-icon><image src="/images/icos/github.svg"></image></i-grid-icon>
   <i-grid-label>GitHub 热门</i-grid-label>

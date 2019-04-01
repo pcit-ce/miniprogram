@@ -35,7 +35,7 @@
 - 模块参考
   - 指令字母索引
   - 变量字母索引
-- [核心功能](模块参考/核心功能.md)
+- [核心功能](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/核心功能.md)
   - Http
     - [ngx_http_core_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_core_module.md)
     - [ngx_http_access_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_access_module.md)
@@ -77,11 +77,11 @@
     - [ngx_http_realip_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_realip_module.md)
     - [ngx_http_referer_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_referer_module.md)
     - [ngx_http_rewrite_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_rewrite_module.md)
-    - ngx_http_scgi_module
-    - ngx_http_secure_link_module
+    - [ngx_http_scgi_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_scgi_module.md)
+    - [ngx_http_secure_link_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_secure_link_module.md)
     - ngx_http_session_log_module
     - [ngx_http_slice_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_slice_module.md)
-    - [ngx_http_spdy_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_spdy_module.md)
+    - [~~ngx_http_spdy_module~~](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_spdy_module.md)
     - [ngx_http_split_clients_module](../content/index?gitbook=nginx-docs.zh-cn&key=模块参考/http/ngx_http_split_clients_module.md)
     - ngx_http_ssi_module
     - ngx_http_ssl_module
