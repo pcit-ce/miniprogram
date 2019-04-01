@@ -76,11 +76,22 @@
 <i-grid>
   <i-grid-item bindtap="openKubernetes">
     <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
-    <i-grid-label>Kubernetes</i-grid-label>
+    <i-grid-label>Kubernetes 指南</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openKubectl">
     <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
     <i-grid-label>Kubectl</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openKubernetesUsEn">
+    <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
+    <i-grid-label>Kubernetes 文档</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openKubernetesZhCn">
+    <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
+    <i-grid-label>Kubernetes 中文文档</i-grid-label>
   </i-grid-item>
 </i-grid>
 
@@ -121,6 +132,13 @@
   <i-grid-item bindtap="openNginx">
     <i-grid-icon><image src="/images/icos/nginx.svg"></image></i-grid-icon>
     <i-grid-label>NGINX 文档</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openRedis">
+    <i-grid-icon><image src="/images/icos/redis.svg"></image></i-grid-icon>
+    <i-grid-label>Redis</i-grid-label>
   </i-grid-item>
 </i-grid>
 

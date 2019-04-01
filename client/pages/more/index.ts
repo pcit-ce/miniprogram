@@ -277,6 +277,14 @@ Page({
     this.openGitbook('kubernetes');
   },
 
+  openKubernetesUsEn() {
+    this.openGitbook('kubernetes-docs.us-en');
+  },
+
+  openKubernetesZhCn() {
+    this.openGitbook('kubernetes-docs.zh-cn');
+  },
+
   openKubectl() {
     this.openGitbook('kubectl-docs.us-en');
   },
@@ -313,6 +321,10 @@ Page({
 
   openPHPUnitZhCn() {
     this.openGitbook('phpunit-docs.zh-cn');
+  },
+
+  openRedis() {
+    this.openGitbook('redis-docs.us-en');
   },
 
   openPCITCluster() {
