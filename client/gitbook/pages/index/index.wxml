@@ -8,6 +8,4 @@ speed="1200" backgroundcolor="#fff" color="#36a1f0"
 
 <!-- <official-account></official-account> -->
 
-<import src="/towxml/entry.wxml"/>
-
-<template is="entry" data="{{...data}}"/>
+<markdown markdown="{{data}}" theme="{{theme}}" navigator="{{false}}"></markdown>

@@ -1,11 +1,12 @@
 import TencentAI from '@khs1994/tencent-ai';
-import * as Towxml from 'towxml';
 import PCIT from '@pcit/pcit-js';
 
 export interface IMyApp {
+  // @ts-ignore
   userInfoReadyCallback?(res: wx.UserInfo): void;
 
   globalData: {
+    // @ts-ignore
     userInfo?: wx.UserInfo;
     PCIT_HOST: string;
     PCIT_ENTRYPOINT: string;
@@ -19,7 +20,6 @@ export interface IMyApp {
     MDData: string;
     topHeight: any;
   };
-  towxml: any;
   pcit: any;
   tencentAI: TencentAI;
   getSecret(): void;
@@ -129,7 +129,6 @@ App<IMyApp>({
     MDData: '',
     topHeight: 0,
   },
-  towxml: new Towxml(),
   pcit: new PCIT('', 'https://ci.khs1994.com/api'),
   tencentAI: new TencentAI('x', 'x'),
 });

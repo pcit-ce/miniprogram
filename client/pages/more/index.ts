@@ -176,33 +176,41 @@ Page({
     });
   },
 
-  openChangelog() {
+  async openChangelog() {
     wx.showLoading({
       title: '加载中',
     });
 
-    (async () => {
-      const result: any = await new Promise(resolve => {
-        wx.request({
-          url: app.globalData.PCIT_ENTRYPOINT + '/ci/changelog',
-          success(res: any) {
-            resolve(res.data.data);
-          },
-        });
+    const result: any = await new Promise(resolve => {
+      wx.request({
+        url: app.globalData.PCIT_ENTRYPOINT + '/ci/changelog',
+        success(res: any) {
+          resolve(res.data.data);
+        },
       });
+    });
 
-      app.globalData.MDData = result;
+    app.globalData.MDData = result;
 
-      wx.hideLoading({});
+    wx.hideLoading({});
 
-      wx.navigateTo({
-        url: '../markdown/markdown',
-      });
-    })();
+    wx.navigateTo({
+      url: '../markdown/markdown',
+    });
   },
 
-  openStoreAuth() {
-    (async () => {
+  async openStoreAuth() {
+    wx.checkIsSupportSoterAuthentication({
+      success: res => {
+        wx.showModal({
+          title: '验证方式',
+          content: JSON.stringify(res.supportMode),
+          showCancel: false,
+        });
+      },
+    });
+
+    try {
       await new Promise((resolve, reject) => {
         wx.checkIsSoterEnrolledInDevice({
           checkAuthMode: 'fingerPrint',
@@ -243,13 +251,15 @@ Page({
           },
         });
       });
-    })().catch((e: any) => {
-      wx.showModal({
-        title: '出错啦',
-        content: JSON.stringify(e),
-        showCancel: false,
-      });
-    });
+    } catch {
+      (e: any) => {
+        wx.showModal({
+          title: '出错啦',
+          content: JSON.stringify(e),
+          showCancel: false,
+        });
+      };
+    }
   },
 
   openDocker() {
@@ -271,6 +281,14 @@ Page({
 
   openLaravelUsEn() {
     this.openGitbook('laravel-docs.us-en');
+  },
+
+  openRollup() {
+    this.openGitbook('rollup-docs.zh-cn');
+  },
+
+  openRollupUsEn() {
+    this.openGitbook('rollup-docs.us-en');
   },
 
   openKubernetes() {

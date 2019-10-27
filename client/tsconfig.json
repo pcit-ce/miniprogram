@@ -20,8 +20,9 @@
     "pretty": true,
     "strictPropertyInitialization": true,
     "newLine": "LF",
-    "lib": ["ESNext", "dom"]
+    "lib": ["esnext"],
+    "typeRoots": ["./node_modules/miniprogram-api-typings"]
   },
   "include": ["./**/*.ts"],
-  "exclude": ["node_modules", "miniprogram_dist", "**/*.spec.ts"]
+  "exclude": ["node_modules", "miniprogram_npm", "**/*.spec.ts"]
 }

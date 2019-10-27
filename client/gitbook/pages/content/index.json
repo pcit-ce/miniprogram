@@ -3,7 +3,8 @@
     "i-drawer": "/ui/iviewui/drawer/index",
     "i-tab-bar": "/ui/iviewui/tab-bar/index",
     "i-tab-bar-item": "/ui/iviewui/tab-bar-item/index",
-    "i-notice-bar": "/ui/iviewui/notice-bar/index"
+    "i-notice-bar": "/ui/iviewui/notice-bar/index",
+    "markdown": "wx-markdown/component/index"
   },
   "enablePullDownRefresh": true,
   "backgroundColor": "#FFFFFF"

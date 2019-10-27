@@ -77,7 +77,7 @@ Page({
       wx.showModal({
         title: '登录',
         content: '立即使用 GitHub 账号登录',
-        success(res: wx.ShowModalSuccessCallbackResult) {
+        success(res) {
           if (res.confirm) {
             wx.redirectTo({
               url: './login/login',
@@ -159,9 +159,7 @@ Page({
   toRepo(event: any) {
     let username = event.currentTarget.dataset.username;
     wx.navigateTo({
-      url: `/pages/repo/repo?git_type=${
-        this.data.git_type
-      }&username=${username}`,
+      url: `/pages/repo/repo?git_type=${this.data.git_type}&username=${username}`,
     });
   },
 

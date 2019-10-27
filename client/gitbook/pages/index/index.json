@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "i-notice-bar": "/ui/iviewui/notice-bar/index"
+    "i-notice-bar": "/ui/iviewui/notice-bar/index",
+    "markdown": "wx-markdown/component/index"
   }
 }

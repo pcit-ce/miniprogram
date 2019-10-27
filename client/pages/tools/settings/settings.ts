@@ -145,4 +145,14 @@ Page({
 
     this.setStorage('rate', rate);
   },
+
+  clearCache() {
+    wx.clearStorage({
+      success() {
+        wx.showToast({
+          title: '清理成功',
+        });
+      },
+    });
+  },
 });

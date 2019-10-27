@@ -69,10 +69,10 @@ Page({
     console.log(res);
   },
 
-  tta() {
+  async tta() {
     const text = this.data.input;
 
-    (async () => {
+    try {
       let result = await app.tencentAI.speech.tta(text, 0);
 
       await new Promise((resolve, reject) => {
@@ -94,9 +94,9 @@ Page({
       cia.src = filePath;
 
       cia.autoplay = true;
-    })().catch(e => {
+    } catch (e) {
       this.showModal(undefined, e);
-    });
+    }
   },
 
   showModal(

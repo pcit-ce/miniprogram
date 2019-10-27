@@ -12,7 +12,7 @@ Page({
    */
   data: {},
 
-  formSubmit(event: any) {
+  async formSubmit(event: any) {
     // console.log(event);
 
     wx.showLoading({ title: '登录中...' });
@@ -21,43 +21,41 @@ Page({
 
     // console.log(username, password);
 
-    (async () => {
-      try {
-        let pcit = new PCIT('', app.globalData.PCIT_ENTRYPOINT);
-        let pcit_user = pcit.user;
+    try {
+      let pcit = new PCIT('', app.globalData.PCIT_ENTRYPOINT);
+      let pcit_user = pcit.user;
 
-        // let result: any = await gh.auth.login.login(username, password);
-        // let pcitResult = await pcit_user.getToken(git_type, username, password);
+      // let result: any = await gh.auth.login.login(username, password);
+      // let pcitResult = await pcit_user.getToken(git_type, username, password);
 
-        const [ghResult, pcitResult] = await Promise.all([
-          gh.auth.login.login(username, password),
-          pcit_user.getToken(git_type, username, password),
-        ]);
+      const [ghResult, pcitResult] = await Promise.all([
+        gh.auth.login.login(username, password),
+        pcit_user.getToken(git_type, username, password),
+      ]);
 
-        console.log(ghResult);
+      console.log(ghResult);
 
-        let token = pcitResult.token;
+      let token = pcitResult.token;
 
-        // token 写入文件
-        wx.getFileSystemManager().writeFileSync(
-          `${wx.env.USER_DATA_PATH}/token_${git_type}`,
-          token,
-          'utf8',
-        );
+      // token 写入文件
+      wx.getFileSystemManager().writeFileSync(
+        `${wx.env.USER_DATA_PATH}/token_${git_type}`,
+        token,
+        'utf8',
+      );
 
-        app.globalData.PCIT_TOKEN = token;
+      app.globalData.PCIT_TOKEN = token;
 
-        // 跳转页面
-        this.back();
-      } catch {
-        wx.showToast({
-          title: '密码错误',
-          icon: 'none',
-        });
-      } finally {
-        wx.hideLoading();
-      }
-    })();
+      // 跳转页面
+      this.back();
+    } catch {
+      wx.showToast({
+        title: '密码错误',
+        icon: 'none',
+      });
+    } finally {
+      wx.hideLoading();
+    }
   },
 
   back() {

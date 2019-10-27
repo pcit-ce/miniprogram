@@ -25,6 +25,7 @@ Page({
     tabbarMode: 'light',
     gitbook: '',
     branch: 'master',
+    theme: 'light',
   },
   onUnload() {
     app.globalData.MDData = '';
@@ -56,6 +57,11 @@ Page({
     if (noticeBGColor === '#000000') {
       wx.setBackgroundColor({
         backgroundColor: noticeBGColor,
+      });
+      wx.setNavigationBarColor({
+        frontColor: '#ffffff',
+        backgroundColor: noticeBGColor,
+        animation: {},
       });
     } else {
       wx.setBackgroundTextStyle({
@@ -116,25 +122,23 @@ Page({
     let data;
 
     if (isCache) {
-      data = JSON.parse(
-        wx.getStorageSync(`${this.data.gitbook}_${this.data.branch}_${key}`),
+      data = wx.getStorageSync(
+        `gitbook/${this.data.gitbook}_${this.data.branch}_${key}`,
       );
     } else {
-      data = app.towxml.toJson(this.data.MDData, 'markdown');
+      data = this.data.MDData;
 
       wx.setStorage({
-        key: `${this.data.gitbook}_${this.data.branch}_${key}`,
-        data: JSON.stringify(data),
+        key: `gitbook/${this.data.gitbook}_${this.data.branch}_${key}`,
+        data,
       });
     }
 
     const theme = app.globalData.theme;
 
-    data.theme = theme;
-    console.log(theme);
-
     this.setData!({
       data,
+      theme,
     });
 
     wx.pageScrollTo({
@@ -234,7 +238,9 @@ Page({
 
     if (
       cache &&
-      wx.getStorageSync(`${this.data.gitbook}_${this.data.branch}_${key}`)
+      wx.getStorageSync(
+        `gitbook/${this.data.gitbook}_${this.data.branch}_${key}`,
+      )
     ) {
       this.show(key, true);
 
@@ -259,9 +265,7 @@ Page({
     //   url = `https://gitee.com/khs1994-docker/docker_practice/raw/master/${key}`;
     // }
 
-    let url = `https://gitee.com/khs1994-website/${this.data.gitbook}/raw/${
-      this.data.branch
-    }/${key}`;
+    let url = `https://gitee.com/khs1994-website/${this.data.gitbook}/raw/${this.data.branch}/${key}`;
 
     // url 解码
     // url = decodeURIComponent(url);
@@ -367,7 +371,9 @@ Page({
     // console.log(res);
   },
 
-  __bind_tap() {},
+  __bind_tap() {
+    console.log(111);
+  },
 
   __bind_touchcancel() {},
 });

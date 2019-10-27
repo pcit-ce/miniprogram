@@ -1,6 +1,5 @@
 client/node_modules
 client/miniprogram_npm
-client/towxml
 client/ui
 package-lock.json
 
@@ -8,3 +7,5 @@ gitbook/**/SUMMARY.json
 gitbook/**/*.md
 wuss
 iviewui
+
+project.config.json

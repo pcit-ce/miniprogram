@@ -32,3 +32,8 @@
   <i-rate bind:change="rate" value="{{rate}}" count="5" slot="footer"></i-rate>
   </i-cell>
 </i-panel>
+
+<i-panel>
+  <i-cell title="清理缓存" bind:click="clearCache">
+  </i-cell>
+</i-panel>

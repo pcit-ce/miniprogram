@@ -4,5 +4,12 @@
 
 image {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
+  display: inline-block;
+}
+
+scroll-view {
+  width: 100%;
+  display: flex;
+  white-space: nowrap;
 }

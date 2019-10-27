@@ -1,6 +1,6 @@
 // pages/aiface/camera.js
 
-const aicommon = require('../aicommon/index.js');
+import aicommon = require('../aicommon/index.js');
 
 Page({
   /**
@@ -11,7 +11,7 @@ Page({
     template_data: {
       device_position: '',
     },
-    device_position: '',
+    device_position: 'front',
   },
 
   /**
@@ -70,44 +70,44 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function(): any {},
+  onShareAppMessage: function() {
+    return {};
+  },
 
-  takePhoto() {
-    (async () => {
-      let filePath = await aicommon.takePhoto();
+  async takePhoto() {
+    let filePath = await aicommon.takePhoto();
 
-      console.log(filePath);
+    console.log(filePath);
 
-      const fs = wx.getFileSystemManager();
-      const srcPath = `${wx.env.USER_DATA_PATH}/src.jpg`;
-      const desDir = `${wx.env.USER_DATA_PATH}/aiface`;
+    const fs = wx.getFileSystemManager();
+    const srcPath = `${wx.env.USER_DATA_PATH}/src.jpg`;
+    const desDir = `${wx.env.USER_DATA_PATH}/aiface`;
 
-      fs.renameSync(filePath, srcPath);
+    fs.renameSync(filePath, srcPath);
 
-      // 创建文件夹
-      try {
-        fs.mkdirSync(desDir);
-      } catch (e) {
-        console.log(e);
-      }
+    // 创建文件夹
+    try {
+      fs.mkdirSync(desDir);
+    } catch (e) {
+      console.log(e);
+    }
 
-      // 缓存原始文件
-      this.data.cache_file &&
-        fs.copyFile({
-          srcPath,
-          destPath: desDir + '/' + new Date().getTime().toString(),
-          fail(e) {
-            console.log(e);
-          },
-          success(e) {
-            console.log(e);
-          },
-        });
-
-      // 返回上一页面
-      wx.navigateBack({
-        delta: 1,
+    // 缓存原始文件
+    this.data.cache_file &&
+      fs.copyFile({
+        srcPath,
+        destPath: desDir + '/' + new Date().getTime().toString(),
+        fail(e) {
+          console.log(e);
+        },
+        success(e) {
+          console.log(e);
+        },
       });
-    })();
+
+    // 返回上一页面
+    wx.navigateBack({
+      delta: 1,
+    });
   },
 });

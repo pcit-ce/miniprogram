@@ -60,18 +60,17 @@ Page({
    */
   onShareAppMessage: function(): any {},
 
-  textTranslate() {
+  async textTranslate() {
     console.log(this.data.input);
-
-    (async () => {
-      const result = await app.tencentAI.translate.texttranslate(
-        this.data.input,
-      );
+    try {
+      const result = await app.tencentAI.translate.text(this.data.input);
 
       this.setData!({
         input: result.data.target_text,
       });
-    })().catch(e => this.showModal(undefined, e));
+    } catch (e) {
+      this.showModal(undefined, e);
+    }
   },
 
   selectSource(res: any) {

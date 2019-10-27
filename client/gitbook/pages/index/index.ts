@@ -1,8 +1,8 @@
 // pages/docker/index.js
 
 import { IMyApp } from '../../../app';
-
 const app = getApp<IMyApp>();
+import fetch from 'wx-fetch';
 
 Page({
   data: {
@@ -35,15 +35,11 @@ Page({
       title: '加载中',
     });
 
-    const summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
-      this.data.gitbook
-    }/SUMMARY.md`;
+    console.log(this.data.gitbook);
 
-    const summary_json_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${
-      this.data.gitbook
-    }/SUMMARY.json`;
+    const summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${this.data.gitbook}/SUMMARY.md`;
 
-    const fetch = require('wx-fetch');
+    const summary_json_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${this.data.gitbook}/SUMMARY.json`;
 
     Promise.all([
       fetch(summary_url).then((e: any) => e.text()),
@@ -52,12 +48,12 @@ Page({
       res => {
         // console.log(res);
 
-        const data = app.towxml.toJson(res[0], 'markdown');
-
-        data.theme = 'light';
+        const data = res[0];
+        let theme = 'light';
 
         this.setData!({
           data,
+          theme,
         });
 
         app.globalData.summaryData = JSON.parse(res[1]);

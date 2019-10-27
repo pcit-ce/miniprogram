@@ -8,6 +8,10 @@
 
 <view style="margin-top:{{topHeight}}px"></view>
 
+<image show-menu-by-longpress="{{true}}" wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
+
+<button bindtap="toTakePhoto" type="primary" class="item">拍摄</button>
+
 <view class="weui-grids">
   <view class="weui-grid" bindtap="general">
   <view class="weui-grid__icon">😁</view>
@@ -19,10 +23,6 @@
   <view class="weui-grid__label">开发中</view>
   </view>
 </view>
-
-<image wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
-
-<button bindtap="toTakePhoto" type="primary" class="item">拍摄</button>
 
 <view>
 <textarea auto-height placeholder="OCR 识别结果,点击可复制到剪贴板" maxlength="-1"

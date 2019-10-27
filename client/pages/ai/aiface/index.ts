@@ -1,6 +1,6 @@
 import { IMyApp } from '../../../app';
-
 const app = getApp<IMyApp>();
+
 import * as aiCommon from '../aicommon/index';
 const fs = wx.getFileSystemManager();
 const filePath = `${wx.env.USER_DATA_PATH}/src.jpg`;
@@ -75,49 +75,45 @@ Page({
     }
   },
 
-  takePhoto() {
-    (async () => {
-      let result = await aiCommon.takePhoto();
+  async takePhoto() {
+    let result = await aiCommon.takePhoto();
 
-      this.setData!({
+    this.setData!({
+      src: result,
+      template_data: {
         src: result,
-        template_data: {
-          src: result,
-          device_position: 'front',
-        },
-      });
-    })();
+        device_position: 'front',
+      },
+    });
   },
 
   toTakePhoto() {
     wx.navigateTo({
-      url: '../aicamera/camera?cache_file=true',
+      url: '../aicamera/index?cache_file=true',
     });
   },
 
-  choosePhoto() {
-    (async () => {
-      let result = await aiCommon.choosePhoto();
+  async choosePhoto() {
+    let result = await aiCommon.choosePhoto();
 
-      this.setData!({
+    this.setData!({
+      src: result,
+      template_data: {
         src: result,
-        template_data: {
-          src: result,
-          device_position: 'front',
-        },
-      });
-    })();
+        device_position: 'front',
+      },
+    });
   },
 
   getImage() {
     return aiCommon.getImage(this.data.src);
   },
 
-  save() {
+  async save() {
     let choose = new Promise((resolve, reject) => {
       wx.showActionSheet({
         itemList: ['原图', '特效图'],
-        success(res: wx.ShowActionSheetSuccessCallbackResult) {
+        success(res) {
           resolve(res.tapIndex);
         },
         fail(e) {
@@ -126,25 +122,23 @@ Page({
       });
     });
 
-    (async () => {
-      let result = await choose;
+    let result = await choose;
 
-      let filePath = result === 0 ? this.data.src : this.data.target_src;
+    let filePath = result === 0 ? this.data.src : this.data.target_src;
 
-      wx.saveImageToPhotosAlbum({
-        filePath,
-        success() {
-          wx.showToast({
-            title: '保存成功，请到系统相册查看',
-          });
-        },
-        fail: (e: any) => {
-          console.log(e);
+    wx.saveImageToPhotosAlbum({
+      filePath,
+      success() {
+        wx.showToast({
+          title: '保存成功，请到系统相册查看',
+        });
+      },
+      fail: (e: any) => {
+        console.log(e);
 
-          this.showModal('出错啦', e);
-        },
-      });
-    })();
+        this.showModal('出错啦', e);
+      },
+    });
   },
 
   preview() {
@@ -171,13 +165,11 @@ Page({
 
     let url_list: string[] = [];
 
-    urls.map(
-      (v): any => {
-        if (v) {
-          url_list.push(v);
-        }
-      },
-    );
+    urls.map((v): any => {
+      if (v) {
+        url_list.push(v);
+      }
+    });
 
     if (JSON.stringify(url_list) === '[]') {
       this.showModal('出错啦', '没找到图片😂', false);
@@ -191,11 +183,11 @@ Page({
     });
   },
 
-  upload() {
+  async upload() {
     let choose = new Promise((resolve, reject) => {
       wx.showActionSheet({
         itemList: ['原图', '特效图'],
-        success(res: wx.ShowActionSheetSuccessCallbackResult) {
+        success(res) {
           resolve(res.tapIndex);
         },
         fail(e) {
@@ -204,28 +196,26 @@ Page({
       });
     });
 
-    (async () => {
-      let result = await choose;
+    let result = await choose;
 
-      let filePath = result === 0 ? this.data.src : this.data.target_src;
+    let filePath = result === 0 ? this.data.src : this.data.target_src;
 
-      wx.cloud.init({
-        env: 'pro-1e94dd',
-      });
+    wx.cloud.init({
+      env: 'pro-1e94dd',
+    });
 
-      let cloudPath = new Date().getTime().toString() + '.jpg';
+    let cloudPath = new Date().getTime().toString() + '.jpg';
 
-      wx.cloud.uploadFile({
-        cloudPath,
-        filePath,
-        success: () => {
-          this.showModal('上传成功', '请到控制台查看');
-        },
-        fail: e => {
-          this.showModal('出错啦', e);
-        },
-      });
-    })();
+    wx.cloud.uploadFile({
+      cloudPath,
+      filePath,
+      success: () => {
+        this.showModal('上传成功', '请到控制台查看');
+      },
+      fail: e => {
+        this.showModal('出错啦', e);
+      },
+    });
   },
 
   writeTargetFile(image: string) {
@@ -245,7 +235,7 @@ Page({
   },
 
   // 人脸美妆
-  facecosmetic() {
+  async facecosmetic() {
     let image = this.getImage();
 
     if (!image) {
@@ -262,24 +252,24 @@ Page({
       target_src: '',
     });
 
-    (async () => {
-      let result = await app.tencentAI.imageSpecialEffects.facecosmetic(
+    try {
+      let result = await app.tencentAI.imageSpecialEffects.faceCosmetic(
         image,
         mode,
       );
 
       this.writeTargetFile(result.data.image);
 
-      wx.hideLoading({});
-    })().catch(e => {
-      wx.hideLoading({});
+      wx.hideLoading();
+    } catch (e) {
+      wx.hideLoading();
       console.log(e);
       this.showModal('出错啦', e);
-    });
+    }
   },
 
   // 人脸变妆
-  facedecoration() {
+  async facedecoration() {
     let image = this.getImage();
 
     if (!image) {
@@ -296,31 +286,30 @@ Page({
       title: `模式 ${mode} 处理中`,
     });
 
-    (async () => {
-      console.log(mode);
-
-      let result = await app.tencentAI.imageSpecialEffects.facedecoration(
+    console.log(mode);
+    try {
+      let result = await app.tencentAI.imageSpecialEffects.faceDecoration(
         image,
         mode,
       );
 
       this.writeTargetFile(result.data.image);
 
-      wx.hideLoading({});
+      wx.hideLoading();
 
       // TODO 滚到结果图处
       // wx.pageScrollTo({
       //   scrollTop: 184,
       // })
-    })().catch(e => {
-      wx.hideLoading({});
+    } catch (e) {
+      wx.hideLoading();
 
       this.showModal('出错啦', e);
-    });
+    }
   },
 
   // 图片滤镜
-  ptuimgfilter() {
+  async ptuimgfilter() {
     let image = this.getImage();
 
     if (!image) {
@@ -337,23 +326,23 @@ Page({
       title: `模式 ${filter} 处理中`,
     });
 
-    (async () => {
-      let result = await app.tencentAI.imageSpecialEffects.ptuimgfilter(
+    try {
+      let result = await app.tencentAI.imageSpecialEffects.ptuFilter(
         image,
         filter,
       );
 
       this.writeTargetFile(result.data.image);
 
-      wx.hideLoading({});
-    })().catch(e => {
-      wx.hideLoading({});
+      wx.hideLoading();
+    } catch (e) {
+      wx.hideLoading();
       this.showModal('出错啦', e);
-    });
+    }
   },
 
   // 图片滤镜 AI LAB
-  visionimgfilter() {
+  async visionimgfilter() {
     let image = this.getImage();
 
     if (!image) {
@@ -366,8 +355,8 @@ Page({
       title: `模式 ${filter} 处理中`,
     });
 
-    (async () => {
-      let result = await app.tencentAI.imageSpecialEffects.visionimgfilter(
+    try {
+      let result = await app.tencentAI.imageSpecialEffects.visionFilter(
         image,
         filter,
         new Date().getTime().toString(),
@@ -375,18 +364,18 @@ Page({
 
       this.writeTargetFile(result.data.image);
 
-      wx.hideLoading({});
-    })().catch(e => {
-      wx.hideLoading({});
+      wx.hideLoading();
+    } catch (e) {
+      wx.hideLoading();
 
       this.showModal('出错啦', e);
-    });
+    }
   },
 
   // 人脸融合
 
   // 大头贴
-  facesticker() {
+  async facesticker() {
     let image = this.getImage();
 
     if (!image) {
@@ -403,23 +392,23 @@ Page({
       target_src: '',
     });
 
-    (async () => {
-      let result = await app.tencentAI.imageSpecialEffects.facesticker(
+    try {
+      let result = await app.tencentAI.imageSpecialEffects.faceSticker(
         image,
         sticker,
       );
 
       this.writeTargetFile(result.data.image);
 
-      wx.hideLoading({});
-    })().catch(e => {
-      wx.hideLoading({});
+      wx.hideLoading();
+    } catch (e) {
+      wx.hideLoading();
       this.showModal('出错啦', e);
-    });
+    }
   },
 
   // 颜龄检测
-  faceage() {
+  async faceage() {
     let image = this.getImage();
 
     if (!image) {
@@ -434,19 +423,16 @@ Page({
       target_src: '',
     });
 
-    async function faceAge(image: string) {
-      return await app.tencentAI.imageSpecialEffects.faceage(image);
-    }
-
-    faceAge(image)
+    await app.tencentAI.imageSpecialEffects
+      .faceAge(image)
       .then((res: any) => {
         this.writeTargetFile(res.data.image);
-        wx.hideLoading({});
+        wx.hideLoading();
       })
-      .catch(e => {
-        wx.hideLoading({});
+      .catch((e: any) => {
+        wx.hideLoading();
 
-        this.showModal('出错误啦', e);
+        this.showModal('出错啦', e);
       });
   },
 

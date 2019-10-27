@@ -1,8 +1,8 @@
 <view style="margin-top:{{topHeight}}px"></view>
 
-<button bindtap="takephoto" type="primary">拍摄</button>
+<image show-menu-by-longpress="{{true}}" src="{{src}}" wx:if="{{src}}"></image>
 
-<image src="{{src}}" wx:if="{{src}}"></image>
+<button bindtap="takephoto" type="primary">拍摄</button>
 
 <view>
   <view class="weui-grids">

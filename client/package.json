@@ -2,11 +2,10 @@
   "name": "@pcit/miniprogram",
   "version": "18.12.0-alpha.0",
   "dependencies": {
-    "@khs1994/tencent-ai": "^18.12.0",
-    "@pcit/pcit-js": "^18.12.0-beta.7",
-    "qs": "^6.6.0",
-    "towxml": "github:pcit-ce/towxml",
-    "wx-fetch": "github:khs1994/wx-fetch"
+    "@khs1994/tencent-ai": "^19.6.0-alpha.6",
+    "@pcit/pcit-js": "^18.12.0-rc.2",
+    "wx-fetch": "github:khs1994/wx-fetch",
+    "wx-markdown": "*"
   },
   "scripts": {
     "cleanup": "npx rimraf node_modules/node-fetch",
@@ -16,7 +15,7 @@
     "compile:pro": "cd ../ && npm run gitbook && cd client && npx tsc --inlineSourceMap false --inlineSources false"
   },
   "devDependencies": {
-    "@types/wx": "github:khs1994/types-wx",
-    "typescript": "^3.3.3333"
+    "miniprogram-api-typings": "*",
+    "typescript": "^3.6.4"
   }
 }

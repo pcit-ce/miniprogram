@@ -57,16 +57,14 @@ Page({
    */
   onShareAppMessage: function(): any {},
 
-  wordseg() {
-    (async () => {
-      const result = await app.tencentAI.nlp.wordseg(this.data.input);
+  async wordseg() {
+    const result = await app.tencentAI.nlp.seg(this.data.input);
 
-      console.log(result);
+    console.log(result);
 
-      this.setData!({
-        input: JSON.stringify(result.data),
-      });
-    })().catch(e => this.showModal(undefined, e));
+    this.setData!({
+      input: JSON.stringify(result.data),
+    });
   },
 
   bindinput(res: any) {

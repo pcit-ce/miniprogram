@@ -45,6 +45,8 @@ $gitbooks = [
   'phpunit-docs.us-en',
   'phpunit-docs.zh-cn',
   'redis-docs.us-en',
+  'rollup-docs.zh-cn',
+  'rollup-docs.us-en',
   'typescript-docs.us-en',
   'typescript-docs.zh-cn',
  ];

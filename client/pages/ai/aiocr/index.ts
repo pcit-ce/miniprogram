@@ -87,19 +87,19 @@ Page({
    */
   onShareAppMessage: function(): any {},
 
-  general() {
+  async general() {
     let image = this.getImage();
 
     if (!image) {
       return;
     }
 
-    (async () => {
+    try {
       wx.showLoading({
         title: '处理中',
       });
 
-      let result = await app.tencentAI.ocr.generalocr(image);
+      let result = await app.tencentAI.ocr.general(image);
       let data: Array<string> | string = [];
 
       for (let item of result.data.item_list) {
@@ -113,7 +113,7 @@ Page({
         text: data,
       });
 
-      wx.hideLoading({});
+      wx.hideLoading();
 
       // result = await app.tencentAI.nlp.wordseg(data);
 
@@ -153,16 +153,16 @@ Page({
       ciac.onError(e => {
         console.log(e);
       });
-    })().catch((e: any) => {
+    } catch (e) {
       console.log(e);
-      wx.hideLoading({});
+      wx.hideLoading();
       this.showModal('出错啦', e);
-    });
+    }
   },
 
   toTakePhoto() {
     wx.navigateTo({
-      url: '../aicamera/backcamera?device_position=back',
+      url: '../aicamera/index?device_position=back',
     });
   },
 

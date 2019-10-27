@@ -1,7 +1,0 @@
-/* pages/aiface/camera.wxss */
-
-.camera {
-  width: 100vw;
-  height: 90vh;
-  margin-bottom: 1vh;
-}

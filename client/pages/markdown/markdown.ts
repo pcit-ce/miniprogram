@@ -8,20 +8,28 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    data: '',
+    theme: 'light',
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
+    console.log(1);
     wx.showLoading({
       title: '加载中',
     });
 
-    let data = app.towxml.toJson(app.globalData.MDData, 'markdown');
-    data.theme = 'light';
+    let data = app.globalData.MDData;
+    let theme = 'light';
+
+    console.log(data);
+
     this.setData!({
       data,
+      theme,
     });
 
     setTimeout(() => wx.hideLoading({}), 900);

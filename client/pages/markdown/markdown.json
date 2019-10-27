@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "文本"
+  "navigationBarTitleText": "文本",
+  "usingComponents": {
+    "markdown": "wx-markdown/component/index"
+  }
 }

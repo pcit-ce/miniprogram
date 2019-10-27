@@ -84,11 +84,11 @@ Page({
 
   takephoto() {
     wx.navigateTo({
-      url: '../aicamera/backcamera',
+      url: '../aicamera/index?device_position=back',
     });
   },
 
-  imagetotext() {
+  async imagetotext() {
     let image = this.data.src;
 
     image = aicommon.getImage(image);
@@ -97,15 +97,13 @@ Page({
       return;
     }
 
-    (async () => {
-      const session = new Date().getTime.toString();
-      const result = await app.tencentAI.image.imgtotext(image, session);
+    const session = new Date().getTime.toString();
+    const result = await app.tencentAI.image.toText(image, session);
 
-      console.log(result);
+    console.log(result);
 
-      this.setData!({
-        output: result.data.text,
-      });
-    })();
+    this.setData!({
+      output: result.data.text,
+    });
   },
 });

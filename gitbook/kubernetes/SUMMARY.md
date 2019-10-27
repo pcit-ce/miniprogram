@@ -7,8 +7,6 @@
 ## 云原生
 
 - [云原生的定义](../content/index?gitbook=kubernetes&key=cloud-native/cloud-native-definition.md)
-- [CNCF - 云原生计算基金会简介](../content/index?gitbook=kubernetes&key=cloud-native/cncf.md)
-- [CNCF 章程](../content/index?gitbook=kubernetes&key=cloud-native/cncf-charter.md)
 - [云原生的设计哲学](../content/index?gitbook=kubernetes&key=cloud-native/cloud-native-philosophy.md)
 - [Play with Kubernetes](../content/index?gitbook=kubernetes&key=cloud-native/play-with-kubernetes.md)
 - [快速部署一个云原生本地实验环境](../content/index?gitbook=kubernetes&key=cloud-native/cloud-native-local-quick-start.md)
@@ -95,7 +93,7 @@
   - [Secret 配置](../content/index?gitbook=kubernetes&key=guide/secret-configuration.md)
   - [管理 namespace 中的资源配额](../content/index?gitbook=kubernetes&key=guide/resource-quota-management.md)
 - [命令使用](../content/index?gitbook=kubernetes&key=guide/command-usage.md)
-  - [Docker 用户过度到 kubectl 命令行指南](../content/index?gitbook=kubernetes&key=guide/docker-cli-to-kubectl.md)
+  - [Docker 用户过渡到 kubectl 命令行指南](../content/index?gitbook=kubernetes&key=guide/docker-cli-to-kubectl.md)
   - [kubectl 命令概览](../content/index?gitbook=kubernetes&key=guide/using-kubectl.md)
   - [kubectl 命令技巧大全](../content/index?gitbook=kubernetes&key=guide/kubectl-cheatsheet.md)
   - [使用 etcdctl 访问 kubernetes 数据](../content/index?gitbook=kubernetes&key=guide/using-etcdctl-to-access-kubernetes-data.md)
@@ -253,6 +251,14 @@
 - [社区贡献](../content/index?gitbook=kubernetes&key=develop/contribute.md)
 - [Minikube](../content/index?gitbook=kubernetes&key=develop/minikube.md)
 
+## CNCF （云原生计算基金会）
+
+* [CNCF - 云原生计算基金会简介](../content/index?gitbook=kubernetes&key=cloud-native/cncf.md)
+* [CNCF章程](../content/index?gitbook=kubernetes&key=cloud-native/cncf-charter.md)
+* [CNCF特别兴趣小组（SIG）说明](../content/index?gitbook=kubernetes&key=cloud-native/cncf-sig.md)
+* [开源项目加入CNCF Sandbox的要求](../content/index?gitbook=kubernetes&key=cloud-native/cncf-sandbox-criteria.md)
+* [CNCF中的项目治理](../content/index?gitbook=kubernetes&key=cloud-native/cncf-project-governing.md)
+
 ## 附录
 
 - [附录说明](../content/index?gitbook=kubernetes&key=appendix/index.md)
@@ -269,6 +275,8 @@
   - [Kubernetes1.11 更新日志](../content/index?gitbook=kubernetes&key=appendix/kubernetes-1.11-changelog.md)
   - [Kubernetes1.12 更新日志](../content/index?gitbook=kubernetes&key=appendix/kubernetes-1.12-changelog.md)
   - [Kubernetes1.13 更新日志](../content/index?gitbook=kubernetes&key=appendix/kubernetes-1.13-changelog.md)
+  - [Kubernetes1.14 更新日志](../content/index?gitbook=kubernetes&key=appendix/kubernetes-1.14-changelog.md)
+  - [Kubernetes1.15 更新日志](../content/index?gitbook=kubernetes&key=appendix/kubernetes-1.15-changelog.md)
 - [Kubernetes 及云原生年度总结及展望](../content/index?gitbook=kubernetes&key=appendix/summary-and-outlook.md)
   - [Kubernetes 与云原生 2017 年年终总结及 2018 年展望](../content/index?gitbook=kubernetes&key=appendix/kubernetes-and-cloud-native-summary-in-2017-and-outlook-for-2018.md)
 - [Kubernetes 认证服务提供商（KCSP）说明](../content/index?gitbook=kubernetes&key=appendix/about-kcsp.md)

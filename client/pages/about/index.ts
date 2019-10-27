@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    about_data: [],
+    about_data: '',
+    theme: 'light',
   },
 
   /**
@@ -31,12 +32,12 @@ Page({
 
     pcit_system.about().then(
       (res: any) => {
-        let data = app.towxml.toJson(res.data, 'markdown');
-
-        data.theme = 'light';
+        let data = res.data;
+        let theme = 'light';
 
         this.setData!({
           about_data: data,
+          theme,
         });
 
         setTimeout(() => wx.hideLoading({}), 900);

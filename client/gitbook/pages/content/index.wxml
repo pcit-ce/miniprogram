@@ -7,19 +7,21 @@ speed="1200"
 《Docker 技术入门与实战》第三版已经面世，介绍最新的容器技术栈，欢迎大家阅读使用并反馈建议。
 </i-notice-bar> -->
 
-<import src="/towxml/entry.wxml"/>
+<markdown markdown="{{data}}" theme="{{theme}}"></markdown>
 
-<template is="entry" data="{{...data}}"/>
-
-<!-- <view class="weui-footer weui-footer_fixed-bottom footer-btn">
+<!-- 
+<view class="weui-footer weui-footer_fixed-bottom footer-btn">
   <button bindtap="before" wx:if="{{before_key}}">上一页</button>
   <button bindtap="menu">目录</button>
   <button bindtap="next" wx:if="{{next_key}}">下一页</button>
-</view> -->
+</view> 
+-->
 
+<!-- 
 <i-drawer mode="left" visible="{{showMenu}}" bind:close="menuClose">
 <template is="entry" data="{{...MenuData}}"/>
-</i-drawer>
+</i-drawer> 
+-->
 
 <view style="height:10vh;background-color:{{noticeBGColor}}"></view>
 

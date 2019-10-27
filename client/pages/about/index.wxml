@@ -1,6 +1,4 @@
-<import src="/towxml/entry.wxml"/>
-
-<template is="entry" data="{{...about_data}}"/>
+<markdown markdown="{{about_data}}" theme="{{theme}}" ></markdown>
 
 <view>
   <button open-type="contact" show-message-card="true" type="primary">联系我们</button>

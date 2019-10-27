@@ -2,6 +2,9 @@
 
 .camera {
   width: 100vw;
-  height: 90vh;
-  margin-bottom: 1vh;
+  height: 100vh;
+}
+
+button {
+  margin-top: 90vh;
 }

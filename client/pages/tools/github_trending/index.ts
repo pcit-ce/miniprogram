@@ -95,7 +95,7 @@ Page({
       });
   },
 
-  bindAction(res: any) {
+  async bindAction(res: any) {
     // console.log(res);
 
     const index = res.detail.index;
@@ -107,24 +107,22 @@ Page({
         title: 'staring ...',
       });
 
-      (async () => {
-        try {
-          await gh.activity.staring.star(project);
+      try {
+        await gh.activity.staring.star(project);
 
+        wx.showToast({
+          title: '成功',
+        });
+      } catch (e) {
+        setTimeout(() => {
           wx.showToast({
-            title: '成功',
+            icon: 'none',
+            title: '失败，请先登录 GitHub 账号',
           });
-        } catch (e) {
-          setTimeout(() => {
-            wx.showToast({
-              icon: 'none',
-              title: '失败，请先登录 GitHub 账号',
-            });
-          }, 500);
-        } finally {
-          wx.hideLoading();
-        }
-      })();
+        }, 500);
+      } finally {
+        wx.hideLoading();
+      }
     }
   },
 

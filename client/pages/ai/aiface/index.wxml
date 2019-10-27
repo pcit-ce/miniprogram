@@ -3,8 +3,14 @@
 <template is="camera" data="{{...template_data}}">
 </template> -->
 <view style="margin-top:{{topHeight}}px"></view>
-<image wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
-<image wx:if="{{target_src}}" src="{{target_src}}" mode='scaleToFill'></image>
+<view wx:if="{{src}}">
+<scroll-view scroll-x="{{true}}">
+<image show-menu-by-longpress="{{true}}" wx:if="{{target_src}}" src="{{target_src}}" mode='scaleToFill'
+style="margin-right:2vw"
+></image>
+<image show-menu-by-longpress="{{true}}" wx:if="{{src}}" src="{{src}}" mode='scaleToFill'></image>
+</scroll-view>
+</view>
 
 <button bindtap="toTakePhoto" type="primary" class="item">拍摄</button>
 

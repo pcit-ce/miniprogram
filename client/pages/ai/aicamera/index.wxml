@@ -1,0 +1,11 @@
+<!-- <import src="../aicommon/camera"/>
+
+<template is="camera" data="{{...template_data}}">
+</template> -->
+
+<camera device-position="{{device_position}}"
+  class='camera' bindtap="choosePhoto">
+<cover-view>
+  <button class="takephoto" bindtap="takePhoto" type="primary">拍摄</button>
+</cover-view>
+</camera>
