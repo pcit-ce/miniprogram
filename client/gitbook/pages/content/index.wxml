@@ -7,7 +7,18 @@ speed="1200"
 《Docker 技术入门与实战》第三版已经面世，介绍最新的容器技术栈，欢迎大家阅读使用并反馈建议。
 </i-notice-bar> -->
 
-<markdown markdown="{{data}}" theme="{{theme}}"></markdown>
+<wemark md="{{data}}" link highlight type="{{wemarkType}}" wx:if="{{useWemark}}"
+theme="{{theme}}"
+cache="{{cache}}" key="{{gitbook}}-{{branch}}-{{key}}"
+></wemark>
+
+<markdown markdown="{{mdCacheKey}}" wx:else
+theme="{{theme}}" 
+key="{{gitbook}}-{{branch}}-{{key}}"
+pass-md-by-cache="{{true}}"
+richtext="{{wxMarkdownRichtext}}"
+cache="{{cache}}"
+></markdown>
 
 <!-- 
 <view class="weui-footer weui-footer_fixed-bottom footer-btn">

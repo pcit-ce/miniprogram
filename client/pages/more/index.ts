@@ -269,18 +269,18 @@ Page({
     });
   },
 
-  openGitbook(name: string) {
+  openGitbook(name: string, branch = 'master') {
     wx.navigateTo({
-      url: '/gitbook/pages/index/index?gitbook=' + name,
+      url: `/gitbook/pages/index/index?gitbook=${name}&branch=${branch}`,
     });
   },
 
   openLaravel() {
-    this.openGitbook('laravel-docs.zh-cn');
+    this.openGitbook('laravel-docs.zh-cn', '5.5');
   },
 
   openLaravelUsEn() {
-    this.openGitbook('laravel-docs.us-en');
+    this.openGitbook('laravel-docs.us-en', '5.8');
   },
 
   openRollup() {

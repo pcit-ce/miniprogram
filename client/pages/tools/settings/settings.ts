@@ -155,4 +155,23 @@ Page({
       },
     });
   },
+
+  mdEngine() {
+    let itemList = [
+      'wx-markdown',
+      'wx-markdown-richtext',
+      'wemark',
+      'wemark-richtext',
+    ];
+    wx.showActionSheet({
+      itemList,
+      success(res) {
+        app.globalData.mdEngine = itemList[res.tapIndex];
+        wx.setStorage({
+          key: 'system/md-engine',
+          data: itemList[res.tapIndex],
+        });
+      },
+    });
+  },
 });

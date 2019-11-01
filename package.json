@@ -2,8 +2,6 @@
   "scripts": {
     "preinstall": "echo don't exec install command in this folder && exit 1",
     "fmt": "npx prettier --write ./**/*.ts ./**/*.json ./**/*.md",
-    "gitbook": "cd gitbook && php ./tojson.php",
-    "gitbook:pwcp": "powershell cp -r -force ./gitbook/* ~/github/pcit_gitbook_summary",
     "git:setTemplate": "git config commit.template ./.gittemplate",
     "changelog:all": "npx conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "changelog:append": "npx conventional-changelog -p angular -i CHANGELOG.md -s",

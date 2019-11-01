@@ -3,20 +3,24 @@
 import { IMyApp } from '../../../app';
 const app = getApp<IMyApp>();
 import fetch from 'wx-fetch';
+import SummaryHandler from './SummaryHandler';
 
 Page({
   data: {
     data: '',
     gitbook: '',
     topHeight: 0,
+    branch: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options: any) {
+    let { gitbook, branch } = options;
     this.setData!({
-      gitbook: options.gitbook,
+      gitbook,
+      branch,
     });
 
     wx.getSystemInfo({
@@ -35,20 +39,18 @@ Page({
       title: '加载中',
     });
 
-    console.log(this.data.gitbook);
+    let { gitbook, branch } = this.data;
 
-    const summary_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${this.data.gitbook}/SUMMARY.md`;
+    console.log(gitbook);
 
-    const summary_json_url = `https://gitee.com/pcit-ce/gitbook/raw/master/${this.data.gitbook}/SUMMARY.json`;
+    const summary_url = `https://gitee.com/khs1994-website/${gitbook}/raw/${branch}/SUMMARY.md`;
 
-    Promise.all([
-      fetch(summary_url).then((e: any) => e.text()),
-      fetch(summary_json_url).then((e: any) => e.text()),
-    ]).then(
+    Promise.all([fetch(summary_url).then((e: any) => e.text())]).then(
       res => {
         // console.log(res);
 
-        const data = res[0];
+        let [data, summaryJson] = SummaryHandler(res[0], gitbook, branch);
+
         let theme = 'light';
 
         this.setData!({
@@ -56,7 +58,7 @@ Page({
           theme,
         });
 
-        app.globalData.summaryData = JSON.parse(res[1]);
+        app.globalData.summaryData = summaryJson;
 
         wx.showToast({
           title: '成功',

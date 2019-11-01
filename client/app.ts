@@ -19,6 +19,7 @@ export interface IMyApp {
     summaryData: Array<any>;
     MDData: string;
     topHeight: any;
+    mdEngine: string;
   };
   pcit: any;
   tencentAI: TencentAI;
@@ -128,6 +129,7 @@ App<IMyApp>({
     summaryData: [],
     MDData: '',
     topHeight: 0,
+    mdEngine: 'wx-markdown',
   },
   pcit: new PCIT('', 'https://ci.khs1994.com/api'),
   tencentAI: new TencentAI('x', 'x'),

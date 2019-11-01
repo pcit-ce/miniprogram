@@ -4,8 +4,12 @@ const app = getApp<IMyApp>();
 import { next, before } from './lib/next_page';
 // const MenuData = require('../index/summary.js');
 
+let MDData = '';
+
 Page({
   data: {
+    useWemark: false,
+    wemarkType: 'rich-text', // wemark
     data: '',
     key: '',
     next_key: '',
@@ -18,7 +22,7 @@ Page({
     intervalNum: 0,
     progressColor: '#36a1f0',
     showMenu: false,
-    MDData: '',
+    // MDData: '',
     folder: '',
     showNotice: true,
     noticeBGColor: '#fff',
@@ -26,6 +30,9 @@ Page({
     gitbook: '',
     branch: 'master',
     theme: 'light',
+    cache: true,
+    mdCacheKey: '',
+    wxMarkdownRichtext: true,
   },
   onUnload() {
     app.globalData.MDData = '';
@@ -33,22 +40,22 @@ Page({
   onLoad(options: any) {
     console.log('onload');
 
-    let gitbook = options.gitbook;
-    this.setData!({
-      gitbook,
-    });
+    let { gitbook, branch } = options;
+    console.log(gitbook, branch);
+    // let useWemark = app.globalData.mdEngine === 'wemark';
+    let mdEngine = wx.getStorageSync('system/md-engine');
+    let useWemark = false;
+    let wemarkType = 'rich-text';
+    let wxMarkdownRichtext = true;
 
-    this.load(options);
-  },
-  onPullDownRefresh() {
-    this.request(this.data.key, false);
-
-    setTimeout(() => wx.stopPullDownRefresh({}), 2000);
-  },
-  load(options: any) {
-    wx.showLoading({
-      title: '加载中',
-    });
+    if (mdEngine === 'wemark') {
+      useWemark = true;
+      wemarkType = 'wemark';
+    } else if (mdEngine === 'wemark-richtext') {
+      useWemark = true;
+    } else if (mdEngine === 'wx-markdown') {
+      wxMarkdownRichtext = false;
+    }
 
     let theme: any = app.globalData.theme;
 
@@ -70,15 +77,34 @@ Page({
     }
 
     this.setData!({
+      gitbook,
+      useWemark,
+      wemarkType,
+      wxMarkdownRichtext,
+      noticeBGColor,
+      tabbarMode: theme,
+      branch,
+    });
+
+    this.load(options);
+  },
+  onPullDownRefresh() {
+    this.request(this.data.key, false);
+
+    setTimeout(() => wx.stopPullDownRefresh({}), 2000);
+  },
+  load(options: any) {
+    wx.showLoading({
+      title: '加载中',
+    });
+
+    this.setData!({
       // percent: 0,
       progressColor: '#36a1f0',
       showNotice: true,
-      noticeBGColor,
-      tabbarMode: theme,
     });
 
-    let key = options.key;
-    const branch = options.branch ? options.branch : 'master';
+    let { key } = options;
 
     let folder = this.getFolder(key);
 
@@ -89,6 +115,8 @@ Page({
     let next_key = next(key);
     let before_key = before(key);
 
+    console.log(next_key, before_key);
+
     next_key = next_key ? next_key : '';
     before_key = before_key ? before_key : '';
 
@@ -97,7 +125,6 @@ Page({
       next_key,
       before_key,
       // intervalNum,
-      branch,
     });
 
     console.log(before_key, key, next_key);
@@ -120,16 +147,19 @@ Page({
 
   show(key: string, isCache: boolean = false) {
     let data;
+    let mdCacheKey = `${this.data.gitbook}_${this.data.branch}_${key}`;
+
+    this.setData({
+      cache: isCache,
+    });
 
     if (isCache) {
-      data = wx.getStorageSync(
-        `gitbook/${this.data.gitbook}_${this.data.branch}_${key}`,
-      );
+      data = wx.getStorageSync(mdCacheKey);
     } else {
-      data = this.data.MDData;
+      data = MDData;
 
       wx.setStorage({
-        key: `gitbook/${this.data.gitbook}_${this.data.branch}_${key}`,
+        key: mdCacheKey,
         data,
       });
     }
@@ -137,6 +167,8 @@ Page({
     const theme = app.globalData.theme;
 
     this.setData!({
+      // cache: isCache,
+      mdCacheKey,
       data,
       theme,
     });
@@ -238,9 +270,7 @@ Page({
 
     if (
       cache &&
-      wx.getStorageSync(
-        `gitbook/${this.data.gitbook}_${this.data.branch}_${key}`,
-      )
+      wx.getStorageSync(`${this.data.gitbook}_${this.data.branch}_${key}`)
     ) {
       this.show(key, true);
 
@@ -265,7 +295,11 @@ Page({
     //   url = `https://gitee.com/khs1994-docker/docker_practice/raw/master/${key}`;
     // }
 
-    let url = `https://gitee.com/khs1994-website/${this.data.gitbook}/raw/${this.data.branch}/${key}`;
+    let { gitbook, branch } = this.data;
+
+    branch = branch || 'master';
+
+    let url = `https://gitee.com/khs1994-website/${gitbook}/raw/${branch}/${key}`;
 
     // url 解码
     // url = decodeURIComponent(url);
@@ -273,7 +307,7 @@ Page({
     wx.request({
       url,
       success: (res: any) => {
-        let MDData = res.data;
+        MDData = res.data;
 
         async function requestImg(folder: string) {
           await new Promise((resolve, reject) => {
@@ -311,20 +345,18 @@ Page({
 
           return MDData;
         }
-
         requestImg(this.data.folder)
-          .then(MDData => {
-            this.setData!({
-              MDData,
-            });
-
+          .then(res => {
+            // this.setData!({
+            //   MDData,
+            // });
+            MDData = res;
             this.show(key);
           })
           .catch(() => {
-            this.setData!({
-              MDData,
-            });
-
+            // this.setData!({
+            //   MDData,
+            // });
             this.show(key);
           });
       },

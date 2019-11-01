@@ -4,15 +4,16 @@
   "dependencies": {
     "@khs1994/tencent-ai": "^19.6.0-alpha.6",
     "@pcit/pcit-js": "^18.12.0-rc.2",
+    "wemark": "github:docker-practice/wemark",
     "wx-fetch": "github:khs1994/wx-fetch",
-    "wx-markdown": "*"
+    "wx-markdown": "^0.0.6"
   },
   "scripts": {
     "cleanup": "npx rimraf node_modules/node-fetch",
     "postinstall": "npm run cleanup",
     "postupdate": "npm run cleanup",
-    "compile": "cd ../ && npm run gitbook && cd client && npx tsc",
-    "compile:pro": "cd ../ && npm run gitbook && cd client && npx tsc --inlineSourceMap false --inlineSources false"
+    "compile": "npx tsc",
+    "compile:pro": "npx tsc --inlineSourceMap false --inlineSources false"
   },
   "devDependencies": {
     "miniprogram-api-typings": "*",

@@ -4,7 +4,8 @@
     "i-tab-bar": "/ui/iviewui/tab-bar/index",
     "i-tab-bar-item": "/ui/iviewui/tab-bar-item/index",
     "i-notice-bar": "/ui/iviewui/notice-bar/index",
-    "markdown": "wx-markdown/component/index"
+    "markdown": "wx-markdown/component/index",
+    "wemark": "wemark/wemark"
   },
   "enablePullDownRefresh": true,
   "backgroundColor": "#FFFFFF"

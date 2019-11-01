@@ -5,11 +5,11 @@ const app = getApp<IMyApp>();
 function getIndex(key: any) {
   let result: any;
   let summary = app.globalData.summaryData;
+  // console.log(key);
   summary.forEach((item: any, i: any) => {
-    for (let item_item in item) {
-      if (item_item === key) {
-        result = i;
-      }
+    // console.log(item['path']);
+    if (item['path'] === key) {
+      result = i;
     }
   });
 
@@ -17,15 +17,9 @@ function getIndex(key: any) {
 }
 
 function parse(result: any) {
-  let title: string;
-  let key: string;
+  let title: string = result['title'];
+  let key: string = result['path'];
 
-  for (let item in result) {
-    key = item;
-    title = result[key];
-  }
-
-  // @ts-ignore
   return [title, key];
 }
 
