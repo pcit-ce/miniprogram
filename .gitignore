@@ -7,12 +7,10 @@ node_modules
 
 !package-lock.json
 
-/client/app.js
+/client/*.js
 
 /client/pages/**/*.js
 /client/gitbook/**/*.js
 /client/utils/**/*.js
-
-/gitbook/**/SUMMARY.json
 
 tests/SUMMARY.md

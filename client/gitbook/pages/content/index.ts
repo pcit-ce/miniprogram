@@ -158,10 +158,7 @@ Page({
     } else {
       data = MDData;
 
-      wx.setStorage({
-        key: mdCacheKey,
-        data,
-      });
+      wx.setStorageSync(mdCacheKey, data);
     }
 
     const theme = app.globalData.theme;

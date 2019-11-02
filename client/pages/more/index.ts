@@ -11,6 +11,12 @@ wx.getNetworkType({
   },
 });
 
+function openGitbook(name: string, branch = 'master') {
+  wx.navigateTo({
+    url: `/gitbook/pages/index/index?gitbook=${name}&branch=${branch}`,
+  });
+}
+
 Page({
   /**
    * 页面的初始数据
@@ -269,62 +275,68 @@ Page({
     });
   },
 
-  openGitbook(name: string, branch = 'master') {
-    wx.navigateTo({
-      url: `/gitbook/pages/index/index?gitbook=${name}&branch=${branch}`,
-    });
-  },
-
   openLaravel() {
-    this.openGitbook('laravel-docs.zh-cn', '5.5');
+    openGitbook('laravel-docs.zh-cn', '5.5');
   },
 
   openLaravelUsEn() {
-    this.openGitbook('laravel-docs.us-en', '5.8');
+    openGitbook('laravel-docs.us-en');
   },
 
   openRollup() {
-    this.openGitbook('rollup-docs.zh-cn');
+    openGitbook('rollup-docs.zh-cn');
+  },
+
+  openWebpack() {
+    openGitbook('webpack-docs.us-en');
+  },
+
+  openWebpackZhCn() {
+    openGitbook('webpack-docs.zh-cn');
   },
 
   openRollupUsEn() {
-    this.openGitbook('rollup-docs.us-en');
+    openGitbook('rollup-docs.us-en');
   },
 
-  openKubernetes() {
-    this.openGitbook('kubernetes');
+  openKubernetesHandbookByFeiskyer() {
+    openGitbook('feiskyer-kubernetes-handbook');
+  },
+
+  openKubernetesHandbookByRootsongjc() {
+    openGitbook('rootsongjc-kubernetes-handbook');
   },
 
   openKubernetesUsEn() {
-    this.openGitbook('kubernetes-docs.us-en');
+    openGitbook('kubernetes-docs.us-en');
   },
 
   openKubernetesZhCn() {
-    this.openGitbook('kubernetes-docs.zh-cn');
+    openGitbook('kubernetes-docs.zh-cn');
   },
 
   openKubectl() {
-    this.openGitbook('kubectl-docs.us-en');
+    openGitbook('kubectl-docs.us-en');
   },
 
   openTypeScriptZhCn() {
-    this.openGitbook('typescript-docs.zh-cn');
+    openGitbook('typescript-docs.zh-cn');
   },
 
   openTypeScript() {
-    this.openGitbook('typescript-docs.us-en');
+    openGitbook('typescript-docs.us-en');
   },
 
   openNginx() {
-    this.openGitbook('nginx-docs.zh-cn');
+    openGitbook('nginx-docs.zh-cn');
   },
 
   openComposer() {
-    this.openGitbook('composer-docs.us-en');
+    openGitbook('composer-docs.us-en');
   },
 
   openComposerZhCn() {
-    this.openGitbook('composer-docs.zh-cn');
+    openGitbook('composer-docs.zh-cn');
   },
 
   openGolang() {
@@ -334,15 +346,19 @@ Page({
   },
 
   openPHPUnit() {
-    this.openGitbook('phpunit-docs.us-en');
+    openGitbook('phpunit-docs.us-en');
   },
 
   openPHPUnitZhCn() {
-    this.openGitbook('phpunit-docs.zh-cn');
+    openGitbook('phpunit-docs.zh-cn');
   },
 
   openRedis() {
-    this.openGitbook('redis-docs.us-en');
+    openGitbook('redis-docs.us-en');
+  },
+
+  openNpm() {
+    openGitbook('npm-docs.us-en');
   },
 
   openPCITCluster() {

@@ -11,7 +11,7 @@ Page({
       {
         id: 100,
         type: 'success',
-        title: '2018 年余额已不足',
+        title: '2019 年余额已不足',
         desc: 'Add oil',
       },
       {

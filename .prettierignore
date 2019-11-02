@@ -1,10 +1,12 @@
-client/node_modules
+node_modules
+
 client/miniprogram_npm
 client/ui
+
 package-lock.json
 
-gitbook/**/SUMMARY.json
-gitbook/**/*.md
+tests/**/*.md
+
 wuss
 iviewui
 

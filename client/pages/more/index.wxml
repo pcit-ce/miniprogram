@@ -78,60 +78,67 @@
 </i-grid>
 
 <i-grid>
-  <i-grid-item bindtap="openKubernetes">
+  <i-grid-item bindtap="openKubernetesHandbookByFeiskyer">
     <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
-    <i-grid-label>Kubernetes 指南</i-grid-label>
+    <i-grid-label>Kubernetes 指南 By Feiskyer</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
-  <i-grid-item bindtap="openKubernetesUsEn">
+  <i-grid-item bindtap="openKubernetesHandbookByRootsongjc">
     <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
-    <i-grid-label>Kubernetes 文档</i-grid-label>
+    <i-grid-label>Kubernetes 指南 By Rootsongjc</i-grid-label>
   </i-grid-item>
+</i-grid>
+
+<i-grid>
   <i-grid-item bindtap="openKubernetesZhCn">
     <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
-    <i-grid-label>Kubernetes 中文文档</i-grid-label>
+    <i-grid-label>Kubernetes 中文</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openKubernetesUsEn">
+    <i-grid-icon><image src="/images/icos/kubernetes.svg"></image></i-grid-icon>
+    <i-grid-label>Kubernetes</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openLaravel">
     <i-grid-icon><image src="/images/icos/laravel.svg"></image></i-grid-icon>
-    <i-grid-label>Laravel 中文文档</i-grid-label>
+    <i-grid-label>Laravel 中文</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openLaravelUsEn">
     <i-grid-icon><image src="/images/icos/laravel.svg"></image></i-grid-icon>
-    <i-grid-label>Laravel5.8 文档</i-grid-label>
+    <i-grid-label>Laravel</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openPHPUnitZhCn">
     <i-grid-icon><image src="/images/icos/phpunit.svg"></image></i-grid-icon>
-    <i-grid-label>PHPUnit 中文文档</i-grid-label>
+    <i-grid-label>PHPUnit 中文</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openPHPUnit">
     <i-grid-icon><image src="/images/icos/phpunit.svg"></image></i-grid-icon>
-    <i-grid-label>PHPUnit 文档</i-grid-label>
+    <i-grid-label>PHPUnit</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openComposerZhCn">
     <i-grid-icon><image src="/images/icos/composer.svg"></image></i-grid-icon>
-    <i-grid-label>Composer 中文文档</i-grid-label>
+    <i-grid-label>Composer 中文</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openComposer">
     <i-grid-icon><image src="/images/icos/composer.svg"></image></i-grid-icon>
-    <i-grid-label>Composer 文档</i-grid-label>
+    <i-grid-label>Composer</i-grid-label>
   </i-grid-item>
 </i-grid>
 
 <i-grid>
   <i-grid-item bindtap="openNginx">
     <i-grid-icon><image src="/images/icos/nginx.svg"></image></i-grid-icon>
-    <i-grid-label>NGINX 文档</i-grid-label>
+    <i-grid-label>NGINX</i-grid-label>
   </i-grid-item>
 </i-grid>
 
@@ -145,11 +152,29 @@
 <i-grid>
   <i-grid-item bindtap="openRollup">
     <i-grid-icon><image src="/images/icos/rollup.svg"></image></i-grid-icon>
-    <i-grid-label>Rollup 中文文档</i-grid-label>
+    <i-grid-label>Rollup 中文</i-grid-label>
   </i-grid-item>
   <i-grid-item bindtap="openRollupUsEn">
     <i-grid-icon><image src="/images/icos/rollup.svg"></image></i-grid-icon>
-    <i-grid-label>Rollup 文档</i-grid-label>
+    <i-grid-label>Rollup</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openWebpackZhCn">
+    <i-grid-icon><image src="/images/icos/webpack.svg"></image></i-grid-icon>
+    <i-grid-label>Webpack 中文</i-grid-label>
+  </i-grid-item>
+  <i-grid-item bindtap="openWebpack">
+    <i-grid-icon><image src="/images/icos/webpack.svg"></image></i-grid-icon>
+    <i-grid-label>Webpack</i-grid-label>
+  </i-grid-item>
+</i-grid>
+
+<i-grid>
+  <i-grid-item bindtap="openNpm">
+    <i-grid-icon><image src="/images/icos/npm.svg"></image></i-grid-icon>
+    <i-grid-label>NPM</i-grid-label>
   </i-grid-item>
 </i-grid>
 
